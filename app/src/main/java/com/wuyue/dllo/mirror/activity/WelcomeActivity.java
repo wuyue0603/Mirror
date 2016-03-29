@@ -15,12 +15,6 @@ public class WelcomeActivity extends Activity{
         super.onCreate(savedInstanceState);
         //绑定布局
         setContentView(R.layout.activity_welcome);
-<<<<<<< HEAD
-
-        
-
-
-=======
         //匿名一个线程
         new Thread(new Runnable() {
             @Override
@@ -37,6 +31,5 @@ public class WelcomeActivity extends Activity{
                 finish();
             }
         }).start();
->>>>>>> 5fcdb01faf75523904e9a07b63bb265fa05354d9
     }
 }
