@@ -1,4 +1,4 @@
-package com.wuyue.dllo.mirror.activity.activity;
+package com.wuyue.dllo.mirror.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
