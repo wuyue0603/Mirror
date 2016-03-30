@@ -25,7 +25,7 @@ public class WelcomeActivity extends Activity{
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                //创建跳转页面意图,从欢迎页面跳转到引导页面
+                //创建跳转页面意图,从欢迎页面跳转到MainActivity页面
                 startActivity(new Intent(WelcomeActivity.this,MainActivity.class));
                 //设置欢迎页跳转到MainActivity后点击返回直接退出程序,而不是返回欢迎页
                 finish();
