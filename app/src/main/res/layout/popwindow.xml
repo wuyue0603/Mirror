@@ -7,6 +7,7 @@
 
 
     <TextView
+        android:id="@+id/all_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -15,6 +16,7 @@
         android:textColor="@android:color/white" />
 
     <TextView
+        android:id="@+id/surface_glass_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -23,6 +25,7 @@
         android:textColor="@android:color/white" />
 
     <TextView
+        android:id="@+id/sunglass_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -31,6 +34,7 @@
         android:textColor="@android:color/white" />
 
     <TextView
+        android:id="@+id/special_topic_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -39,6 +43,7 @@
         android:textColor="@android:color/white" />
 
     <TextView
+        android:id="@+id/shopping_cart_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -47,6 +52,7 @@
         android:textColor="@android:color/white" />
 
     <TextView
+        android:id="@+id/to_homepage_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
@@ -55,6 +61,7 @@
         android:textColor="@android:color/white" />
 
     <TextView
+        android:id="@+id/quit_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"

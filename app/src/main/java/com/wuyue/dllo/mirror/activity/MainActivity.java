@@ -55,6 +55,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
         popupWindow.setBackgroundDrawable(getResources().getDrawable(R.mipmap.bg));
 
+        view.findViewById(R.id.all_tv).setOnClickListener(this);
+        view.findViewById(R.id.surface_glass_tv).setOnClickListener(this);
+        view.findViewById(R.id.sunglass_tv).setOnClickListener(this);
+        view.findViewById(R.id.special_topic_tv).setOnClickListener(this);
+        view.findViewById(R.id.shopping_cart_tv).setOnClickListener(this);
+        view.findViewById(R.id.to_homepage_tv).setOnClickListener(this);
+        view.findViewById(R.id.quit_tv).setOnClickListener(this);
 
         view.setOnClickListener(new View.OnClickListener() {
 
@@ -81,6 +88,39 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 Intent intent = new Intent(MainActivity.this,LoginActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.all_tv:
+                Intent intentAllTv = new Intent(MainActivity.this,HomePageActivity.class);
+                startActivity(intentAllTv);
+                break;
+
+            case R.id.surface_glass_tv:
+                Intent intentSurface = new Intent(MainActivity.this,HomePageActivity.class);
+                startActivity(intentSurface);
+                break;
+            case R.id.sunglass_tv:
+                Intent intentSunglass = new Intent(MainActivity.this,HomePageActivity.class);
+                startActivity(intentSunglass);
+                break;
+
+
+            case R.id.special_topic_tv:
+                Intent intentSpecial = new Intent(MainActivity.this,HomePageActivity.class);
+                startActivity(intentSpecial);
+                break;
+
+            case R.id.shopping_cart_tv:
+                Intent intentShopping = new Intent(MainActivity.this,HomePageActivity.class);
+                startActivity(intentShopping);
+                break;
+            case R.id.to_homepage_tv:
+                Intent intentToHome = new Intent(MainActivity.this,HomePageActivity.class);
+                startActivity(intentToHome);
+                break;
+            case R.id.quit_tv:
+                Intent intentQuit = new Intent(MainActivity.this,HomePageActivity.class);
+                startActivity(intentQuit);
+                break;
+
         }
     }
 }
