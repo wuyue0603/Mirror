@@ -7,67 +7,69 @@
 
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/pop_all_Tv"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="148px"
         android:text="全部分类"
-        android:textColor="@android:color/white" />
+        android:textColor="#d1d1d1d1" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="78px"
         android:text="浏览平光镜"
-        android:textColor="@android:color/white" />
+        android:textColor="#d1d1d1d1" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="78px"
         android:text="浏览太阳镜"
-        android:textColor="@android:color/white" />
+        android:textColor="#d1d1d1d1" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="78px"
         android:text="专题分享"
-        android:textColor="@android:color/white" />
+        android:textColor="#d1d1d1d1" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="78px"
         android:text="我的购物车"
-        android:textColor="@android:color/white" />
+        android:textColor="#d1d1d1d1"/>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="78px"
         android:text="返回首页"
-        android:textColor="@android:color/white" />
+        android:textColor="#d1d1d1d1" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="78px"
+        android:text="退出"
+        android:textColor="#d1d1d1d1"/>
+
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
         android:text="退出"
-        android:textColor="@android:color/white" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:textColor="@android:color/white" />
+        android:textColor="#d1d1d1d1" />
 
 
 </LinearLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="accountLoginTv">17sp</dimen>
+    <dimen name="accountNumberTv">12sp</dimen>
+    <dimen name="accountCodeTv">13sp</dimen>
+    <dimen name="accountCodeBtn">13sp</dimen>
+    <dimen name="accountPasswordTv">13sp</dimen>
+</resources>
