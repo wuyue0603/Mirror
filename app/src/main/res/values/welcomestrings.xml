@@ -16,4 +16,6 @@
     <string name="contentItemSmallTitle">The frame comes from Kero</string>
     <string name="contentItemCity">首尔</string>
     <string name="contentItemContent">大家快来撒等等哈说离开的哈萨克接电话卡就收到货就卡死大神</string>
+    <string name="addAddressAddAddress">添加地址</string>
+    <string name="addAddressAddName">添加收件人姓名</string>
 </resources>

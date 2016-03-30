@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/loginBac"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/add_address_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/loginTitleLeft"
+            android:layout_marginTop="@dimen/loginTitleTop"
+            android:text="@string/addAddressAddAddress"
+            android:textColor="@color/loginText"
+            android:textSize="@dimen/loginTitleSize" />
+
+        <ImageView
+            android:id="@+id/login_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/loginCloseRight"
+            android:layout_marginTop="@dimen/loginCloseTop"
+            android:src="@mipmap/close" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/loginLineTop"
+        android:src="@mipmap/create_account_title_line" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30px"
+        android:layout_marginTop="30px"
+        android:text="@string/addAddressAddName"
+        android:textColor="@color/loginText"
+        android:textSize="@dimen/loginTelSize" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/loginTitleLeft"
+        android:layout_marginRight="@dimen/loginCloseRight"
+        android:layout_marginTop="@dimen/loginCloseTop"
+        android:background="@mipmap/tel_number_bac" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/loginTitleLeft"
+        android:layout_marginTop="@dimen/loginCloseTop"
+        android:text="@string/loginPassword"
+        android:textColor="@color/loginText"
+        android:textSize="@dimen/loginPasswordSize" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/loginTitleLeft"
+        android:layout_marginRight="@dimen/loginCloseRight"
+        android:layout_marginTop="@dimen/loginCloseTop"
+        android:background="@mipmap/tel_number_bac" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/loginCloseRight"
+            android:layout_marginTop="@dimen/loginCloseTop"
+            android:text="@string/loginForgetPassword"
+            android:textColor="@color/loginText"
+            android:textSize="@dimen/loginForgetPasswordSize" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/loginTitleLeft"
+        android:layout_marginRight="@dimen/loginCloseRight"
+        android:layout_marginTop="@dimen/loginBtnTop"
+        android:background="@drawable/login_selector">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/loginLogin"
+            android:textColor="@color/loginLoginColors"
+            android:textSize="@dimen/loginLoginSize" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/loginTitleLeft"
+        android:layout_marginRight="@dimen/loginCloseRight"
+        android:layout_marginTop="@dimen/loginCloseTop"
+        android:background="@drawable/create_account_selector">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/loginCreateAccount"
+            android:textColor="@color/loginLoginColors"
+            android:textSize="@dimen/LoginCreateAccountSize" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/use_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/loginUseAccountTop"
+            android:text="@string/LoginUseAccount"
+            android:textColor="@color/loginText"
+            android:textSize="@dimen/loginLoginSize" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/use_account"
+            android:layout_marginLeft="@dimen/loginBlogLeft"
+            android:layout_marginTop="@dimen/loginBlogTop"
+            android:src="@mipmap/login_blog" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/use_account"
+            android:layout_marginLeft="@dimen/loginWechatLeft"
+            android:layout_marginTop="@dimen/loginBlogTop"
+            android:src="@mipmap/login_wechat" />
+
+    </RelativeLayout>
+
+</LinearLayout>
