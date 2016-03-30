@@ -11,7 +11,8 @@ import com.wuyue.dllo.mirror.base.BaseActivity;
  * Created by dllo on 16/3/29.
  */
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
-    private ImageView close_iv;
+    private ImageView closeIv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,8 +25,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     @Override
     protected void init() {
-        close_iv = bindView(R.id.login_close);
-        close_iv.setOnClickListener(this);
+        closeIv = bindView(R.id.login_close);
+        closeIv.setOnClickListener(this);
     }
 
     @Override
