@@ -39,8 +39,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30px"
-        android:layout_marginTop="30px"
+        android:layout_marginLeft="@dimen/loginTitleLeft"
+        android:layout_marginTop="@dimen/addAddressAddTelTop"
         android:text="@string/addAddressAddName"
         android:textColor="@color/loginText"
         android:textSize="@dimen/loginTelSize" />
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/loginTitleLeft"
         android:layout_marginRight="@dimen/loginCloseRight"
-        android:layout_marginTop="@dimen/loginCloseTop"
+        android:layout_marginTop="@dimen/addAddressEditTextTop"
         android:background="@mipmap/tel_number_bac" />
 
     <TextView
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/loginTitleLeft"
         android:layout_marginTop="@dimen/loginCloseTop"
-        android:text="@string/loginPassword"
+        android:text="@string/addAddressAddTel"
         android:textColor="@color/loginText"
         android:textSize="@dimen/loginPasswordSize" />
 
@@ -67,91 +67,42 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/loginTitleLeft"
         android:layout_marginRight="@dimen/loginCloseRight"
-        android:layout_marginTop="@dimen/loginCloseTop"
+        android:layout_marginTop="@dimen/addAddressEditTextTop"
         android:background="@mipmap/tel_number_bac" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/loginCloseRight"
-            android:layout_marginTop="@dimen/loginCloseTop"
-            android:text="@string/loginForgetPassword"
-            android:textColor="@color/loginText"
-            android:textSize="@dimen/loginForgetPasswordSize" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/loginTitleLeft"
-        android:layout_marginRight="@dimen/loginCloseRight"
-        android:layout_marginTop="@dimen/loginBtnTop"
-        android:background="@drawable/login_selector">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/loginLogin"
-            android:textColor="@color/loginLoginColors"
-            android:textSize="@dimen/loginLoginSize" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/loginTitleLeft"
-        android:layout_marginRight="@dimen/loginCloseRight"
         android:layout_marginTop="@dimen/loginCloseTop"
+        android:text="@string/addAddressAddReceiveAddress"
+        android:textColor="@color/loginText"
+        android:textSize="@dimen/loginPasswordSize" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/loginTitleLeft"
+        android:layout_marginRight="@dimen/loginCloseRight"
+        android:layout_marginTop="@dimen/addAddressEditTextTop"
+        android:background="@mipmap/add_receive_address_bac" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/loginTitleLeft"
+        android:layout_marginRight="@dimen/loginCloseRight"
+        android:layout_marginTop="@dimen/addAddressBtnTop"
         android:background="@drawable/create_account_selector">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/loginCreateAccount"
+            android:text="@string/addAddressOfferAddress"
             android:textColor="@color/loginLoginColors"
-            android:textSize="@dimen/LoginCreateAccountSize" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/use_account"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/loginUseAccountTop"
-            android:text="@string/LoginUseAccount"
-            android:textColor="@color/loginText"
             android:textSize="@dimen/loginLoginSize" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/use_account"
-            android:layout_marginLeft="@dimen/loginBlogLeft"
-            android:layout_marginTop="@dimen/loginBlogTop"
-            android:src="@mipmap/login_blog" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/use_account"
-            android:layout_marginLeft="@dimen/loginWechatLeft"
-            android:layout_marginTop="@dimen/loginBlogTop"
-            android:src="@mipmap/login_wechat" />
-
     </RelativeLayout>
-
+    
 </LinearLayout>

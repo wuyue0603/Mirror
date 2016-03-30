@@ -18,4 +18,7 @@
     <string name="contentItemContent">大家快来撒等等哈说离开的哈萨克接电话卡就收到货就卡死大神</string>
     <string name="addAddressAddAddress">添加地址</string>
     <string name="addAddressAddName">添加收件人姓名</string>
+    <string name="addAddressAddTel">添加联络电话号码</string>
+    <string name="addAddressAddReceiveAddress">添加收货地址</string>
+    <string name="addAddressOfferAddress">提交地址</string>
 </resources>
