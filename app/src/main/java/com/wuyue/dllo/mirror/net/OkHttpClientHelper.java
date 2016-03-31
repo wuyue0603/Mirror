@@ -1,12 +1,18 @@
 package com.wuyue.dllo.mirror.net;
 
+import android.graphics.Bitmap;
+
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.FormEncodingBuilder;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.BitmapCallback;
 
 import java.io.IOException;
+
+import okhttp3.Call;
 
 /**
  * Created by dllo on 16/3/31.
@@ -16,6 +22,7 @@ public class OkHttpClientHelper {
 
         // 创建okHttpClient 对象
         OkHttpClient okHttpClient = new OkHttpClient();
+
 
         // 创建一个Request
         Request request = new Request.Builder().url("http://api101.test.mirroreye.cn/" + leg).post(builder.build()).build();
@@ -34,6 +41,8 @@ public class OkHttpClientHelper {
                 netListener.getSucceed(s);
             }
         });
+
     }
+   
 
 }
