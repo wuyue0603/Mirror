@@ -76,4 +76,19 @@
     <dimen name="orderContentThingsNameTop">80px</dimen>
     <dimen name="orderContentThingsNameLeft">30px</dimen>
     <dimen name="orderContentSecondBacHeight">300px</dimen>
+    <dimen name="finishInfoOrderContentBottomBacHeight">200px</dimen>
+    <dimen name="finishInfoOrderContentBottomBacLeft">40px</dimen>
+    <dimen name="finishInfoOrderContentBottomBacRight">46px</dimen>
+    <dimen name="finishInfoOrderContentBottomBacTop">20px</dimen>
+    <dimen name="finishInfoOrderContentBottomViewLeft">20px</dimen>
+    <dimen name="finishInfoOrderContentBottomViewRight">20px</dimen>
+    <dimen name="finishInfoOrderContentFreightLeft">40px</dimen>
+    <dimen name="finishInfoOrderContentFreightTop">30px</dimen>
+    <dimen name="finishInfoOrderContentFreightSize">26px</dimen>
+    <dimen name="finishInfoOrderContentFreeFreightTop">30px</dimen>
+    <dimen name="finishInfoOrderContentFreeFreightRight">30px</dimen>
+    <dimen name="finishInfoOrderContentSumTop">30px</dimen>
+    <dimen name="finishInfoOrderContentSumLeft">40px</dimen>
+    <dimen name="finishInfoOrderContentPriceTop">30px</dimen>
+    <dimen name="finishInfoOrderContentPriceRight">30px</dimen>
 </resources>

@@ -35,4 +35,7 @@
     <string name="orderContentContent">啦啦啦啦啦啦啦啦啦啦啦啦啦啦</string>
     <string name="orderContentPrice">¥3850</string>
     <string name="orderContentSureOrder">确认下单</string>
+    <string name="finishInfoOrderContentFreight">运费:</string>
+    <string name="finishInfoOrderContentFreeFreight">免运费</string>
+    <string name="finishInfoOrderContentSum">小计:</string>
 </resources>

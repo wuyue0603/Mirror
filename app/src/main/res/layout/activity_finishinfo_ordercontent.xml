@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/loginBac"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/add_address_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/loginTitleLeft"
+            android:layout_marginTop="@dimen/loginTitleTop"
+            android:text="@string/orderContentTitle"
+            android:textColor="@color/loginText"
+            android:textSize="@dimen/loginTitleSize" />
+
+        <ImageView
+            android:id="@+id/login_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/loginCloseRight"
+            android:layout_marginTop="@dimen/loginCloseTop"
+            android:src="@mipmap/close" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/loginLineTop"
+        android:src="@mipmap/create_account_title_line" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/orderContentBacHeight"
+        android:layout_marginLeft="@dimen/loginTitleLeft"
+        android:layout_marginRight="@dimen/loginCloseRight"
+        android:layout_marginTop="@dimen/homepageContentTitleLineTop"
+        android:background="@color/loginLoginColors">
+
+        <TextView
+            android:id="@+id/receiver_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/orderContentReceiverInfoLeft"
+            android:layout_marginTop="@dimen/orderContentReceiverInfoTop"
+            android:text="@string/orderContentWriteReceiverInfo"
+            android:textColor="@color/loginText"
+            android:textSize="@dimen/loginLoginSize" />
+
+        <View
+            android:id="@+id/view_top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/orderContentViewHeight"
+            android:layout_below="@id/receiver_info"
+            android:layout_marginTop="@dimen/orderContentViewTop"
+            android:background="@color/orderContentView" />
+
+        <TextView
+            android:id="@+id/write_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view_top"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/loginCloseTop"
+            android:text="@string/orderContentWriteAddress"
+            android:textColor="@color/loginText" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/orderContentSecondBacHeight"
+            android:layout_marginLeft="@dimen/loginTitleLeft"
+            android:layout_marginRight="@dimen/loginCloseRight"
+            android:layout_marginTop="@dimen/homepageContentFrameTop"
+            android:background="@color/loginLoginColors" />
+
+        <ImageView
+            android:id="@+id/things_iv"
+            android:layout_width="@dimen/homepageContentImageWidth"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/things_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/orderContentThingsNameLeft"
+            android:layout_marginTop="@dimen/orderContentThingsNameTop"
+            android:layout_toRightOf="@id/things_iv"
+            android:text="@string/orderContentThingsName"
+            android:textColor="@color/loginText"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/things_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/things_name"
+            android:layout_marginTop="@dimen/loginLineTop"
+            android:layout_toRightOf="@id/things_iv"
+            android:text="@string/orderContentContent"
+            android:textColor="@color/loginText" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/finishInfoOrderContentBottomBacHeight"
+        android:layout_marginLeft="@dimen/finishInfoOrderContentBottomBacLeft"
+        android:layout_marginRight="@dimen/finishInfoOrderContentBottomBacRight"
+        android:layout_marginTop="@dimen/finishInfoOrderContentBottomBacTop"
+        android:background="@color/loginLoginColors">
+
+        <View
+            android:id="@+id/view_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/orderContentViewHeight"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/finishInfoOrderContentBottomViewLeft"
+            android:layout_marginRight="@dimen/finishInfoOrderContentBottomViewRight"
+            android:background="@color/orderContentView" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/finishInfoOrderContentFreightLeft"
+            android:layout_marginTop="@dimen/finishInfoOrderContentFreightTop"
+            android:text="@string/finishInfoOrderContentFreight"
+            android:textColor="@color/loginText"
+            android:textSize="@dimen/finishInfoOrderContentFreightSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/finishInfoOrderContentFreeFreightRight"
+            android:layout_marginTop="@dimen/finishInfoOrderContentFreeFreightTop"
+            android:text="@string/finishInfoOrderContentFreeFreight"
+            android:textColor="@color/loginText"
+            android:textSize="@dimen/finishInfoOrderContentFreightSize" />
+
+        <TextView
+            android:id="@+id/sum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view_bottom"
+            android:layout_marginLeft="@dimen/finishInfoOrderContentSumLeft"
+            android:layout_marginTop="@dimen/finishInfoOrderContentSumTop"
+            android:text="@string/finishInfoOrderContentSum"
+            android:textColor="@color/loginText"
+            android:textSize="@dimen/finishInfoOrderContentFreightSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/view_bottom"
+            android:layout_marginRight="@dimen/finishInfoOrderContentPriceRight"
+            android:layout_marginTop="@dimen/finishInfoOrderContentPriceTop"
+            android:drawableLeft="@mipmap/rmb"
+            android:text="3850"
+            android:textColor="@color/loginText"
+            android:textSize="@dimen/finishInfoOrderContentFreightSize" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/createReLe"
+        android:layout_marginRight="@dimen/createReRig"
+        android:layout_marginTop="@dimen/createReTo">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/create_number" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/orderContentSureOrder"
+            android:textColor="@color/createWhite"
+            android:textSize="@dimen/accountLoginTv" />
+
+    </RelativeLayout>
+
+</LinearLayout>
+
