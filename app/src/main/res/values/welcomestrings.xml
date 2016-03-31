@@ -26,4 +26,6 @@
     <string name="wholeAddressReceiver">收件人:</string>
     <string name="wholeAddressAddress">地址:</string>
     <string name="wholeAddressTel">电话:</string>
+    <string name="forgetPasswordTitle">忘记密码</string>
+    <string name="forgetPasswordUpdatePassword">修改密码</string>
 </resources>
