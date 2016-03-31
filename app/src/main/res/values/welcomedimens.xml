@@ -59,4 +59,12 @@
     <dimen name="contentItemContentSize">20px</dimen>
     <dimen name="addAddressAddTelTop">40px</dimen>
     <dimen name="addAddressEditTextTop">20px</dimen>
+    <dimen name="wholeAddressAddAddressBac">160px</dimen>
+    <dimen name="wholeAddressReceiverLeft">64px</dimen>
+    <dimen name="wholeAddressReceiverTop">40px</dimen>
+    <dimen name="wholeAddressReceiverSize">26px</dimen>
+    <dimen name="wholeAddressEditLeft">400px</dimen>
+    <dimen name="wholeAddressEditRight">60px</dimen>
+    <dimen name="wholeAddressEditTop">20px</dimen>
+    <dimen name="addAddressBtnTop">50px</dimen>
 </resources>
