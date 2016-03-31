@@ -21,4 +21,9 @@
     <string name="addAddressAddTel">添加联络电话号码</string>
     <string name="addAddressAddReceiveAddress">添加收货地址</string>
     <string name="addAddressOfferAddress">提交地址</string>
+    <string name="WholeAddressMyAddress">我的所有地址</string>
+    <string name="wholeAddressAddAddress">添加地址</string>
+    <string name="wholeAddressReceiver">收件人:</string>
+    <string name="wholeAddressAddress">地址:</string>
+    <string name="wholeAddressTel">电话:</string>
 </resources>
