@@ -7,5 +7,7 @@
     <color name="loginCreateAccountBac">#FFEA6E6D</color>
     <color name="translucentBac">#50a6a6a6</color>
     <color name="loginText">#333</color>
+    <color name="orderContentView">#d5d5d5</color>
+    <color name="orderContentPrice">#FF5AAB</color>
 
 </resources>

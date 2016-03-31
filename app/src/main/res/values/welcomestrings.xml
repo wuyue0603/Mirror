@@ -28,4 +28,11 @@
     <string name="wholeAddressTel">电话:</string>
     <string name="forgetPasswordTitle">忘记密码</string>
     <string name="forgetPasswordUpdatePassword">修改密码</string>
+    <string name="orderContentTitle">订单详情</string>
+    <string name="orderContentWriteReceiverInfo">请填写收件人信息</string>
+    <string name="orderContentWriteAddress">填写地址</string>
+    <string name="orderContentThingsName">GENTLE MONSTER</string>
+    <string name="orderContentContent">啦啦啦啦啦啦啦啦啦啦啦啦啦啦</string>
+    <string name="orderContentPrice">¥3850</string>
+    <string name="orderContentSureOrder">确认下单</string>
 </resources>

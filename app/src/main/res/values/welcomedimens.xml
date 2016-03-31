@@ -33,7 +33,7 @@
     <dimen name="homepageContentMoneyHeight">24px</dimen>
     <dimen name="homepageContentMoneyTop">36px</dimen>
     <dimen name="homepageContentMoneyNumberHeight">20px</dimen>
-    <dimen name="homepageContentMoneyNumberTop">2dp</dimen>
+    <dimen name="homepageContentMoneyNumberTop">4px</dimen>
     <dimen name="homepageContentMoneyNumberLeft">2px</dimen>
     <dimen name="homepageContentMoneyNumberSize">24px</dimen>
     <dimen name="homepageContentDropTitleTop">120px</dimen>
@@ -67,4 +67,13 @@
     <dimen name="wholeAddressEditRight">60px</dimen>
     <dimen name="wholeAddressEditTop">20px</dimen>
     <dimen name="addAddressBtnTop">50px</dimen>
+    <dimen name="orderContentBacHeight">240px</dimen>
+    <dimen name="orderContentReceiverInfoLeft">20px</dimen>
+    <dimen name="orderContentReceiverInfoTop">20px</dimen>
+    <dimen name="orderContentViewHeight">2px</dimen>
+    <dimen name="orderContentViewTop">100px</dimen>
+    <dimen name="homepageContentImageWidth">228px</dimen>
+    <dimen name="orderContentThingsNameTop">80px</dimen>
+    <dimen name="orderContentThingsNameLeft">30px</dimen>
+    <dimen name="orderContentSecondBacHeight">300px</dimen>
 </resources>
