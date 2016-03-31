@@ -66,6 +66,7 @@
         android:orientation="horizontal">
 
         <EditText
+            android:id="@+id/code_et"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/createLef30"
@@ -74,6 +75,7 @@
             android:background="@mipmap/code_input" />
 
         <Button
+            android:id="@+id/send_code_btn"
             android:layout_width="@dimen/createBtnWidth"
             android:layout_height="@dimen/createBtnHeight"
             android:layout_marginRight="@dimen/createRi30"
