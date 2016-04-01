@@ -22,6 +22,11 @@
     <string name="shopping_cart_myShop_textView">我的购物车</string>
     <string name="shopping_cart_new_texts">显示排序为最新推荐</string>
     <string name="shopping_cart_no_text">您的购物车没有商品</string>
-    <string name="pop_textview_text">購物車</string>
+    <string name="pop_textview_text">登録</string>
     <string name="all_type_price_text">450</string>
+    <string name="mainactivitylogin">登録</string>
+    <string name="returnbackhome">返回首页</string>
+    <string name="quit">退出</string>
+    <string name="all_type_line_text">瀏覧平光眼鏡</string>
+    <string name="all_type_linearlayout_text">顯示排序為 最新推荐</string>
 </resources>

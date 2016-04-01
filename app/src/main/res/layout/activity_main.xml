@@ -8,10 +8,45 @@
     android:fitsSystemWindows="true"
     tools:context="com.fanhl.directionalviewpagersample.MainActivity">
 
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <android.support.v4.view.DirectionalViewPager
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@mipmap/bg"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/main_bottom_size_bottom"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/main_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/main_bottom_image_left"
+                    android:src="@mipmap/mirror" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/activitymain_marginright"
+                    android:text="@string/mainactivitylogin"
+                    android:textColor="@android:color/white" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </FrameLayout>
+
 </android.support.design.widget.CoordinatorLayout>
 

@@ -30,9 +30,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
+
     private DirectionalViewPager mViewPager;
     private ArrayList<Fragment> datas;
     @Override
@@ -46,13 +44,9 @@ public class MainActivity extends AppCompatActivity {
         datas.add(new PlaceholderFragment(3));
         datas.add(new PlaceholderFragment(4));
 
-        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        // setSupportActionBar(toolbar);
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(),datas);
 
-        // Set up the ViewPager with the sections adapter.
+
         mViewPager = (DirectionalViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mViewPager.setOrientation(DirectionalViewPager.VERTICAL);
@@ -182,11 +176,11 @@ public class MainActivity extends AppCompatActivity {
             linearLayout = (LinearLayout) getView().findViewById(R.id.all_type_linearlayout);
             showMenu = new ShowMenu(getContext());
             data = new ArrayList<>();
-            data.add("浏览所有分类");
-            data.add("浏览平光眼镜");
-            data.add("浏览太阳眼镜");
-            data.add("专题分享");
-            data.add("购物车");
+            data.add("瀏覧所有分類");
+            data.add("瀏覧平光眼鏡");
+            data.add("瀏覧太陽眼鏡");
+            data.add("専題分享");
+            data.add("我的購物車");
             linearLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -272,10 +266,10 @@ public class MainActivity extends AppCompatActivity {
      * one of the sections/tabs/pages.
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
-        private ArrayList<Fragment>datass;
+        private ArrayList<Fragment> fragmentDatas;
         public SectionsPagerAdapter(FragmentManager fm,ArrayList<Fragment>data) {
             super(fm);
-            this.datass = data;
+            this.fragmentDatas = data;
         }
 
         @Override
@@ -283,13 +277,13 @@ public class MainActivity extends AppCompatActivity {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             //return PlaceholderFragment.newInstance(position + 1);
-            return datass.get(position);
+            return fragmentDatas.get(position);
         }
 
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return datass.size();
+            return fragmentDatas.size();
         }
 
         @Override

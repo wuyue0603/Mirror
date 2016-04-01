@@ -40,7 +40,7 @@ public class ShowMenu implements AdapterView.OnItemClickListener {
     // 参数三：当前fragment的位置
     public void showPopupWindow(View v, ArrayList<String> titleData, int linePosition){
 
-        View view = LayoutInflater.from(context).inflate(R.layout.pop, null);
+        View view = LayoutInflater.from(context).inflate(R.layout.popupwindow, null);
         textView = (TextView) view.findViewById(R.id.pop_return_textview);
         // 初始化组件
         initView(view);
