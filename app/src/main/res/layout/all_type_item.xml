@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -12,11 +13,13 @@
         android:background="@android:color/white"
         android:orientation="vertical">
 
-        <ImageView
+        <com.facebook.drawee.view.SimpleDraweeView
+
             android:id="@+id/all_type_iv"
             android:layout_width="match_parent"
             android:layout_height="@dimen/all_type_image_height"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_centerInParent="true"
+            fresco:placeholderImage="@mipmap/ic_launcher" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,43 +39,42 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/goods_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="SEE CONCEPT"
                         android:textSize="@dimen/all_type_textsize"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/home_price_Tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:text="@string/all_type_price_text"
-                        android:textSize="@dimen/all_type_price_textsize"
-                        android:textStyle="bold" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@id/home_price_Tv"
-                        android:src="@mipmap/mymoney" />
                 </RelativeLayout>
 
 
             </LinearLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/all_type_france_text">
 
                 <TextView
+                    android:id="@+id/area"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="法国巴黎"
                     android:textSize="@dimen/all_type_france_textsize" />
-            </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="450"
+                    android:textColor="#FFD9132E"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
 
             <ImageView
                 android:layout_width="match_parent"
@@ -85,6 +87,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/brand"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/all_type_fina_text"
