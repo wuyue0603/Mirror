@@ -1,126 +1,308 @@
 package com.wuyue.dllo.mirror.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.DirectionalViewPager;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.wuyue.dllo.mirror.R;
 import com.wuyue.dllo.mirror.base.BaseActivity;
+import com.wuyue.dllo.mirror.entity.ShowMenu;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener {
-    TextView titleTv,loginTv;
-    PopupWindow popupWindow;
+import java.util.ArrayList;
 
+public class MainActivity extends AppCompatActivity {
+    private SectionsPagerAdapter mSectionsPagerAdapter;
 
+    /**
+     * The {@link ViewPager} that will host the section contents.
+     */
+    private DirectionalViewPager mViewPager;
+    private ArrayList<Fragment> datas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        datas = new ArrayList<>();
+        datas.add(new PlaceholderFragment(0));
+        datas.add(new PlaceholderFragment(1));
+        datas.add(new PlaceholderFragment(2));
+        datas.add(new PlaceholderFragment(3));
+        datas.add(new PlaceholderFragment(4));
 
-    }
+        // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        // setSupportActionBar(toolbar);
+        // Create the adapter that will return a fragment for each of the three
+        // primary sections of the activity.
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(),datas);
 
-    @Override
-    protected void initData() {
+        // Set up the ViewPager with the sections adapter.
+        mViewPager = (DirectionalViewPager) findViewById(R.id.container);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.setOrientation(DirectionalViewPager.VERTICAL);
+        Intent intent = getIntent();
+        int ss = intent.getIntExtra("position",0);
+        mViewPager.setCurrentItem(ss);
 
-    }
 
-    @Override
-    protected void init() {
-        titleTv = bindView(R.id.tv);
-        loginTv = bindView(R.id.login_tv);
-        titleTv.setOnClickListener(this);
-        loginTv.setOnClickListener(this);
-    }
+        //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (mViewPager.getOrientation() == DirectionalViewPager.HORIZONTAL) {
+//                    mViewPager.setOrientation(DirectionalViewPager.VERTICAL);
+//                    Snackbar.make(view, "The ViewPager's orientation is change to VERTICAL.", Snackbar.LENGTH_LONG).show();
+//                } else {
+//                    mViewPager.setOrientation(DirectionalViewPager.HORIZONTAL);
+//                    Snackbar.make(view, "The ViewPager's orientation is change to HORIZONTAL.", Snackbar.LENGTH_LONG).show();
+//                }
+//            }
+//        });
 
-    @Override
-    protected int getLayout() {
-        return R.layout.activity_main;
-    }
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
-    private void initView() {
-        popupWindow = new PopupWindow(this);
-        final View view = getLayoutInflater().inflate(R.layout.popwindow, null);
-        popupWindow.setContentView(view);
-        popupWindow.setWidth(LinearLayout.LayoutParams.MATCH_PARENT);
-        popupWindow.setHeight(LinearLayout.LayoutParams.WRAP_CONTENT);
-        popupWindow = new PopupWindow(view, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        popupWindow.setOutsideTouchable(true);
-        popupWindow.setFocusable(true);
-        popupWindow.showAsDropDown(view);
-        popupWindow.setOutsideTouchable(true);
-        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
-        popupWindow.setBackgroundDrawable(getResources().getDrawable(R.mipmap.bg));
-
-        view.findViewById(R.id.all_tv).setOnClickListener(this);
-        view.findViewById(R.id.surface_glass_tv).setOnClickListener(this);
-        view.findViewById(R.id.sunglass_tv).setOnClickListener(this);
-        view.findViewById(R.id.special_topic_tv).setOnClickListener(this);
-        view.findViewById(R.id.shopping_cart_tv).setOnClickListener(this);
-        view.findViewById(R.id.to_homepage_tv).setOnClickListener(this);
-        view.findViewById(R.id.quit_tv).setOnClickListener(this);
-
-        view.setOnClickListener(new View.OnClickListener() {
+            }
 
             @Override
-            public void onClick(View v) {
-                if (popupWindow.isShowing()) {
-                    popupWindow.dismiss();
-                    popupWindow.setAnimationStyle(R.style.PopupAnimation);
-                    popupWindow.update();
-                    popupWindow.dismiss();
-                }
+            public void onPageSelected(int position) {
+                //Snackbar.make(mViewPager, "selected page " + (position + 1) + ".", Snackbar.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
             }
         });
     }
 
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.tv:
-                initView();
-                break;
-            case R.id.login_tv:
-                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.all_tv:
-                Intent intentAllTv = new Intent(MainActivity.this,HomePageActivity.class);
-                startActivity(intentAllTv);
-                break;
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_main, menu);
+//        return true;
+//    }
 
-            case R.id.surface_glass_tv:
-                Intent intentSurface = new Intent(MainActivity.this,HomePageActivity.class);
-                startActivity(intentSurface);
-                break;
-            case R.id.sunglass_tv:
-                Intent intentSunglass = new Intent(MainActivity.this,HomePageActivity.class);
-                startActivity(intentSunglass);
-                break;
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
+
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class PlaceholderFragment extends Fragment {
+        /**
+         * The fragment argument representing the section number for this
+         * fragment.
+         */
+        private static final String ARG_SECTION_NUMBER = "section_number";
+        private int i;
+
+        private RecyclerView recyclerView;
+        private MyAdapter myAdapter;
+        private ArrayList<String> data;
+        private ArrayList<Integer> datas;
+        private LinearLayout linearLayout;
+        private ShowMenu showMenu;
+
+        public PlaceholderFragment() {
+        }
+
+        public PlaceholderFragment(int i){
+            this.i = i;
+        }
+        /**
+         * Returns a new instance实例 of this fragment for the given section
+         * number.
+         */
+        //通过穿过来的数字 返回一个fragment的实例
+//        public static PlaceholderFragment newInstance(int sectionNumber) {
+//            PlaceholderFragment fragment = new PlaceholderFragment();
+//            Bundle     args     = new Bundle();
+//            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+//            fragment.setArguments(args);
+//            return fragment;
+//        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View     rootView = inflater.inflate(R.layout.fragment_all_type, container, false);
+            //TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+            //int      anInt    = getArguments().getInt(ARG_SECTION_NUMBER);
+//            textView.setText(getString(R.string.section_format, anInt));
+//            switch (anInt) {
+//                case 1:
+//                    textView.setBackgroundResource(R.color.color1);
+//                    break;
+//                case 2:
+//                    textView.setBackgroundResource(R.color.color2);
+//                    break;
+//                case 3:
+//                    textView.setBackgroundResource(R.color.color3);
+//                    break;
+            //}
+            return rootView;
+        }
+
+        @Override
+        public void onViewCreated(View view, Bundle savedInstanceState) {
+            super.onViewCreated(view, savedInstanceState);
+            recyclerView = (RecyclerView) view.findViewById(R.id.recycleViewAllType);
+
+            linearLayout = (LinearLayout) getView().findViewById(R.id.all_type_linearlayout);
+            showMenu = new ShowMenu(getContext());
+            data = new ArrayList<>();
+            data.add("浏览所有分类");
+            data.add("浏览平光眼镜");
+            data.add("浏览太阳眼镜");
+            data.add("专题分享");
+            data.add("购物车");
+            linearLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showMenu.showPopupWindow(v, data, i);
+                }
+            });
 
 
-            case R.id.special_topic_tv:
-                Intent intentSpecial = new Intent(MainActivity.this,HomePageActivity.class);
-                startActivity(intentSpecial);
-                break;
+            //recyclerView = new RecyclerView(getActivity());
 
-            case R.id.shopping_cart_tv:
-                Intent intentShopping = new Intent(MainActivity.this,HomePageActivity.class);
-                startActivity(intentShopping);
-                break;
-            case R.id.to_homepage_tv:
-                Intent intentToHome = new Intent(MainActivity.this,HomePageActivity.class);
-                startActivity(intentToHome);
-                break;
-            case R.id.quit_tv:
-                Intent intentQuit = new Intent(MainActivity.this,HomePageActivity.class);
-                startActivity(intentQuit);
-                break;
 
+            datas = new ArrayList<>();
+            for (int i = 0; i < 7; i++) {
+                datas.add(R.mipmap.ic_launcher);
+            }
+            Log.d("datas", String.valueOf(datas));
+            // 2.设置布局管理器
+
+            myAdapter = new MyAdapter(getActivity(),datas);
+            recyclerView.setAdapter(myAdapter);
+
+            LinearLayoutManager manager = new LinearLayoutManager(getActivity());
+            manager.setOrientation(LinearLayoutManager.HORIZONTAL);
+            recyclerView.setLayoutManager(manager);
+
+        }
+    }
+
+
+    public static class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
+
+
+        private Context context;
+        //private ArrayList<String> data;
+        private ArrayList<Integer> dataContent;
+        public MyAdapter(Context context, ArrayList<Integer> dataContent) {
+            this.context = context;
+            this.dataContent = dataContent;
+            //Log.d("datacontent", String.valueOf(dataContent.size()));
+            notifyDataSetChanged();
+        }
+
+
+        @Override
+        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View v =  LayoutInflater.from(parent.getContext()).inflate(R.layout.all_type_item,null);
+
+            return  new MyViewHolder(v);
+        }
+
+        @Override
+        public void onBindViewHolder(MyViewHolder holder, int position) {
+
+            // holder.textView.setText(dataContent.get(position));
+            holder.imageview.setImageResource(dataContent.get(position));
+
+
+
+        }
+
+        @Override
+        public int getItemCount() {
+            Log.d("datacontent", String.valueOf(dataContent.size()));
+            return dataContent.size();
+        }
+
+        public class MyViewHolder extends RecyclerView.ViewHolder{
+
+            private TextView textView;
+            private ImageView imageview;
+            public MyViewHolder(View itemView) {
+                super(itemView);
+                textView = (TextView) itemView.findViewById(R.id.textview);
+                imageview = (ImageView) itemView.findViewById(R.id.all_type_iv);
+            }
+        }
+    }
+
+
+
+    /**
+     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
+     * one of the sections/tabs/pages.
+     */
+    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+        private ArrayList<Fragment>datass;
+        public SectionsPagerAdapter(FragmentManager fm,ArrayList<Fragment>data) {
+            super(fm);
+            this.datass = data;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            // getItem is called to instantiate the fragment for the given page.
+            // Return a PlaceholderFragment (defined as a static inner class below).
+            //return PlaceholderFragment.newInstance(position + 1);
+            return datass.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            // Show 3 total pages.
+            return datass.size();
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position) {
+                case 0:
+                    return "SECTION 1";
+                case 1:
+                    return "SECTION 2";
+                case 2:
+                    return "SECTION 3";
+            }
+            return null;
         }
     }
 }

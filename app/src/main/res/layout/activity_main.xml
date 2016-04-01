@@ -1,43 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout android:id="@+id/main_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="#2f4377">
+    android:fitsSystemWindows="true"
+    tools:context="com.fanhl.directionalviewpagersample.MainActivity">
 
-    <TextView
-        android:textSize="15sp"
-        android:id="@+id/tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
-
-
-
-    <TextView
-        android:id="@+id/mirror"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
-        android:textSize="18sp"
-        android:textColor="@android:color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mirror"
-        android:textStyle="bold"
-        android:layout_alignParentBottom="true"/>
-
-    <TextView
-        android:id="@+id/login_tv"
-        android:textColor="@android:color/white"
-        android:textSize="15sp"
-        android:text="登录"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"/>
-
-</RelativeLayout>
+    <android.support.v4.view.DirectionalViewPager
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+</android.support.design.widget.CoordinatorLayout>
 
