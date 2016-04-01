@@ -8,14 +8,10 @@
     android:fitsSystemWindows="true"
     tools:context="com.fanhl.directionalviewpagersample.MainActivity">
 
-
-
-
     <android.support.v4.view.DirectionalViewPager
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
-
-
+    
 </android.support.design.widget.CoordinatorLayout>
