@@ -170,7 +170,7 @@
             android:layout_below="@id/view_bottom"
             android:layout_marginRight="@dimen/finishInfoOrderContentPriceRight"
             android:layout_marginTop="@dimen/finishInfoOrderContentPriceTop"
-            android:drawableLeft="@mipmap/rmb"
+            android:drawableLeft="@mipmap/rmb_red"
             android:text="3850"
             android:textColor="@color/loginText"
             android:textSize="@dimen/finishInfoOrderContentFreightSize" />

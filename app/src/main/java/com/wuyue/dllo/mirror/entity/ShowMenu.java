@@ -70,6 +70,7 @@ public class ShowMenu implements AdapterView.OnItemClickListener {
         popupWindow.setHeight(LinearLayout.LayoutParams.MATCH_PARENT);
         popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
         popupWindow.setBackgroundDrawable(null);
+        popupWindow.setAnimationStyle(R.style.PopupAnimation);
         popupWindow.update();
 
         initData(view);
