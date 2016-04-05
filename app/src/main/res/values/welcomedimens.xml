@@ -91,4 +91,8 @@
     <dimen name="finishInfoOrderContentSumLeft">40px</dimen>
     <dimen name="finishInfoOrderContentPriceTop">30px</dimen>
     <dimen name="finishInfoOrderContentPriceRight">30px</dimen>
+    <dimen name="thematicSharingTitleTop">10dp</dimen>
+    <dimen name="thematicSharingTitleLeft">5dp</dimen>
+    <dimen name="thematicSharingImageHeight">300dp</dimen>
+    <string name="thematicSharingTitle">152怎样穿出一米七大长腿</string>
 </resources>

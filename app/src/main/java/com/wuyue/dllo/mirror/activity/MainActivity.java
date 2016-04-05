@@ -17,7 +17,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -26,6 +25,7 @@ import com.google.gson.Gson;
 import com.wuyue.dllo.mirror.R;
 import com.wuyue.dllo.mirror.entity.ShowMenu;
 import com.wuyue.dllo.mirror.entity.GoodsListEntity;
+import com.wuyue.dllo.mirror.fragment.ThematicSharingFragment;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.Callback;
 
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         datas.add(new PlaceholderFragment(1));
         datas.add(new PlaceholderFragment(2));
         datas.add(new PlaceholderFragment(3));
-        datas.add(new PlaceholderFragment(4));
+        datas.add(new ThematicSharingFragment());
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), datas);
 
@@ -243,6 +243,7 @@ public class MainActivity extends AppCompatActivity {
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         private ArrayList<Fragment> fragmentDatas;
+
         public SectionsPagerAdapter(FragmentManager fm, ArrayList<Fragment> data) {
             super(fm);
             this.fragmentDatas = data;
@@ -251,13 +252,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
             return fragmentDatas.get(position);
-            
+
         }
 
         @Override
         public int getCount() {
             return fragmentDatas.size();
-
 
         }
     }

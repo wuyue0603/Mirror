@@ -13,16 +13,15 @@
         android:orientation="vertical">
 
         <com.facebook.drawee.view.SimpleDraweeView
-
             android:id="@+id/all_type_iv"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/all_type_image_height"
+            android:layout_height="@dimen/thematicSharingImageHeight"
             android:layout_centerInParent="true"
             fresco:placeholderImage="@mipmap/ic_launcher" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/all_type_content_height"
+            android:layout_height="90dp"
             android:layout_marginLeft="@dimen/all_type_content_left"
             android:layout_marginRight="@dimen/all_type_content_right"
             android:orientation="vertical">
@@ -33,45 +32,12 @@
                 android:layout_marginTop="@dimen/all_type_price_top"
                 android:orientation="horizontal">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:id="@+id/goods_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="SEE CONCEPT"
-                        android:textSize="@dimen/all_type_textsize"
-                        android:textStyle="bold" />
-
-
-                </RelativeLayout>
-
-
             </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/all_type_france_text">
-
-                <TextView
-                    android:id="@+id/area"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="法国巴黎"
-                    android:textSize="@dimen/all_type_france_textsize" />
-
-
-                <TextView
-                    android:id="@+id/price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:text="450"
-                    android:textColor="#FFD9132E"
-                    android:textStyle="bold" />
 
             </RelativeLayout>
 
@@ -86,13 +52,20 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/brand"
+                    android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/all_type_fina_text"
-                    android:text="草莓红色圆框阅读镜"
-                    android:textSize="@dimen/all_type_final_textsize" />
+                    android:layout_marginLeft="@dimen/thematicSharingTitleLeft"
+                    android:layout_marginTop="@dimen/thematicSharingTitleTop"
+                    android:text="@string/thematicSharingTitle"
+                    android:textColor="@color/loginText"
+                    android:textSize="@dimen/all_type_final_textsize"
+                    android:textStyle="bold" />
+
             </LinearLayout>
+
         </LinearLayout>
+
     </LinearLayout>
+
 </LinearLayout>
