@@ -112,12 +112,12 @@
     <dimen name="all_type_final_textsize">15sp</dimen>
     <dimen name="main_bottom_size_bottom">20dp</dimen>
     <dimen name="main_bottom_image_left">24dp</dimen>
-    <dimen name="pop_listview_height">300dp</dimen>
+    <dimen name="pop_listview_height">350dp</dimen>
     <dimen name="pop_return_textview_marginleft">24dp</dimen>
     <dimen name="pop_return_textsize">14sp</dimen>
     <dimen name="pop_quit_textview_marginleft">24dp</dimen>
     <dimen name="pop_quit_text_textsize">14sp</dimen>
-    <dimen name="pop_quit_textview_margintop">22dp</dimen>
+    <dimen name="pop_quit_textview_margintop">32dp</dimen>
     <dimen name="activitymain_marginright">24dp</dimen>
     <dimen name="all_type_line_margintop">10dp</dimen>
     <dimen name="all_type_line_marginleft">11dp</dimen>

@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,9 +24,11 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
 import com.wuyue.dllo.mirror.R;
+import com.wuyue.dllo.mirror.adapter.ShowMenuAdapter;
 import com.wuyue.dllo.mirror.entity.ShowMenu;
 import com.wuyue.dllo.mirror.entity.GoodsListEntity;
 import com.wuyue.dllo.mirror.fragment.ThematicSharingFragment;
+import com.wuyue.dllo.mirror.myinterface.SetTitle;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.Callback;
 
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     private DirectionalViewPager mViewPager;
     private ArrayList<Fragment> datas;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
+    public static class PlaceholderFragment extends Fragment implements SetTitle {
         /**
          * The fragment argument representing the section number for this
          * fragment.
@@ -95,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         private LinearLayout linearLayout;
         private ShowMenu showMenu;
         private Handler handler;
+        private TextView textView;
 
         public PlaceholderFragment() {
         }
@@ -102,6 +107,8 @@ public class MainActivity extends AppCompatActivity {
         public PlaceholderFragment(int i) {
             this.i = i;
         }
+
+        // private String title;
 
         /**
          * Returns a new instance实例 of this fragment for the given section
@@ -162,21 +169,35 @@ public class MainActivity extends AppCompatActivity {
         public void onViewCreated(View view, Bundle savedInstanceState) {
             super.onViewCreated(view, savedInstanceState);
             recyclerView = (RecyclerView) view.findViewById(R.id.recycleViewAllType);
+            textView = (TextView) view.findViewById(R.id.fragment_title);
+
+//            Bundle bundle = getArguments();
+//            String title = (String) bundle.get("title");
+
 
             linearLayout = (LinearLayout) getView().findViewById(R.id.all_type_linearlayout);
-            showMenu = new ShowMenu(getContext());
+            showMenu = new ShowMenu(getContext(), this);
+            //TODO 从这开始传
+
             data = new ArrayList<>();
             data.add("瀏覧所有分類");
-            data.add("瀏覧平光眼鏡");
-            data.add("瀏覧太陽眼鏡");
-            data.add("専題分享");
-            data.add("我的購物車");
+//            data.add("瀏覧平光眼鏡");
+//            data.add("瀏覧太陽眼鏡");
+//            data.add("専題分享");
+//            data.add("我的購物車");
             linearLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     showMenu.showPopupWindow(v, data, i);
                 }
             });
+        }
+
+
+        @Override
+        public void setTitle(String title) {
+            textView.setText(title);
+            Log.d("Sysout", title);
         }
     }
 

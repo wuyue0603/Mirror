@@ -12,7 +12,8 @@
         android:id="@+id/pop_listview"
         android:layout_width="match_parent"
         android:layout_height="@dimen/pop_listview_height"
-        android:layout_marginTop="@dimen/pop_listview"/>
+        android:layout_marginTop="@dimen/pop_listview"
+        android:divider="@null"/>
 
     <TextView
         android:id="@+id/pop_return_textview"
