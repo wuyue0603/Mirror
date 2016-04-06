@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.wuyue.dllo.mirror.R;
 import com.wuyue.dllo.mirror.activity.MainActivity;
 import com.wuyue.dllo.mirror.entity.MenuEntity;
+import com.wuyue.dllo.mirror.fragment.PlaceholderFragment;
 import com.wuyue.dllo.mirror.myinterface.SetTitle;
 
 import java.util.ArrayList;
@@ -66,6 +67,8 @@ public class ShowMenuAdapter extends BaseAdapter {
         }
         holder = (ViewHolder) convertView.getTag();
         holder.textView.setText(Html.fromHtml(data.getData().getList().get(position).getTitle()));
+
+
         if (line == position) {
             holder.imageView.setVisibility(View.VISIBLE);
         } else {
@@ -78,15 +81,19 @@ public class ShowMenuAdapter extends BaseAdapter {
         return convertView;
     }
 
+
     public String getTitle(int pos){
         return data.getData().getList().get(pos).getTitle();
     }
+
 
     public class ViewHolder {
         private LinearLayout line;
         private TextView textView;
         private ImageView imageView;
     }
+
+
 
 
 }

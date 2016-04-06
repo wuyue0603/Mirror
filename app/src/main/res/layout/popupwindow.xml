@@ -11,11 +11,12 @@
     <ListView
         android:id="@+id/pop_listview"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/pop_listview_height"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/pop_listview"
         android:divider="@null"/>
 
     <TextView
+        android:layout_marginTop="20dp"
         android:id="@+id/pop_return_textview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

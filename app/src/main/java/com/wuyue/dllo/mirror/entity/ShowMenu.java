@@ -2,8 +2,10 @@ package com.wuyue.dllo.mirror.entity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.Fragment;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
@@ -44,9 +46,10 @@ public class ShowMenu implements AdapterView.OnItemClickListener {
     private SetTitle setTitle;
 
     // 构造方法传入上下文环境
-    public ShowMenu(Context context,SetTitle setTitle) {
+    public ShowMenu(Context context) {
+        setTitle = (SetTitle) context;
         this.context = context;
-        this.setTitle = setTitle;
+
     }
 
     // 弹出PopupWindow的方法
@@ -148,10 +151,11 @@ public class ShowMenu implements AdapterView.OnItemClickListener {
         intent.putExtra("position", position);
        // context.startActivity(intent);
         String title = showMenuAdapter.getTitle(position);
-        setTitle.setTitle(title);
+        setTitle.setTitle(title,position);
         popupWindow.dismiss();
         Log.d("Sysout", "onItemClick");
     }
+
 
 
 }

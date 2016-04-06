@@ -17,7 +17,6 @@
             android:id="@+id/all_type_iv"
             android:layout_width="match_parent"
             android:layout_height="@dimen/all_type_image_height"
-            android:layout_centerInParent="true"
             fresco:placeholderImage="@mipmap/ic_launcher" />
 
         <LinearLayout
@@ -42,6 +41,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="SEE CONCEPT"
+                        android:textColor="@color/loginText"
                         android:textSize="@dimen/all_type_textsize"
                         android:textStyle="bold" />
 
@@ -61,6 +61,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="法国巴黎"
+                    android:textColor="@color/loginText"
                     android:textSize="@dimen/all_type_france_textsize" />
 
 
@@ -91,6 +92,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/all_type_fina_text"
                     android:text="草莓红色圆框阅读镜"
+                    android:textColor="@color/loginText"
                     android:textSize="@dimen/all_type_final_textsize" />
             </LinearLayout>
         </LinearLayout>
