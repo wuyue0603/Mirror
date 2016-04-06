@@ -18,6 +18,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -45,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements SetTitle {
 
     private DirectionalViewPager mViewPager;
     private ArrayList<Fragment> datas;
+    private ImageView mainIv;
+    private TextView loginTv;
     private static final String ARG_SECTION_NUMBER = "section_number";
     Handler handler = new Handler(new Handler.Callback() {
         @Override
@@ -75,6 +80,25 @@ public class MainActivity extends AppCompatActivity implements SetTitle {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mainIv = (ImageView) findViewById(R.id.main_iv);
+        mainIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Animation animation = AnimationUtils.loadAnimation(MainActivity.this,R.anim.myanim);
+                mainIv.startAnimation(animation);
+            }
+        });
+        loginTv = (TextView) findViewById(R.id.login_tv);
+        loginTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         String url = "http://api101.test.mirroreye.cn/index.php/index/menu_list";
 
         OkHttpUtils.post().url(url).build().execute(new Callback() {
