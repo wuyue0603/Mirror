@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/loginLoginColors"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/ic_launcher" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="@dimen/contentItemBacWidth"
+            android:layout_height="@dimen/contentItemBacHeight"
+            android:background="@color/loginLine"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/contentItemLineLeft"
+                android:layout_marginRight="@dimen/contentItemLineRight"
+                android:layout_marginTop="@dimen/contentItemLineTop"
+                android:background="@mipmap/under_title_line" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/contentItemLinearTop">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/contentItemSmallTitle"
+                        android:textColor="@color/loginLoginColors"
+                        android:textSize="@dimen/contentItemSmallTitleSize"
+                        android:layout_centerHorizontal="true"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/contentItemLineLeft"
+                android:layout_marginRight="@dimen/contentItemLineRight"
+                android:layout_marginTop="@dimen/contentItemLineTop"
+                android:background="@mipmap/under_title_line" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/contentItemContentLeft"
+                android:layout_marginRight="@dimen/contentItemContentRight"
+                android:layout_marginTop="@dimen/contentItemContentTop"
+                android:text="@string/contentItemContent"
+                android:textColor="@color/loginLoginColors"
+                android:textSize="@dimen/contentItemContentSize" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+

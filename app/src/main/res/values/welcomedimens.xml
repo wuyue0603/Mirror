@@ -48,7 +48,7 @@
     <dimen name="contentItemLinearTop">26px</dimen>
     <dimen name="contentItemTitleSize">24px</dimen>
     <dimen name="contentItemSmallTitleTop">5px</dimen>
-    <dimen name="contentItemSmallTitleSize">15px</dimen>
+    <dimen name="contentItemSmallTitleSize">20sp</dimen>
     <dimen name="contentItemCityLeft">24px</dimen>
     <dimen name="contentItemCityRight">24px</dimen>
     <dimen name="contentItemCityTop">20px</dimen>
