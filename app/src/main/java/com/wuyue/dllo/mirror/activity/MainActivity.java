@@ -44,8 +44,6 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity implements SetTitle {
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
-
     private DirectionalViewPager mViewPager;
     private ArrayList<Fragment> datas;
     private ImageView mainIv;
@@ -55,17 +53,14 @@ public class MainActivity extends AppCompatActivity implements SetTitle {
         @Override
         public boolean handleMessage(Message msg) {
             datas = new ArrayList<>();
-
             MenuEntity entity = new Gson().fromJson(msg.obj.toString(), MenuEntity.class);
             int i = 0;
             for (i = 0; i < entity.getData().getList().size(); i++) {
                 datas.add(new PlaceholderFragment(i, entity.getData().getList().get(i).getTitle()));
 
             }
-
             datas.add(new ThematicSharingFragment(i + 1));
             mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), datas);
-
             mViewPager = (DirectionalViewPager) findViewById(R.id.container);
             mViewPager.setAdapter(mSectionsPagerAdapter);
             mViewPager.setOrientation(DirectionalViewPager.VERTICAL);

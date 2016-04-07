@@ -1,6 +1,7 @@
 package com.wuyue.dllo.mirror.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
 import com.wuyue.dllo.mirror.R;
+import com.wuyue.dllo.mirror.activity.HomepageContentActivity;
 import com.wuyue.dllo.mirror.adapter.ShowMenuAdapter;
 import com.wuyue.dllo.mirror.entity.GoodsListEntity;
 import com.wuyue.dllo.mirror.entity.ShowMenu;
@@ -39,7 +41,6 @@ public class PlaceholderFragment extends Fragment {
      */
     private static final String ARG_SECTION_NUMBER = "section_number";
     private int i;
-
     private RecyclerView recyclerView;
     private MyAdapter myAdapter;
     private ArrayList<String> data;
@@ -51,11 +52,10 @@ public class PlaceholderFragment extends Fragment {
     private ShowMenuAdapter showMenuAdapter;
     private String title;
 
-
     public PlaceholderFragment() {
     }
 
-    public PlaceholderFragment(int i,String title) {
+    public PlaceholderFragment(int i, String title) {
         this.title = title;
         this.i = i;
 
@@ -101,7 +101,7 @@ public class PlaceholderFragment extends Fragment {
         });
 
         String url = "http://api101.test.mirroreye.cn/" + "index.php/products/goods_list";
-        OkHttpUtils.post().url(url).addParams("token", "").addParams("device_type", "2")
+        OkHttpUtils.post().url(url).addParams("token", "").addParams("device_type", "1")
                 .addParams("page", "").addParams("last_time", "").addParams("category_id", "")
                 .addParams("version", "1.0.0").build().execute(new Callback() {
             @Override
@@ -138,10 +138,10 @@ public class PlaceholderFragment extends Fragment {
 
         data = new ArrayList<>();
         data.add("瀏覧所有分類");
-            data.add("瀏覧平光眼鏡");
-            data.add("瀏覧太陽眼鏡");
-            data.add("専題分享");
-            data.add("我的購物車");
+        data.add("瀏覧平光眼鏡");
+        data.add("瀏覧太陽眼鏡");
+        data.add("専題分享");
+        data.add("我的購物車");
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -151,12 +151,11 @@ public class PlaceholderFragment extends Fragment {
     }
 
 
-
 }
 
 class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
-
+    private int position;
     private Context context;
     //        private ArrayList<Integer> dataContent;
     private GoodsListEntity.DataEntity dataEntity;
@@ -179,6 +178,7 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
+        this.position=position;
         if (pos == 0) {
             holder.draweeView.setImageURI(Uri.parse(dataEntity.getList().get(pos).getGoods_img()));
             holder.goodsNameTv.setText(dataEntity.getList().get(pos).getGoods_name());
@@ -190,14 +190,12 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             holder.draweeView.setImageURI(Uri.parse(dataEntity.getList().get(pos).getGoods_img()));
             holder.goodsNameTv.setText(dataEntity.getList().get(pos).getGoods_name());
             holder.areaTv.setText(dataEntity.getList().get(pos).getProduct_area());
-
             holder.brandTv.setText(dataEntity.getList().get(pos).getBrand());
             holder.priceTv.setText("¥" + dataEntity.getList().get(pos).getGoods_price());
         } else if (pos == 2) {
             holder.draweeView.setImageURI(Uri.parse(dataEntity.getList().get(pos).getGoods_img()));
             holder.goodsNameTv.setText(dataEntity.getList().get(pos).getGoods_name());
             holder.areaTv.setText(dataEntity.getList().get(pos).getProduct_area());
-
             holder.brandTv.setText(dataEntity.getList().get(pos).getBrand());
             holder.priceTv.setText("¥" + dataEntity.getList().get(pos).getGoods_price());
         }
@@ -211,9 +209,10 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         return 1;
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView goodsNameTv, areaTv, priceTv, brandTv;
         private SimpleDraweeView draweeView;
+        private LinearLayout linearLayout;
 
 
         public MyViewHolder(View itemView) {
@@ -223,6 +222,16 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             areaTv = (TextView) itemView.findViewById(R.id.area);
             brandTv = (TextView) itemView.findViewById(R.id.brand);
             priceTv = (TextView) itemView.findViewById(R.id.price);
+            linearLayout = (LinearLayout) itemView.findViewById(R.id.all_type_item_linear_layout);
+            linearLayout.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(context, HomepageContentActivity.class);
+            intent.putExtra("position",position);
+            intent.putExtra("pos",pos);
+            context.startActivity(intent);
         }
     }
 }
