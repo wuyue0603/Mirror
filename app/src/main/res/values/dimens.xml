@@ -8,33 +8,7 @@
     <dimen name="accountCodeTv">13sp</dimen>
     <dimen name="accountCodeBtn">13sp</dimen>
     <dimen name="accountPasswordTv">13sp</dimen>
-    <dimen name="createIvBo">4px</dimen>
-    <dimen name="createBtnWidth">0dp</dimen>
-    <dimen name="createNumTo">30px</dimen>
-    <dimen name="createIvRi">46px</dimen>
-    <dimen name="creatgeIvTo">30px</dimen>
-    <dimen name="createIv2To">20px</dimen>
-    <dimen name="createTvLe">30px</dimen>
-    <dimen name="createTvTo">40px</dimen>
-    <dimen name="createEtLe">30px</dimen>
-    <dimen name="createEtRi">30px</dimen>
-    <dimen name="createEtTo">20px</dimen>
-    <dimen name="createLef30">30px</dimen>
-    <dimen name="createTo20">20px</dimen>
-    <dimen name="createBtnHeight">80px</dimen>
-    <dimen name="createRi30">30px</dimen>
-    <dimen name="createBtnTo17">17px</dimen>
-    <dimen name="createTvBo">20px</dimen>
-    <dimen name="createBtnSize">26px</dimen>
-    <dimen name="createPasswordLe">20px</dimen>
-    <dimen name="createPasswordRi">20px</dimen>
-    <dimen name="createPasswordTo">30px</dimen>
-    <dimen name="createReRi">30px</dimen>
-    <dimen name="createEiTo">20px</dimen>
-    <dimen name="createReLe">30px</dimen>
-    <dimen name="createReRig">30px</dimen>
-    <dimen name="createReTo">50px</dimen>
-    <dimen name="createNumLe">40px</dimen>
+
     <!--activity_login -->
     <dimen name="login_linearLayout_marginTop">10dp</dimen>
     <dimen name="login_textView_marginBottom">8dp</dimen>
@@ -55,18 +29,7 @@
     <!--activity_login -->
 
     <!--activity_create_account -->
-    <dimen name="create_account_text_marginTop">10dp</dimen>
-    <dimen name="create_account_text_marginBottom">8dp</dimen>
-    <dimen name="create_account_text_marginLeft">15dp</dimen>
-    <dimen name="create_account_text_textSize">18sp</dimen>
-    <dimen name="create_account_imageView_marginBottom">5dp</dimen>
-    <dimen name="create_account_imageView_marginLeft">15dp</dimen>
-    <dimen name="create_account_imageView_marginRight">15dp</dimen>
-    <dimen name="create_account_editText_linearLayout_marginTop">8dp</dimen>
-    <dimen name="create_account_btn_textSize">13sp</dimen>
-    <dimen name="create_account_createBtn_linearLayout_marginTop">25dp</dimen>
-    <dimen name="create_account_createBtn_textSize">17sp</dimen>
-    <dimen name="create_account_num_linearLayout_marginTop">13dp</dimen>
+
     <!--activity_create_account -->
 
     <!--goods_share -->
@@ -300,5 +263,70 @@
     <dimen name="thematicSharingFragmentItemImageHeight">300dp</dimen>
     <dimen name="thematicSharingFragmentItemLayoutHeight">70dp</dimen>
     <dimen name="upListViewBlankViewHeight">565dp</dimen>
+
+    <dimen name="createIvBo">4px</dimen>
+    <dimen name="createBtnWidth">0dp</dimen>
+    <dimen name="createNumTo">30px</dimen>
+    <dimen name="createIvRi">46px</dimen>
+    <dimen name="creatgeIvTo">30px</dimen>
+    <dimen name="createIv2To">20px</dimen>
+    <dimen name="createTvLe">30px</dimen>
+    <dimen name="createTvTo">40px</dimen>
+    <dimen name="createEtLe">30px</dimen>
+    <dimen name="createEtRi">30px</dimen>
+    <dimen name="createEtTo">20px</dimen>
+    <dimen name="createLef30">30px</dimen>
+    <dimen name="createTo20">20px</dimen>
+    <dimen name="createBtnHeight">80px</dimen>
+    <dimen name="createRi30">30px</dimen>
+    <dimen name="createBtnTo17">17px</dimen>
+    <dimen name="createTvBo">20px</dimen>
+    <dimen name="createBtnSize">26px</dimen>
+    <dimen name="createPasswordLe">20px</dimen>
+    <dimen name="createPasswordRi">20px</dimen>
+    <dimen name="createPasswordTo">30px</dimen>
+    <dimen name="createReRi">30px</dimen>
+    <dimen name="createEiTo">20px</dimen>
+    <dimen name="createReLe">30px</dimen>
+    <dimen name="createReRig">30px</dimen>
+    <dimen name="createReTo">50px</dimen>
+    <dimen name="createNumLe">40px</dimen>
+
+
+
+    <dimen name="create_account_text_marginTop">10dp</dimen>
+    <dimen name="create_account_text_marginBottom">8dp</dimen>
+    <dimen name="create_account_text_marginLeft">15dp</dimen>
+    <dimen name="create_account_text_textSize">18sp</dimen>
+    <dimen name="create_account_imageView_marginBottom">5dp</dimen>
+    <dimen name="create_account_imageView_marginLeft">15dp</dimen>
+    <dimen name="create_account_imageView_marginRight">15dp</dimen>
+    <dimen name="create_account_editText_linearLayout_marginTop">8dp</dimen>
+    <dimen name="create_account_btn_textSize">13sp</dimen>
+    <dimen name="create_account_createBtn_linearLayout_marginTop">25dp</dimen>
+    <dimen name="create_account_createBtn_textSize">17sp</dimen>
+    <dimen name="create_account_num_linearLayout_marginTop">13dp</dimen>
+
+    <dimen name="special_content_picture_item_layoutwid">320dp</dimen>
+    <dimen name="special_content_picture_item_layouthei">167dp</dimen>
+    <dimen name="special_content_picture_item_layout_marginbottom">40dp</dimen>
+
+    <dimen name="special_content_picture_item_destext_marginleft">20dp</dimen>
+    <dimen name="special_content_picture_item_destext_margintop">40dp</dimen>
+    <dimen name="special_content_picture_item_destext_size">22px</dimen>
+    <dimen name="special_content_picture_item_titletext_marginleft">60px</dimen>
+    <dimen name="special_content_picture_item_titletext_margintop">30px</dimen>
+    <dimen name="special_content_picture_item_titletext_size">34px</dimen>
+    <dimen name="special_content_picture_item_contenttext_marginend">28px</dimen>
+    <dimen name="special_content_picture_item_contenttext_marginleft">50px</dimen>
+    <dimen name="special_content_picture_item_contenttext_margintop">20px</dimen>
+    <dimen name="special_content_picture_item_contenttext_size">24px</dimen>
+    <dimen name="special_content_picture_item_sharebtn_wid_hei">20dp</dimen>
+    <dimen name="special_content_picture_item_sharebtn_margin_bottom_right">20dp</dimen>
+    <dimen name="special_content_picture_item_sharebtn_marginend">26dp</dimen>
+    <dimen name="special_content_picture_item_sharebtn_paddingbottom">20dp</dimen>
+    <dimen name="marginTop30">30dp</dimen>
+    <dimen name="marginRight20">20dp</dimen>
+    <dimen name="marginRight15">15dp</dimen>
 
 </resources>

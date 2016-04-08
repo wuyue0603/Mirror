@@ -21,4 +21,10 @@
     <color name="loginBackground">#f1f1f1</color>
     <color name="goods_share_background">#7f000000</color>
     <color name="goods_share_content_textColor">#fff</color>
+
+    <color name="glass_content_lucecy_background">#50a6a6a6</color>
+
+    <color name="special_content_picture_item_text_textcolor">#ffffff</color>
+    <color name="select_item">#00000000</color>
+    <color name="select_item_textcolor">#536482</color>
 </resources>

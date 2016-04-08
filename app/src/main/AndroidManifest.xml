@@ -34,6 +34,7 @@
         <activity android:name=".activity.ForgetPasswordActivity" />
         <activity android:name=".activity.OrderContentActivity" />
         <activity android:name=".activity.WholeAddressActivity" />
+        <activity android:name=".activity.ThematicSharingActivity"/>
 
     </application>
 
