@@ -28,9 +28,7 @@ public class ThematicSharingAdapter extends RecyclerView.Adapter<ThematicSharing
     public ThematicSharingAdapter(ThematicSharingEntity data, Context context) {
         this.data = data;
         this.context = context;
-
         Log.i("43434", "22");
-
     }
 
     //加载行布局的方法

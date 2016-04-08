@@ -5,9 +5,9 @@
     xmlns:fresco="http://schemas.android.com/apk/res-auto">
 
     <com.facebook.drawee.view.SimpleDraweeView
-
         android:id="@+id/wel_iv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         fresco:placeholderImage="@mipmap/ic_launcher" />
+
 </LinearLayout>

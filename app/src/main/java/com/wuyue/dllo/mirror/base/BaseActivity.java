@@ -25,8 +25,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract int getLayout();
 
-    protected <T extends View> T bindView(int id){
-        return (T)findViewById(id);
+    protected <T extends View> T bindView(int id) {
+        return (T) findViewById(id);
     }
 
 }

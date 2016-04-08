@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="570dp"
+    android:layout_height="@dimen/downListViewHeight"
     android:orientation="vertical">
 
     <View
@@ -10,8 +10,7 @@
         android:layout_weight="1" />
 
     <LinearLayout
-
-        android:layout_width="315dp"
+        android:layout_width="@dimen/downListViewLinearLayoutWidth"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@android:color/black"
@@ -20,22 +19,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+            android:layout_marginLeft="@dimen/downListViewLinearLayoutLeft"
+            android:layout_marginRight="@dimen/downListViewLinearLayoutRight"
             android:orientation="vertical">
-<!--黑线-->
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="14dp"
-                android:background="@mipmap/titleline"/>
+                android:layout_marginTop="@dimen/downListViewImageTop"
+                android:background="@mipmap/titleline" />
 
             <LinearLayout
-                android:layout_width="285dp"
+                android:layout_width="@dimen/downListViewDownLinearLayoutWidth"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/downListViewDownLinearLayoutTop"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -47,45 +46,44 @@
                         android:id="@+id/down_location"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="15sp" />
+                        android:textSize="@dimen/downListViewTextSize" />
 
                     <TextView
                         android:id="@+id/down_en_location"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="15sp"
+                        android:textSize="@dimen/downListViewTextSize"
                         android:textStyle="bold" />
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/down_country"
                     android:layout_width="match_parent"
-                    android:gravity="center"
-                    android:layout_height="40dp"
+                    android:layout_height="@dimen/downListViewTextViewHeight"
                     android:layout_gravity="center_horizontal"
-                    android:text="简约而不简单"
+                    android:gravity="center"
+                    android:text="@string/downListViewTextView"
                     android:textColor="@android:color/white"
-                    android:textSize="30sp" />
+                    android:textSize="@dimen/downListViewTextViewSize" />
             </LinearLayout>
-<!--<&黑线&ndash;&gt;-->
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:background="@mipmap/titleline"/>
+                android:layout_marginTop="@dimen/downListViewImageViewTop"
+                android:background="@mipmap/titleline" />
 
             <TextView
                 android:id="@+id/down_context"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="22dp"
-                android:layout_marginTop="15sp"
-                android:text="这是看见大手大脚啊上课的教室里的空间发生了的咖啡机萨里的咖啡机啊实力的咖啡机啊实力的咖啡机撒到路口附近阿萨德了看法"
+                android:layout_marginBottom="@dimen/downListViewTextViewBottom"
+                android:layout_marginTop="@dimen/downListViewTextViewTop"
+                android:text="@string/downListViewDownTextView"
                 android:textColor="@android:color/white"
-                android:textSize="13sp" />
+                android:textSize="@dimen/downListViewDownTextViewSize" />
         </LinearLayout>
 
     </LinearLayout>
-
 
 </LinearLayout>

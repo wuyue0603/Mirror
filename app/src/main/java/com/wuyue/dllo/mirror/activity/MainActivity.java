@@ -93,7 +93,6 @@ public class MainActivity extends AppCompatActivity implements SetTitle {
             }
         });
 
-
         String url = "http://api101.test.mirroreye.cn/index.php/index/menu_list";
 
         OkHttpUtils.post().url(url).build().execute(new Callback() {
@@ -139,14 +138,11 @@ public class MainActivity extends AppCompatActivity implements SetTitle {
         @Override
         public Fragment getItem(int position) {
             return fragmentDatas.get(position);
-
         }
 
         public int getCount() {
             return fragmentDatas.size();
-
         }
     }
-
 }
 

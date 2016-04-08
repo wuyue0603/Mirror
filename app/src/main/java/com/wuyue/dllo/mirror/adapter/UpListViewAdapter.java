@@ -27,13 +27,11 @@ public class UpListViewAdapter extends BaseAdapter {
     final int TYPE_4 = 2;
     final int TYPE_3 = 3;
 
-
     public UpListViewAdapter(AllGoodsListEntity allGoodsListEntity, Context context, int position) {
         this.allGoodsListEntity = allGoodsListEntity;
         this.context = context;
         this.myPosition = position;
         inflater = LayoutInflater.from(context);
-
     }
 
     public void onEvent(AllGoodsListEntity allGoodsListEntity) {
@@ -110,11 +108,8 @@ public class UpListViewAdapter extends BaseAdapter {
                 } catch (ArrayIndexOutOfBoundsException e) {
                     e.printStackTrace();
                 }
-
-
                 break;
         }
-
 
         return convertView;
     }
@@ -128,7 +123,6 @@ public class UpListViewAdapter extends BaseAdapter {
             detailContext = (TextView) view.findViewById(R.id.detail_head_context);
             detailPrice = (TextView) view.findViewById(R.id.detail_head_price);
         }
-
     }
 
     public class ListViewBlankHolder {
@@ -145,7 +139,6 @@ public class UpListViewAdapter extends BaseAdapter {
 
     public class ListViewTitle {
         private TextView title;
-
 
         public ListViewTitle(View view) {
             title = (TextView) view.findViewById(R.id.downthress_title);

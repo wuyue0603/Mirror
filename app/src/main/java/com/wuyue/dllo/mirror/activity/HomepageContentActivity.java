@@ -47,8 +47,6 @@ public class HomepageContentActivity extends Activity {
         Intent intent = getIntent();
         position = intent.getIntExtra("position", 0);
         pos = intent.getIntExtra("pos", 0);
-
-
         post();
         addData();
     }
@@ -59,7 +57,7 @@ public class HomepageContentActivity extends Activity {
             public boolean handleMessage(Message msg) {
                 Gson gson = new Gson();
                 allGoodsListEntity1 = gson.fromJson(msg.obj.toString(), AllGoodsListEntity.class);
-                Log.d("XXXXXXXXXXXXXX", pos+"handleMessage: ");
+                Log.d("XXXXXXXXXXXXXX", pos + "handleMessage: ");
                 listView.setAdapter(new UpListViewAdapter(allGoodsListEntity1, getApplication(), pos), new DownListViewAdapter(allGoodsListEntity1, getApplication(), pos));
                 listView.setLinkageSpeed(1.2f);
                 background.setImageURI(Uri.parse(allGoodsListEntity1.getData().getList().get(pos).getGoods_img()));
@@ -72,7 +70,7 @@ public class HomepageContentActivity extends Activity {
         OkHttpClient okHttpClient = new OkHttpClient();
         FormEncodingBuilder builder = new FormEncodingBuilder();
         builder.add("device_type", "1");
-                url = Costant.TEXT_HEAD + Costant.GOODS_LIST;
+        url = Costant.TEXT_HEAD + Costant.GOODS_LIST;
         Request request = new Request.Builder().url(url).post(builder.build()).build();
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override

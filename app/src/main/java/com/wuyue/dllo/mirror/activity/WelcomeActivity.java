@@ -38,7 +38,6 @@ public class WelcomeActivity extends Activity{
                 Gson gson = new Gson();
                 WelcomeEntity entity = gson.fromJson(msg.obj.toString(),WelcomeEntity.class);
                 draweeView.setImageURI(Uri.parse(entity.getImg()));
-
                 return false;
             }
         });

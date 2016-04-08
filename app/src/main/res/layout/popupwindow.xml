@@ -8,6 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
+
     <ListView
         android:id="@+id/pop_listview"
         android:layout_width="match_parent"
@@ -24,6 +25,7 @@
         android:layout_marginLeft="@dimen/pop_return_textview_marginleft"
         android:textColor="@android:color/white"
         android:textSize="@dimen/pop_return_textsize"/>
+
     <TextView
         android:id="@+id/pop_quit_textview"
         android:layout_width="match_parent"
@@ -33,8 +35,9 @@
         android:textColor="@android:color/white"
         android:textSize="@dimen/pop_quit_text_textsize"
         android:layout_marginTop="@dimen/pop_quit_textview_margintop"/>
-        />
+
 </LinearLayout>
+
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,7 +63,9 @@
                 android:layout_marginRight="@dimen/pop_textview"
                 android:text="@string/pop_textview_text"
                 android:textColor="@android:color/white" />
+
         </RelativeLayout>
+
     </FrameLayout>
 
 </RelativeLayout>

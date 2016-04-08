@@ -3,4 +3,22 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="loginBac">#f1f1f1</color>
+    <color name="loginLoginColors">#ffffff</color>
+    <color name="loginLine">#000000</color>
+    <color name="loginLoginBac">#e3e3e3</color>
+    <color name="loginCreateAccountBac">#FFEA6E6D</color>
+    <color name="translucentBac">#50a6a6a6</color>
+    <color name="loginText">#333</color>
+    <color name="orderContentView">#d5d5d5</color>
+    <color name="orderContentPrice">#FF5AAB</color>
+    <color name="downListViewBlankView">#00000000</color>
+    <color name="downListViewHeadBac">#500e0e0e</color>
+    <color name="createLinearLayout">#f1f1f1</color>
+    <color name="createBlack">#000000</color>
+    <color name="createWhite">#ffffff</color>
+    <color name="createBtn">#FFEA6E6D</color>
+    <color name="loginBackground">#f1f1f1</color>
+    <color name="goods_share_background">#7f000000</color>
+    <color name="goods_share_content_textColor">#fff</color>
 </resources>

@@ -64,8 +64,6 @@ public class ThematicSharingFragment extends Fragment {
             public boolean handleMessage(Message msg) {
                 ThematicSharingEntity entity = new Gson().fromJson(msg.obj.toString(), ThematicSharingEntity.class);
                 //布局操控者
-//                data = entity.getData();
-                Log.i("55555", entity.toString());
                 thematicSharingAdapter = new ThematicSharingAdapter(entity, getContext());
                 LinearLayoutManager manager = new LinearLayoutManager(getActivity());
                 manager.setOrientation(LinearLayoutManager.HORIZONTAL);

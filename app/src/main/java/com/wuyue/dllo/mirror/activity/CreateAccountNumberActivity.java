@@ -18,7 +18,6 @@ public class CreateAccountNumberActivity extends BaseActivity implements View.On
     private Button sendCodeBtn;
     private EditText codeEt;
 
-
     @Override
     protected void initData() {
 
@@ -46,7 +45,7 @@ public class CreateAccountNumberActivity extends BaseActivity implements View.On
                 okHttpClientHelper.getPostDataFromNet(builder, "index.php/user/send_code", new NetLisner() {
                     @Override
                     public void getSucceed(String s) {
-                        Log.i("phone number",s);
+                        Log.i("phone number", s);
                     }
 
                     @Override

@@ -19,7 +19,7 @@ public class DownListViewAdapter extends BaseAdapter {
     private int myPosition;
     final int TYPE_1 = 1;//blank
     final int TYPE_2 = 2;//文字
-    final int TYPE_3 = 3;//站位
+    final int TYPE_3 = 3;//占位
     private AllGoodsListEntity allGoodsListEntity;
 
     public DownListViewAdapter(AllGoodsListEntity allGoodsListEntity, Context context, int position) {
@@ -27,7 +27,6 @@ public class DownListViewAdapter extends BaseAdapter {
         this.context = context;
         this.myPosition = position;
         inflater = LayoutInflater.from(context);
-
     }
 
 
@@ -72,7 +71,7 @@ public class DownListViewAdapter extends BaseAdapter {
 
         switch (type) {
             case TYPE_1:
-//空布局
+                //空布局
                 convertView = inflater.inflate(R.layout.down_listview_blank, parent, false);
                 break;
             case TYPE_2:
@@ -83,15 +82,12 @@ public class DownListViewAdapter extends BaseAdapter {
                     String s = allGoodsListEntity.getData().getList().get(myPosition).getGoods_data().get(position - 3).getCountry();
                     if (s.equals("")) {
                         listViewDeatilHolder.goodsCountry.setText(allGoodsListEntity.getData().getList().get(myPosition).getGoods_data().get(position - 3).getName());
-
                     } else {
                         listViewDeatilHolder.goodsCountry.setText(allGoodsListEntity.getData().getList().get(myPosition).getGoods_data().get(position - 3).getCountry());
-
                     }
                 } catch (IndexOutOfBoundsException e) {
                     e.printStackTrace();
                 }
-
                 try {
                     listViewDeatilHolder.goodsContext.setText(allGoodsListEntity.getData().getList().get(myPosition).getGoods_data().get(position - 3).getIntroContent());
                     listViewDeatilHolder.goodsLoaction.setText(allGoodsListEntity.getData().getList().get(myPosition).getGoods_data().get(position - 3).getLocation());
@@ -101,12 +97,9 @@ public class DownListViewAdapter extends BaseAdapter {
                 }
                 break;
             case TYPE_3:
-                //第三个item 站位的
+                //第三个item 占位的
                 convertView = inflater.inflate(R.layout.down_listview_blanktwo, parent, false);
-
         }
-
-
         return convertView;
     }
     //缓存类
@@ -125,6 +118,7 @@ public class DownListViewAdapter extends BaseAdapter {
 
     public class ListViewBlankHolder {
     }
+
     public class ListViewDeatilHolder {
 
         private TextView goodsLoaction, goodsEnLocation, goodsCountry, goodsContext;

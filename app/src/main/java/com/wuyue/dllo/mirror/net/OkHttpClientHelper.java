@@ -22,7 +22,6 @@ public class OkHttpClientHelper {
 
         okHttpClient.newCall(request).enqueue(new Callback() {
 
-
             @Override
             public void onFailure(Request request, IOException e) {
                 netListener.getFaild("失败了");

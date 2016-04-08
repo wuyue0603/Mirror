@@ -18,15 +18,10 @@ import com.wuyue.dllo.mirror.R;
  */
 public class LinkageListView extends FrameLayout {
     private static final float LINKAGE_SPEED = 2;
-
     private float linkageSpeed;
-
     private ListView mBottomListView, mTopListView;
     private Context mContext;
-
     private BaseAdapter mBotAdapter, mTopAdapter;
-
-
 
     public LinkageListView(Context context) {
         this(context, null);
@@ -76,7 +71,6 @@ public class LinkageListView extends FrameLayout {
             }
         });
 
-
         mBottomListView.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
@@ -117,6 +111,5 @@ public class LinkageListView extends FrameLayout {
     public ListView getBottomListView() {
         return mBottomListView;
     }
-
 
 }

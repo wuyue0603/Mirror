@@ -58,16 +58,13 @@ public class PlaceholderFragment extends Fragment {
     public PlaceholderFragment(int i, String title) {
         this.title = title;
         this.i = i;
-
     }
 
     // private String title;
-
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         setTitle = (SetTitle) context;
-
     }
 
     /**
@@ -131,10 +128,8 @@ public class PlaceholderFragment extends Fragment {
         recyclerView = (RecyclerView) view.findViewById(R.id.recycleViewAllType);
         textView = (TextView) view.findViewById(R.id.fragment_title);
 
-
         linearLayout = (LinearLayout) getView().findViewById(R.id.all_type_linearlayout);
         showMenu = new ShowMenu(getContext());
-        //TODO 从这开始传
 
         data = new ArrayList<>();
         data.add("瀏覧所有分類");
@@ -149,8 +144,6 @@ public class PlaceholderFragment extends Fragment {
             }
         });
     }
-
-
 }
 
 class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
@@ -172,18 +165,16 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.all_type_item, null);
-
         return new MyViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        this.position=position;
+        this.position = position;
         if (pos == 0) {
             holder.draweeView.setImageURI(Uri.parse(dataEntity.getList().get(pos).getGoods_img()));
             holder.goodsNameTv.setText(dataEntity.getList().get(pos).getGoods_name());
             holder.areaTv.setText(dataEntity.getList().get(pos).getProduct_area());
-
             holder.brandTv.setText(dataEntity.getList().get(pos).getBrand());
             holder.priceTv.setText("¥" + dataEntity.getList().get(pos).getGoods_price());
         } else if (pos == 1) {
@@ -199,13 +190,10 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             holder.brandTv.setText(dataEntity.getList().get(pos).getBrand());
             holder.priceTv.setText("¥" + dataEntity.getList().get(pos).getGoods_price());
         }
-
-
     }
 
     @Override
     public int getItemCount() {
-
         return 1;
     }
 
@@ -213,7 +201,6 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         private TextView goodsNameTv, areaTv, priceTv, brandTv;
         private SimpleDraweeView draweeView;
         private LinearLayout linearLayout;
-
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -229,18 +216,13 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent(context, HomepageContentActivity.class);
-            intent.putExtra("position",position);
-            intent.putExtra("pos",pos);
+            intent.putExtra("position", position);
+            intent.putExtra("pos", pos);
             context.startActivity(intent);
         }
     }
 }
 
-
-/**
- * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
- * one of the sections/tabs/pages.
- */
 
 
 

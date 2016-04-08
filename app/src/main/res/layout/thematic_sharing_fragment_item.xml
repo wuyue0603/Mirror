@@ -14,13 +14,13 @@
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/all_type_iv"
-            android:layout_width="270dp"
-            android:layout_height="300dp"
+            android:layout_width="@dimen/thematicSharingFragmentItemImageWidth"
+            android:layout_height="@dimen/thematicSharingFragmentItemImageHeight"
             fresco:placeholderImage="@mipmap/ic_launcher" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="@dimen/thematicSharingFragmentItemLayoutHeight"
             android:layout_marginLeft="@dimen/all_type_content_left"
             android:layout_marginRight="@dimen/all_type_content_right"
             android:orientation="vertical">

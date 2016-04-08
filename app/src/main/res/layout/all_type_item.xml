@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
     android:id="@+id/all_type_item_linear_layout"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
@@ -14,7 +14,6 @@
         android:orientation="vertical">
 
         <com.facebook.drawee.view.SimpleDraweeView
-
             android:id="@+id/all_type_iv"
             android:layout_width="match_parent"
             android:layout_height="@dimen/all_type_image_height"
@@ -46,9 +45,7 @@
                         android:textSize="@dimen/all_type_textsize"
                         android:textStyle="bold" />
 
-
                 </RelativeLayout>
-
 
             </LinearLayout>
 
@@ -64,7 +61,6 @@
                     android:text="法国巴黎"
                     android:textColor="@color/loginText"
                     android:textSize="@dimen/all_type_france_textsize" />
-
 
                 <TextView
                     android:id="@+id/price"
@@ -96,6 +92,9 @@
                     android:textColor="@color/loginText"
                     android:textSize="@dimen/all_type_final_textsize" />
             </LinearLayout>
+
         </LinearLayout>
+
     </LinearLayout>
+
 </LinearLayout>

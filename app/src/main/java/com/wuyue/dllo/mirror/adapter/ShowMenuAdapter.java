@@ -30,15 +30,11 @@ public class ShowMenuAdapter extends BaseAdapter {
     private Context context;
     private int line;
 
-
     public ShowMenuAdapter(MenuEntity datas, Context context, int line) {
         this.data = datas;
         this.line = line;
         this.context = context;
-
     }
-
-
 
     @Override//是左侧的标题
     public int getCount() {
@@ -68,32 +64,22 @@ public class ShowMenuAdapter extends BaseAdapter {
         holder = (ViewHolder) convertView.getTag();
         holder.textView.setText(Html.fromHtml(data.getData().getList().get(position).getTitle()));
 
-
         if (line == position) {
             holder.imageView.setVisibility(View.VISIBLE);
         } else {
             holder.imageView.setVisibility(View.INVISIBLE);
         }
-
-
-
-
         return convertView;
     }
 
 
-    public String getTitle(int pos){
+    public String getTitle(int pos) {
         return data.getData().getList().get(pos).getTitle();
     }
-
 
     public class ViewHolder {
         private LinearLayout line;
         private TextView textView;
         private ImageView imageView;
     }
-
-
-
-
 }

@@ -25,7 +25,6 @@ public class ForgetPasswordActivity extends BaseActivity implements View.OnClick
 
     @Override
     protected void init() {
-
         sendCodeBtn = bindView(R.id.send_code_btn);
         sendCodeBtn.setOnClickListener(this);
         codeEt = bindView(R.id.code_et);
@@ -38,15 +37,15 @@ public class ForgetPasswordActivity extends BaseActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.send_code_btn:
                 OkHttpClientHelper okHttpClientHelper = new OkHttpClientHelper();
                 FormEncodingBuilder builder = new FormEncodingBuilder();
-                builder.add("phone number",codeEt.getText().toString());
+                builder.add("phone number", codeEt.getText().toString());
                 okHttpClientHelper.getPostDataFromNet(builder, "index.php/user/send_code", new NetLisner() {
                     @Override
                     public void getSucceed(String s) {
-                        Log.i("phone number",s);
+                        Log.i("phone number", s);
                     }
 
                     @Override
