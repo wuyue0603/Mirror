@@ -1,5 +1,6 @@
 package com.wuyue.dllo.mirror.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -28,17 +29,20 @@ public class AlbumActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_album);
+        Intent intent = getIntent();
+        final int pos = intent.getIntExtra("pos",0);
         handler = new Handler(new Handler.Callback() {
             @Override
             public boolean handleMessage(Message msg) {
                 AlbumEntity entity = new Gson().fromJson(msg.obj.toString(), AlbumEntity.class);
                 Log.d("ccccccc1", entity.toString());
                 listView = (ListView) findViewById(R.id.listView);
-                adapter = new AlbumAdapter(entity, AlbumActivity.this);
+                adapter = new AlbumAdapter(entity, AlbumActivity.this,pos);
                 listView.setAdapter(adapter);
                 return false;
             }
         });
+
 
 
         init();
