@@ -1,6 +1,7 @@
 package com.wuyue.dllo.mirror.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 import com.wuyue.dllo.mirror.R;
 
+import com.wuyue.dllo.mirror.adapter.AlbumAdapter;
 import com.wuyue.dllo.mirror.adapter.DownListViewAdapter;
 import com.wuyue.dllo.mirror.adapter.UpListViewAdapter;
 import com.wuyue.dllo.mirror.entity.AllGoodsListEntity;
@@ -25,6 +27,7 @@ import android.support.v4.view.LinkageListView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import java.io.IOException;
 
@@ -35,10 +38,12 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
     private LinkageListView listView;
     private AllGoodsListEntity allGoodsListEntity1;
     private Handler handler;
-    private int position, pos;
+    private static int position, pos;
     private SimpleDraweeView background;
     private String url;
     private Button albumBtn;
+    private ImageView imageView;
+    private static AlbumAdapter albumAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +52,8 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
         listView = (LinkageListView) findViewById(R.id.detail_listview);
         background = (SimpleDraweeView) findViewById(R.id.goodsdetail_background);
         albumBtn = (Button) findViewById(R.id.album_btn);
-
+        imageView = (ImageView) findViewById(R.id.return_iv);
+        imageView.setOnClickListener(this);
         albumBtn.setOnClickListener(this);
 
 
@@ -55,9 +61,11 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
         Intent intent = getIntent();
         position = intent.getIntExtra("position", 0);
         pos = intent.getIntExtra("pos", 0);
+        Log.d("pos1", String.valueOf(pos));
         post();
         addData();
     }
+
 
     private void addData() {
         handler = new Handler(new Handler.Callback() {
@@ -69,6 +77,7 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
                 listView.setAdapter(new UpListViewAdapter(allGoodsListEntity1, getApplication(), pos), new DownListViewAdapter(allGoodsListEntity1, getApplication(), pos));
                 listView.setLinkageSpeed(1.2f);
                 background.setImageURI(Uri.parse(allGoodsListEntity1.getData().getList().get(pos).getGoods_img()));
+
                 return false;
             }
         });
@@ -97,10 +106,14 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.album_btn:
-                Intent intent = new Intent(HomepageContentActivity.this,AlbumActivity.class);
+                Intent intent = new Intent(HomepageContentActivity.this, AlbumActivity.class);
+                intent.putExtra("pos", pos);
                 startActivity(intent);
+                break;
+            case R.id.return_iv:
+                finish();
                 break;
         }
     }

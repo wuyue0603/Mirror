@@ -2,6 +2,7 @@ package com.wuyue.dllo.mirror.adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -15,6 +16,7 @@ import android.widget.VideoView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wuyue.dllo.mirror.R;
+import com.wuyue.dllo.mirror.activity.HomepageContentActivity;
 import com.wuyue.dllo.mirror.entity.AlbumEntity;
 
 /**
@@ -26,15 +28,21 @@ public class AlbumAdapter extends BaseAdapter {
     final int TYPE_1 = 0;
     final int TYPE_2 = 1;
     private Window window = null;
+    private int pos;
 
-    public AlbumAdapter(AlbumEntity data, Context context) {
+    public AlbumAdapter(AlbumEntity data, Context context,int pos) {
         this.data = data;
         this.context = context;
+        Log.d("pos", String.valueOf(pos));
+        this.pos = pos;
+
+
+
     }
 
     @Override
     public int getCount() {
-        return data.getData().getList().size();
+        return data.getData().getList().get(pos).getWear_video().size();
     }
 
     @Override
@@ -58,6 +66,7 @@ public class AlbumAdapter extends BaseAdapter {
         }
 
     }
+
 
     @Override
     public int getViewTypeCount() {
@@ -87,13 +96,11 @@ public class AlbumAdapter extends BaseAdapter {
                         }
                     });
                     convertView.setTag(holderVideo);
-                    Log.d("cccccccdd", "111111");
                     break;
                 case TYPE_2:
                     convertView = LayoutInflater.from(context).inflate(R.layout.activity_album_picture_item, parent, false);
                     holderPicture.draweeView = (SimpleDraweeView) convertView.findViewById(R.id.picture_item_iv);
                     convertView.setTag(holderPicture);
-                    Log.d("cccccccff", "111111");
                     break;
             }
         } else {
@@ -107,13 +114,17 @@ public class AlbumAdapter extends BaseAdapter {
         }
 
         switch (type) {
+
             case TYPE_1:
-                holderVideo.videoView.setVideoURI(Uri.parse(String.valueOf(data.getData().getList().get(position).getWear_video().get(position).getData())));
+                if (pos == 0){
+                    holderVideo.videoView.setVideoURI(Uri.parse("http://7xr7f7.com2.z0.glb.qiniucdn.com/Jimmy%20fairly%20-%20Spring%202014-HD.mp4"));
+                }else {
+                    holderVideo.videoView.setVideoURI(Uri.parse("http://7xlvms.com2.z0.glb.qiniucdn.com/See%20Concept%2C%20Deuxi.mp4"));
+                }
 
                 break;
             case TYPE_2:
-                holderPicture.draweeView.setImageURI(Uri.parse(String.valueOf(data.getData().getList().get(0).getWear_video().get(position).getData())));
-                Log.d("ccccccc00", data.getData().getList().get(0).getWear_video().get(position).getData());
+                holderPicture.draweeView.setImageURI(Uri.parse(String.valueOf(data.getData().getList().get(pos).getWear_video().get(position).getData())));
                 holderPicture.draweeView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -139,7 +150,7 @@ public class AlbumAdapter extends BaseAdapter {
 
     SimpleDraweeView draweeView;
 
-    public void showImgDialog(int pos) {
+    public void showImgDialog(int pos1) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.Dialog_FS);
 
         window.getCurrentFocus();
@@ -151,7 +162,7 @@ public class AlbumAdapter extends BaseAdapter {
 
         builder.setView(view);
         draweeView = (SimpleDraweeView) view.findViewById(R.id.big_img);
-        draweeView.setImageURI(Uri.parse(data.getData().getList().get(0).getWear_video().get(pos).getData()));
+        draweeView.setImageURI(Uri.parse(data.getData().getList().get(pos).getWear_video().get(pos1).getData()));
 
         final AlertDialog dialog = builder.show();
         draweeView.setOnClickListener(new View.OnClickListener() {
