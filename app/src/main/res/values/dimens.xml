@@ -338,4 +338,5 @@
     <dimen name="activity_details_relativeLayout_height">45dp</dimen>
     <dimen name="activity_details_btn_marginLeft">30dp</dimen>
     <dimen name="activity_details_buyIv_marginRight">20dp</dimen>
+    <dimen name="videoview">210dp</dimen>
 </resources>

@@ -23,19 +23,22 @@ import com.wuyue.dllo.mirror.entity.Costant;
 
 import android.support.v4.view.LinkageListView;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import java.io.IOException;
 
 /**
  * Created by dllo on 16/3/30.
  */
-public class HomepageContentActivity extends Activity {
+public class HomepageContentActivity extends Activity implements View.OnClickListener {
     private LinkageListView listView;
     private AllGoodsListEntity allGoodsListEntity1;
     private Handler handler;
     private int position, pos;
     private SimpleDraweeView background;
     private String url;
+    private Button albumBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,11 @@ public class HomepageContentActivity extends Activity {
         setContentView(R.layout.activity_homepagecontent);
         listView = (LinkageListView) findViewById(R.id.detail_listview);
         background = (SimpleDraweeView) findViewById(R.id.goodsdetail_background);
+        albumBtn = (Button) findViewById(R.id.album_btn);
+
+        albumBtn.setOnClickListener(this);
+
+
         allGoodsListEntity1 = new AllGoodsListEntity();
         Intent intent = getIntent();
         position = intent.getIntExtra("position", 0);
@@ -85,6 +93,16 @@ public class HomepageContentActivity extends Activity {
                 handler.sendMessage(message);
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.album_btn:
+                Intent intent = new Intent(HomepageContentActivity.this,AlbumActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 }
 
