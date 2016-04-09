@@ -57,7 +57,7 @@ public class HomepageContentActivity extends Activity {
             public boolean handleMessage(Message msg) {
                 Gson gson = new Gson();
                 allGoodsListEntity1 = gson.fromJson(msg.obj.toString(), AllGoodsListEntity.class);
-                Log.d("XXXXXXXXXXXXXX", pos + "handleMessage: ");
+//                Log.d("XXXXXXXXXXXXXX", pos + "handleMessage: ");
                 listView.setAdapter(new UpListViewAdapter(allGoodsListEntity1, getApplication(), pos), new DownListViewAdapter(allGoodsListEntity1, getApplication(), pos));
                 listView.setLinkageSpeed(1.2f);
                 background.setImageURI(Uri.parse(allGoodsListEntity1.getData().getList().get(pos).getGoods_img()));
