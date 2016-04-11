@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.wuyue.dllo.mirror"
-        minSdkVersion 19
+        minSdkVersion 18
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -30,4 +30,5 @@ dependencies {
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.github.castorflex.verticalviewpager:library:19.0.1'
+
 }

@@ -11,12 +11,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
 import com.wuyue.dllo.mirror.R;
 import com.wuyue.dllo.mirror.adapter.ThematicSharingAdapter;
+import com.wuyue.dllo.mirror.entity.ShowMenu;
 import com.wuyue.dllo.mirror.entity.ThematicSharingEntity;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.Callback;
@@ -36,7 +38,8 @@ public class ThematicSharingFragment extends Fragment {
     private ThematicSharingAdapter thematicSharingAdapter;
     private RecyclerView recyclerView;
     private int i;
-
+    private LinearLayout linearlayout;
+    private ArrayList<String>titleData;
     public ThematicSharingFragment(int i) {
         this.i = i;
     }
@@ -54,6 +57,15 @@ public class ThematicSharingFragment extends Fragment {
         recyclerView = (RecyclerView) getView().findViewById(R.id.thematic_sharing_recyclerview);
         picIv = (SimpleDraweeView) getView().findViewById(R.id.all_type_iv);
         tv = (TextView) getView().findViewById(R.id.title);
+
+        linearlayout = (LinearLayout) view.findViewById(R.id.all_type_linearlayout);
+        linearlayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShowMenu showMenu  = new ShowMenu(getActivity());
+                showMenu.showPopupWindow(v,titleData,0);
+            }
+        });
     }
 
     @Override

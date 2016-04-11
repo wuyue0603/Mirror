@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@mipmap/bg">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/all_type_linearlayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/all_type_line_margintop"
-            android:orientation="vertical">
+    <ImageView
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/shoppp"/>
+
+
+    <LinearLayout
+        android:id="@+id/shop_car_linear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/all_type_line_margintop"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -27,7 +30,7 @@
                 android:id="@+id/fragment_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/all_type_line_text"
+                android:text="我的購物車"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/all_type_line_textsize" />
 
@@ -61,15 +64,6 @@
                 android:textSize="@dimen/size" />
 
         </LinearLayout>
-
     </LinearLayout>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/thematic_sharing_recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/recycleviewalltype" />
-
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>
