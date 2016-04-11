@@ -5,11 +5,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/picture_item_iv"
         android:layout_width="400dp"
         android:layout_height="300dp"
         android:transitionName="img"
-        android:layout_gravity="center"
-        fresco:placeholderImage="@mipmap/ic_launcher" />
+        android:layout_gravity="center"/>
 </LinearLayout>

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
@@ -152,6 +153,7 @@ public class ShowMenu implements AdapterView.OnItemClickListener {
        // context.startActivity(intent);
         String title = showMenuAdapter.getTitle(position);
         setTitle.setTitle(title,position);
+
         popupWindow.dismiss();
         Log.d("Sysout", "onItemClick");
     }

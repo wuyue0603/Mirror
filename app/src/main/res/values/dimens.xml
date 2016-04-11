@@ -2,7 +2,7 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="all_type_image_left">11dp</dimen>
+    <dimen name="all_type_image_left">10dp</dimen>
     <dimen name="accountLoginTv">17sp</dimen>
     <dimen name="accountNumberTv">12sp</dimen>
     <dimen name="accountCodeTv">13sp</dimen>
@@ -122,7 +122,7 @@
     <dimen name="all_type_line_marginlef">5dp</dimen>
     <dimen name="all_type_image_top_ima">8dp</dimen>
     <dimen name="all_type_image_margintop_lin">8dp</dimen>
-    <dimen name="size">12sp</dimen>
+    <dimen name="size">11sp</dimen>
     <dimen name="recycleviewalltype">30dp</dimen>
     <!--shopping_cart -->
     <dimen name="loginTitleSize">15sp</dimen>
@@ -144,7 +144,7 @@
     <dimen name="homepageContentShareRight">45px</dimen>
     <dimen name="homepageContentShareTop">105px</dimen>
     <dimen name="homepageContentFrameHeight">570px</dimen>
-    <dimen name="homepageContentFrameTop">40px</dimen>
+    <dimen name="homepageContentFrameTop">60px</dimen>
     <dimen name="homepageContentTitleHeight">40px</dimen>
     <dimen name="homepageContentTitleTop">75px</dimen>
     <dimen name="homepageContentTitleLineWidth">440px</dimen>
@@ -192,12 +192,12 @@
     <dimen name="wholeAddressEditRight">60px</dimen>
     <dimen name="wholeAddressEditTop">20px</dimen>
     <dimen name="addAddressBtnTop">50px</dimen>
-    <dimen name="orderContentBacHeight">240px</dimen>
+    <dimen name="orderContentBacHeight">260px</dimen>
     <dimen name="orderContentReceiverInfoLeft">20px</dimen>
     <dimen name="orderContentReceiverInfoTop">20px</dimen>
     <dimen name="orderContentViewHeight">2px</dimen>
     <dimen name="orderContentViewTop">100px</dimen>
-    <dimen name="homepageContentImageWidth">228px</dimen>
+    <dimen name="homepageContentImageWidth">210px</dimen>
     <dimen name="orderContentThingsNameTop">80px</dimen>
     <dimen name="orderContentThingsNameLeft">30px</dimen>
     <dimen name="orderContentSecondBacHeight">300px</dimen>
@@ -338,5 +338,5 @@
     <dimen name="activity_details_relativeLayout_height">45dp</dimen>
     <dimen name="activity_details_btn_marginLeft">30dp</dimen>
     <dimen name="activity_details_buyIv_marginRight">20dp</dimen>
-    <dimen name="videoview">210dp</dimen>
+    <dimen name="videoview">200dp</dimen>
 </resources>

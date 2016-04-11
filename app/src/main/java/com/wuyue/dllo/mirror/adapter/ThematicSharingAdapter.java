@@ -46,6 +46,7 @@ public class ThematicSharingAdapter extends RecyclerView.Adapter<ThematicSharing
     public void onBindViewHolder(MyHolder holder, int position) {
         holder.picIv.setImageURI(Uri.parse(data.getData().getList().get(position).getStory_img()));
         holder.tv.setText(data.getData().getList().get(position).getStory_title());
+
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

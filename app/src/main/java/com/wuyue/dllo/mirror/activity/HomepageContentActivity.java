@@ -44,6 +44,7 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
     private Button albumBtn;
     private ImageView imageView;
     private static AlbumAdapter albumAdapter;
+    private ImageView buyIv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +56,8 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
         imageView = (ImageView) findViewById(R.id.return_iv);
         imageView.setOnClickListener(this);
         albumBtn.setOnClickListener(this);
-
+        buyIv = (ImageView) findViewById(R.id.buy_iv);
+        buyIv.setOnClickListener(this);
 
         allGoodsListEntity1 = new AllGoodsListEntity();
         Intent intent = getIntent();
@@ -114,6 +116,14 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
                 break;
             case R.id.return_iv:
                 finish();
+                break;
+            case R.id.buy_iv:
+                Intent intent1 = new Intent(HomepageContentActivity.this, OrderContentActivity.class);
+                intent1.putExtra("pos", pos);
+                intent1.putExtra("img",allGoodsListEntity1.getData().getList().get(pos).getDesign_des().get(0).getImg());
+                intent1.putExtra("brand",allGoodsListEntity1.getData().getList().get(pos).getBrand());
+                intent1.putExtra("price",allGoodsListEntity1.getData().getList().get(pos).getGoods_price());
+                startActivity(intent1);
                 break;
         }
     }

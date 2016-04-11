@@ -32,6 +32,7 @@ import com.wuyue.dllo.mirror.entity.MenuEntity;
 import com.wuyue.dllo.mirror.entity.ShowMenu;
 import com.wuyue.dllo.mirror.entity.GoodsListEntity;
 import com.wuyue.dllo.mirror.fragment.PlaceholderFragment;
+import com.wuyue.dllo.mirror.fragment.ShopingCarFragment;
 import com.wuyue.dllo.mirror.fragment.ThematicSharingFragment;
 import com.wuyue.dllo.mirror.myinterface.SetTitle;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -55,10 +56,11 @@ public class MainActivity extends AppCompatActivity implements SetTitle {
             datas = new ArrayList<>();
             MenuEntity entity = new Gson().fromJson(msg.obj.toString(), MenuEntity.class);
             int i = 0;
-            for (i = 0; i < entity.getData().getList().size(); i++) {
+            for (i = 0; i < entity.getData().getList().size()-1; i++) {
                 datas.add(new PlaceholderFragment(i, entity.getData().getList().get(i).getTitle()));
 
             }
+            datas.add(new ShopingCarFragment(i));
             datas.add(new ThematicSharingFragment(i + 1));
             mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), datas);
             mViewPager = (DirectionalViewPager) findViewById(R.id.container);
