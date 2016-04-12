@@ -30,6 +30,7 @@
                 android:layout_marginTop="@dimen/downListViewImageTop"
                 android:background="@mipmap/titleline" />
 
+
             <LinearLayout
                 android:layout_width="@dimen/downListViewDownLinearLayoutWidth"
                 android:layout_height="wrap_content"
@@ -66,6 +67,7 @@
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/downListViewTextViewSize" />
             </LinearLayout>
+
 
             <ImageView
                 android:layout_width="match_parent"

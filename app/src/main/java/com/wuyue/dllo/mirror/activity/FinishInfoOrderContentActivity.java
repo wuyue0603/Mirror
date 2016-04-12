@@ -1,11 +1,19 @@
 package com.wuyue.dllo.mirror.activity;
 
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+
+import com.wuyue.dllo.mirror.R;
 import com.wuyue.dllo.mirror.base.BaseActivity;
+import com.wuyue.dllo.mirror.fragment.PlaceholderFragment;
 
 /**
  * Created by dllo on 16/3/31.
  */
-public class FinishInfoOrderContentActivity extends BaseActivity{
+public class FinishInfoOrderContentActivity extends BaseActivity {
+
+
     @Override
     protected void initData() {
 
@@ -18,6 +26,9 @@ public class FinishInfoOrderContentActivity extends BaseActivity{
 
     @Override
     protected int getLayout() {
-        return 0;
+        return R.layout.activity_finishinfo_ordercontent;
     }
+
+
+
 }

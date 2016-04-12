@@ -122,7 +122,6 @@ public class DownListViewAdapter extends BaseAdapter {
     public class ListViewDeatilHolder {
 
         private TextView goodsLoaction, goodsEnLocation, goodsCountry, goodsContext;
-
         public ListViewDeatilHolder(View view) {
             goodsLoaction = (TextView) view.findViewById(R.id.down_location);
             goodsEnLocation = (TextView) view.findViewById(R.id.down_en_location);
@@ -130,5 +129,6 @@ public class DownListViewAdapter extends BaseAdapter {
             goodsContext = (TextView) view.findViewById(R.id.down_context);
         }
     }
+
 }
 

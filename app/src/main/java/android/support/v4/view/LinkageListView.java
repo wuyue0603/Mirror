@@ -68,7 +68,7 @@ public class LinkageListView extends FrameLayout {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 return mBottomListView.dispatchTouchEvent(event);
-            }
+        }
         });
 
         mBottomListView.setOnScrollListener(new AbsListView.OnScrollListener() {
@@ -81,6 +81,7 @@ public class LinkageListView extends FrameLayout {
             }
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
+
             }
         });
     }

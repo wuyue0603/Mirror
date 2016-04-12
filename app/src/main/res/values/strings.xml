@@ -33,7 +33,7 @@
     <string name="mainactivitylogin">登録</string>
     <string name="returnbackhome">返回首页</string>
     <string name="quit">退出</string>
-    <string name="all_type_line_text">瀏覧平光眼鏡</string>
+    <string name="all_type_line_text">専题分享</string>
     <string name="all_type_linearlayout_text">顯示排序為 最新推荐</string>
     <string name="all_type_price_text">320</string>
     <string name="loginTitle">账号登录</string>
@@ -66,7 +66,7 @@
     <string name="forgetPasswordUpdatePassword">修改密码</string>
     <string name="orderContentTitle">订单详情</string>
     <string name="orderContentWriteReceiverInfo">请填写收件人信息</string>
-    <string name="orderContentWriteAddress">填写地址</string>
+    <string name="orderContentWriteAddress">填加地址</string>
     <string name="orderContentThingsName">GENTLE MONSTER</string>
     <string name="orderContentContent">啦啦啦啦啦啦啦啦啦啦啦啦啦啦</string>
     <string name="orderContentPrice">¥3850</string>
@@ -81,4 +81,5 @@
     <string name="downListViewHeadTextView">谁颜色镜头板材太阳镜</string>
     <string name="downListViewHeadTextViewView">我是你的你是我的手机大奖阿克琉斯多asdasdasdasdasdasdasdasdasd久啊看似简单撒打算打算.打算打算打打双打sadasdasdasdasdasdasdasdasdasd</string>
     <string name="BottomListViewHeadTextView">滑动浏览详情</string>
+    <string name="wear_atlas">佩戴图集</string>
 </resources>

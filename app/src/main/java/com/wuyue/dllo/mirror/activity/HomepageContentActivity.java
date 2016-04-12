@@ -1,6 +1,7 @@
 package com.wuyue.dllo.mirror.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 import com.wuyue.dllo.mirror.R;
 
+import com.wuyue.dllo.mirror.adapter.AlbumAdapter;
 import com.wuyue.dllo.mirror.adapter.DownListViewAdapter;
 import com.wuyue.dllo.mirror.adapter.UpListViewAdapter;
 import com.wuyue.dllo.mirror.entity.AllGoodsListEntity;
@@ -23,19 +25,26 @@ import com.wuyue.dllo.mirror.entity.Costant;
 
 import android.support.v4.view.LinkageListView;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import java.io.IOException;
 
 /**
  * Created by dllo on 16/3/30.
  */
-public class HomepageContentActivity extends Activity {
+public class HomepageContentActivity extends Activity implements View.OnClickListener {
     private LinkageListView listView;
     private AllGoodsListEntity allGoodsListEntity1;
     private Handler handler;
-    private int position, pos;
+    private static int position, pos;
     private SimpleDraweeView background;
     private String url;
+    private Button albumBtn;
+    private ImageView imageView;
+    private static AlbumAdapter albumAdapter;
+    private ImageView buyIv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,13 +52,22 @@ public class HomepageContentActivity extends Activity {
         setContentView(R.layout.activity_homepagecontent);
         listView = (LinkageListView) findViewById(R.id.detail_listview);
         background = (SimpleDraweeView) findViewById(R.id.goodsdetail_background);
+        albumBtn = (Button) findViewById(R.id.album_btn);
+        imageView = (ImageView) findViewById(R.id.return_iv);
+        imageView.setOnClickListener(this);
+        albumBtn.setOnClickListener(this);
+        buyIv = (ImageView) findViewById(R.id.buy_iv);
+        buyIv.setOnClickListener(this);
+
         allGoodsListEntity1 = new AllGoodsListEntity();
         Intent intent = getIntent();
         position = intent.getIntExtra("position", 0);
         pos = intent.getIntExtra("pos", 0);
+        Log.d("pos1", String.valueOf(pos));
         post();
         addData();
     }
+
 
     private void addData() {
         handler = new Handler(new Handler.Callback() {
@@ -57,10 +75,11 @@ public class HomepageContentActivity extends Activity {
             public boolean handleMessage(Message msg) {
                 Gson gson = new Gson();
                 allGoodsListEntity1 = gson.fromJson(msg.obj.toString(), AllGoodsListEntity.class);
-                Log.d("XXXXXXXXXXXXXX", pos + "handleMessage: ");
+//                Log.d("XXXXXXXXXXXXXX", pos + "handleMessage: ");
                 listView.setAdapter(new UpListViewAdapter(allGoodsListEntity1, getApplication(), pos), new DownListViewAdapter(allGoodsListEntity1, getApplication(), pos));
                 listView.setLinkageSpeed(1.2f);
                 background.setImageURI(Uri.parse(allGoodsListEntity1.getData().getList().get(pos).getGoods_img()));
+
                 return false;
             }
         });
@@ -85,6 +104,28 @@ public class HomepageContentActivity extends Activity {
                 handler.sendMessage(message);
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.album_btn:
+                Intent intent = new Intent(HomepageContentActivity.this, AlbumActivity.class);
+                intent.putExtra("pos", pos);
+                startActivity(intent);
+                break;
+            case R.id.return_iv:
+                finish();
+                break;
+            case R.id.buy_iv:
+                Intent intent1 = new Intent(HomepageContentActivity.this, OrderContentActivity.class);
+                intent1.putExtra("pos", pos);
+                intent1.putExtra("img",allGoodsListEntity1.getData().getList().get(pos).getDesign_des().get(0).getImg());
+                intent1.putExtra("brand",allGoodsListEntity1.getData().getList().get(pos).getBrand());
+                intent1.putExtra("price",allGoodsListEntity1.getData().getList().get(pos).getGoods_price());
+                startActivity(intent1);
+                break;
+        }
     }
 }
 

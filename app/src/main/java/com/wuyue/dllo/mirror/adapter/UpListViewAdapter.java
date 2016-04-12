@@ -34,10 +34,10 @@ public class UpListViewAdapter extends BaseAdapter {
         inflater = LayoutInflater.from(context);
     }
 
-    public void onEvent(AllGoodsListEntity allGoodsListEntity) {
-        this.allGoodsListEntity = allGoodsListEntity;
-        Log.d("UpListViewAdapter", "allGoodsListEntity.getData().getList().size():" + allGoodsListEntity.getData().getList().size());
-    }
+//    public void onEvent(AllGoodsListEntity allGoodsListEntity) {
+//        this.allGoodsListEntity = allGoodsListEntity;
+//        Log.d("UpListViewAdapter", "allGoodsListEntity.getData().getList().size():" + allGoodsListEntity.getData().getList().size());
+//    }
 
     @Override
     public int getCount() {
@@ -125,9 +125,9 @@ public class UpListViewAdapter extends BaseAdapter {
         }
     }
 
-    public class ListViewBlankHolder {
-
-    }
+//    public class ListViewBlankHolder {
+//
+//    }
 
     public class ListViewDetailHolder {
         private ImageView background;
