@@ -120,8 +120,7 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
             case R.id.buy_iv:
                 Intent intent1 = new Intent(HomepageContentActivity.this, OrderContentActivity.class);
                 intent1.putExtra("pos", pos);
-                intent1.putExtra("img",allGoodsListEntity1.getData().getList().get(pos).getDesign_des().get(0).getImg());
-                intent1.putExtra("brand",allGoodsListEntity1.getData().getList().get(pos).getBrand());
+                intent1.putExtra("id",allGoodsListEntity1.getData().getList().get(pos).getGoods_id());
                 intent1.putExtra("price",allGoodsListEntity1.getData().getList().get(pos).getGoods_price());
                 startActivity(intent1);
                 break;

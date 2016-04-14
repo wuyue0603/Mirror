@@ -44,6 +44,7 @@
         android:layout_marginTop="@dimen/homepageContentTitleLineTop"
         android:background="@color/loginLoginColors">
 
+
         <TextView
             android:id="@+id/receiver_info"
             android:layout_width="wrap_content"
@@ -54,6 +55,31 @@
             android:textColor="@color/loginText"
             android:textSize="@dimen/loginLoginSize" />
 
+        <TextView
+            android:id="@+id/order_content_name"
+            android:textColor="@android:color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/orderContentReceiverInfoLeft"
+            android:layout_marginTop="@dimen/orderContentReceiverInfoTop" />
+        <TextView
+            android:id="@+id/order_content_address"
+            android:layout_below="@+id/order_content_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="@dimen/orderContentReceiverInfoLeft"
+            android:layout_marginTop="@dimen/orderContentReceiverInfoTop"/>
+
+        <TextView
+            android:id="@+id/order_content_tel"
+            android:textStyle="bold"
+            android:layout_below="@id/order_content_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="@dimen/orderContentReceiverInfoLeft"
+            android:layout_marginTop="@dimen/orderContentReceiverInfoTop"/>
         <View
             android:id="@+id/view"
             android:layout_width="match_parent"
@@ -79,21 +105,21 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+            xmlns:fresco="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="@dimen/orderContentSecondBacHeight"
             android:layout_marginLeft="@dimen/loginTitleLeft"
             android:layout_marginRight="@dimen/loginCloseRight"
             android:layout_marginTop="@dimen/homepageContentFrameTop"
-            android:background="@color/loginLoginColors"
-            xmlns:fresco="http://schemas.android.com/apk/res-auto"/>
+            android:background="@color/loginLoginColors" />
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/things_iv"
-            android:layout_marginLeft="20dp"
             android:layout_width="@dimen/homepageContentImageWidth"
             android:layout_height="60dp"
-
             android:layout_centerVertical="true"
+
+            android:layout_marginLeft="20dp"
             android:src="@mipmap/ic_launcher" />
 
         <TextView
@@ -112,21 +138,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/things_brand"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="40dp"
             android:layout_marginTop="@dimen/loginLineTop"
             android:layout_toRightOf="@id/things_iv"
-            android:layout_marginLeft="10dp"
             android:text="@string/orderContentContent"
-            android:textColor="@color/loginText" />
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/things_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/things_content"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="@dimen/loginLineTop"
             android:layout_toRightOf="@id/things_iv"
             android:text="@string/orderContentPrice"
-            android:layout_marginLeft="10dp"
             android:textColor="@color/orderContentPrice" />
 
     </RelativeLayout>
