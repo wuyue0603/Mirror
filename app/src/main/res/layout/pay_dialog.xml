@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/loginLoginColors"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/pay_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="选择支付方式"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textSize="15sp"
+        android:textStyle="bold"/>
+
+        <View
+            android:layout_below="@id/pay_type"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d5d5d5"
+            android:layout_marginTop="10dp"/>
+
+</RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@mipmap/chatpay">
+
+        <ImageView
+            android:id="@+id/wechat_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="75dp"
+            android:src="@mipmap/wechat_pay" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24px"
+            android:layout_toRightOf="@id/wechat_iv"
+            android:text="微信支付"
+            android:textColor="@color/loginLoginColors"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@mipmap/chatpay"
+        android:layout_marginBottom="20dp">
+
+        <ImageView
+            android:id="@+id/alipay_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="75dp"
+            android:src="@mipmap/alipay" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="24px"
+            android:layout_toRightOf="@id/alipay_iv"
+            android:text="支付宝支付"
+            android:textColor="@color/loginLoginColors"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
+

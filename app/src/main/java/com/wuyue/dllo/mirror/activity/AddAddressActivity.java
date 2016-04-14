@@ -39,39 +39,37 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
     @Override
     protected void initData() {
         final Intent i = getIntent();
-        addNameEt.setText(i.getStringExtra("username1"));
-        addTelEt.setText(i.getStringExtra("cellphone1"));
-        addAddressEt.setText(i.getStringExtra("addr_info1"));
+        if (i.getStringExtra("addr_id1") != null) {
+            addNameEt.setText(i.getStringExtra("username1"));
+            addTelEt.setText(i.getStringExtra("cellphone1"));
+            addAddressEt.setText(i.getStringExtra("addr_info1"));
 
+            h = new Handler(new Handler.Callback() {
+                @Override
+                public boolean handleMessage(Message msg) {
+                    return false;
+                }
+            });
+            String url = "http://api101.test.mirroreye.cn/ index.php/user/edit_address";
+            OkHttpUtils.post().url(url).addParams("token", "433ae165cc754e151c0e8de2ed6ba152")
+                    .addParams("addr_id", i.getStringExtra("addr_id1")).addParams("username", i.getStringExtra("username1"))
+                    .addParams("cellphone", i.getStringExtra("cellphone1")).addParams("addr_info", i.getStringExtra("addr_info1"))
+                    .build().execute(new Callback() {
+                @Override
+                public Object parseNetworkResponse(Response response) throws Exception {
+                    return null;
+                }
 
-        h = new Handler(new Handler.Callback() {
-            @Override
-            public boolean handleMessage(Message msg) {
+                @Override
+                public void onError(Call call, Exception e) {
+                }
 
-                return false;
-            }
-        });
+                @Override
+                public void onResponse(Object response) {
+                }
+            });
+        }
 
-        String url = "http://api101.test.mirroreye.cn/ index.php/user/edit_address";
-        OkHttpUtils.post().url(url).addParams("token", "433ae165cc754e151c0e8de2ed6ba152")
-                .addParams("addr_id", i.getStringExtra("addr_id1")).addParams("username", i.getStringExtra("username1"))
-                .addParams("cellphone", i.getStringExtra("cellphone1")).addParams("addr_info", i.getStringExtra("addr_info1"))
-                .build().execute(new Callback() {
-            @Override
-            public Object parseNetworkResponse(Response response) throws Exception {
-                return null;
-            }
-
-            @Override
-            public void onError(Call call, Exception e) {
-
-            }
-
-            @Override
-            public void onResponse(Object response) {
-
-            }
-        });
 
     }
 
@@ -86,12 +84,8 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!addNameEt.equals("")) {
-                    okhttp();
-                    finish();
-                } else {
-                    Toast.makeText(AddAddressActivity.this, "请添加完整信息", Toast.LENGTH_SHORT).show();
-                }
+                okhttp();
+
             }
         });
         addIv.setOnClickListener(this);
@@ -116,40 +110,44 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
 
     private void okhttp() {
 
-
-        handler = new Handler(new Handler.Callback() {
-            @Override
-            public boolean handleMessage(Message msg) {
+        if (addNameEt != null && addNameEt.length() > 0 && addTelEt != null && addTelEt.length() > 0 && addAddressEt != null && addAddressEt.length() > 0) {
+            handler = new Handler(new Handler.Callback() {
+                @Override
+                public boolean handleMessage(Message msg) {
 //                Intent intent = new Intent(AddAddressActivity.this, AddAddressActivityA.class);
 //                startActivity(intent);
-                return false;
-            }
-        });
+                    return false;
+                }
+            });
 
 
-        String url = "http://api101.test.mirroreye.cn/index.php/user/add_address";
-        OkHttpUtils.post().url(url).addParams("token", "433ae165cc754e151c0e8de2ed6ba152")
-                .addParams("username", addNameEt.getText().toString()).addParams("cellphone", addTelEt.getText().toString())
-                .addParams("addr_info", addAddressEt.getText().toString()).build().execute(new Callback() {
-            @Override
-            public Object parseNetworkResponse(Response response) throws Exception {
-                String body = response.body().string();
-                Message message = new Message();
-                message.obj = body;
-                handler.sendMessage(message);
-                return null;
-            }
+            String url = "http://api101.test.mirroreye.cn/index.php/user/add_address";
+            OkHttpUtils.post().url(url).addParams("token", "433ae165cc754e151c0e8de2ed6ba152")
+                    .addParams("username", addNameEt.getText().toString()).addParams("cellphone", addTelEt.getText().toString())
+                    .addParams("addr_info", addAddressEt.getText().toString()).build().execute(new Callback() {
+                @Override
+                public Object parseNetworkResponse(Response response) throws Exception {
+                    String body = response.body().string();
+                    Message message = new Message();
+                    message.obj = body;
+                    handler.sendMessage(message);
+                    return null;
+                }
 
-            @Override
-            public void onError(Call call, Exception e) {
+                @Override
+                public void onError(Call call, Exception e) {
 
-            }
+                }
 
-            @Override
-            public void onResponse(Object response) {
+                @Override
+                public void onResponse(Object response) {
 
-            }
-        });
+                }
+            });
+            finish();
+        } else {
+            Toast.makeText(AddAddressActivity.this, "请填写完整信息", Toast.LENGTH_SHORT).show();
+        }
 
     }
 

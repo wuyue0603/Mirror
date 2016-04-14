@@ -166,6 +166,7 @@
         android:layout_marginTop="@dimen/createReTo">
 
         <ImageView
+            android:id="@+id/sure_list_iv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/create_number_press" />

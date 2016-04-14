@@ -62,6 +62,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             public void onClick(View v) {
                 okhttp();
 
+
             }
         });
         createNumber.setOnClickListener(new View.OnClickListener() {
@@ -73,8 +74,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         });
     }
 
-    private void okhttp() {
-        if (telEt != null && passwordEt != null){
+    public void okhttp() {
+        if (telEt != null && telEt.length() > 0 && passwordEt != null && passwordEt.length() > 0) {
+            Log.i("6666666666", "8888");
             handler = new Handler(new Handler.Callback() {
                 @Override
                 public boolean handleMessage(Message msg) {
@@ -112,13 +114,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
                 }
             });
+            finish();
 
-        }else {
-            Toast.makeText(LoginActivity.this,"请填写完整信息",Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(LoginActivity.this, "请填写完整信息", Toast.LENGTH_SHORT).show();
         }
-
-
-
 
 
     }

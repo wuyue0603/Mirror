@@ -1,7 +1,9 @@
 package com.wuyue.dllo.mirror.activity;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -51,6 +53,7 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
     private AppAdapter mAdapter;
     private SwipeMenuListView listView;
     private static MyAddressListEntity entity;
+    private MyBroadcast myBroadcast;
 
 
     @Override
@@ -62,6 +65,11 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
         iv = (ImageView) findViewById(R.id.address_a_close_iv);
         iv.setOnClickListener(this);
         button.setOnClickListener(this);
+
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.wuyue.dllo.mirror.Broadcast");
+        registerReceiver(myBroadcast, intentFilter);
+
 
         okHttp();
 
@@ -199,6 +207,12 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
 
     }
 
+//    @Override
+//    protected void onDestroy() {
+//        unregisterReceiver(myBroadcast);
+//        super.onDestroy();
+//    }
+
     public void okHttp() {
 
         handler = new Handler(new Handler.Callback() {
@@ -249,6 +263,16 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
             case R.id.address_a_close_iv:
                 AddAddressActivityA.this.finish();
                 break;
+        }
+    }
+
+
+    class MyBroadcast extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            okHttp();
         }
     }
 
@@ -311,6 +335,7 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
             holder.addName.setText(data.getData().getList().get(position).getUsername());
             holder.tell.setText(data.getData().getList().get(position).getCellphone());
             holder.address.setText(data.getData().getList().get(position).getAddr_info());
+
             holder.upIv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -319,6 +344,8 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
                     intent.putExtra("username1", data.getData().getList().get(position).getUsername());
                     intent.putExtra("cellphone1", data.getData().getList().get(position).getCellphone());
                     intent.putExtra("addr_info1", data.getData().getList().get(position).getAddr_info());
+                    intent.setAction("com.wuyue.dllo.mirror.Broadcast");
+                    context.sendBroadcast(intent);
                     context.startActivity(intent);
                     finish();
                 }

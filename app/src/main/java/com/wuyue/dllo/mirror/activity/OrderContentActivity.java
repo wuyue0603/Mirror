@@ -1,5 +1,6 @@
 package com.wuyue.dllo.mirror.activity;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -38,6 +39,7 @@ public class OrderContentActivity extends BaseActivity {
     private String addrId;
     private MyAddressListEntity entity;
     private String price, id;
+    private ImageView sureOrderIv;
 
     @Override
     protected void initData() {
@@ -50,6 +52,14 @@ public class OrderContentActivity extends BaseActivity {
         brandTv = bindView(R.id.things_brand);
         priceTv = bindView(R.id.things_price);
         closeIv = bindView(R.id.login_close);
+        sureOrderIv = bindView(R.id.sure_list_iv);
+        sureOrderIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                payDialog();
+            }
+        });
+
 
         receiverInfo = bindView(R.id.receiver_info);
         orderName = bindView(R.id.order_content_name);
@@ -132,6 +142,15 @@ public class OrderContentActivity extends BaseActivity {
             }
         });
 
+
+    }
+
+    private void payDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.pay_dialog,null);
+        builder.setView(view);
+//        builder.setTitle("选择支付方式");
+        builder.show();
 
     }
 
