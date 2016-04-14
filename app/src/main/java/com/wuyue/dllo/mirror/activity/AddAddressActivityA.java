@@ -97,11 +97,11 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
             private void createMenu2(SwipeMenu menu) {
                 SwipeMenuItem item2 = new SwipeMenuItem(
                         getApplicationContext());
-                item2.setBackground(new ColorDrawable(Color.rgb(0xF9,
-                        0x3F, 0x25)));
+                item2.setBackground(R.mipmap.chatpay);
                 item2.setWidth(dp2px(90));
                 item2.setTitle("删除");
-                item2.setIcon(R.mipmap.ic_launcher);
+                item2.setTitleColor(R.color.colorPrimary);
+                item2.setTitleSize(20);
                 menu.addMenuItem(item2);
             }
 
