@@ -118,7 +118,7 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
 
                     case 0:
 
-
+                       mAdapter.notifyDataSetChanged();
                         handler1 = new Handler(new Handler.Callback() {
                             @Override
                             public boolean handleMessage(Message msg) {
@@ -152,7 +152,7 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
                         });
 //                        mAppList.remove(entity.getData().getList().get(position).getAddr_id());
                         mAppList.remove(entity.getData().getList().get(position).getAddr_id());
-                        mAdapter.notifyDataSetChanged();
+                        Toast.makeText(AddAddressActivityA.this, "删除成功", Toast.LENGTH_SHORT).show();
                         mAdapter.notifyDataSetChanged();
                         //  break;
                 }
@@ -286,6 +286,7 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
         public AppAdapter(MyAddressListEntity data, Context context) {
             this.data = data;
             this.context = context;
+            notifyDataSetChanged();
         }
 
         @Override

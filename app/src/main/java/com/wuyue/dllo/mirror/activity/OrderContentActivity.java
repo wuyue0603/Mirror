@@ -35,7 +35,6 @@ public class OrderContentActivity extends BaseActivity {
     private TextView orderName, orderTel, orderAddress, receiverInfo;
     private ImageView closeIv;
     private Handler handler;
-    private int requestCode = 102;
     private String addrId;
     private MyAddressListEntity entity;
     private String price, id;

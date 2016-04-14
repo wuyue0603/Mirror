@@ -84,7 +84,7 @@
             android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="@dimen/orderContentViewHeight"
-            android:layout_below="@id/receiver_info"
+            android:layout_below="@+id/order_content_tel"
             android:layout_marginTop="@dimen/orderContentViewTop"
             android:background="@color/orderContentView" />
 
