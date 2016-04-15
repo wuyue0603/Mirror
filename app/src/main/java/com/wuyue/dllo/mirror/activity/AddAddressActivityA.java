@@ -138,8 +138,11 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
                             }
                         });
                         mAppList.remove(entity.getData().getList().get(position).getAddr_id());
-                        Toast.makeText(AddAddressActivityA.this, "删除成功", Toast.LENGTH_SHORT).show();
                         mAdapter.notifyDataSetChanged();
+                        Intent intent = new Intent("com.wuyue.dllo.mirror.Broadcast");
+                        sendBroadcast(intent);
+                        Toast.makeText(AddAddressActivityA.this, "删除成功", Toast.LENGTH_SHORT).show();
+
                 }
                 return false;
             }
