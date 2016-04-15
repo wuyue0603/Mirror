@@ -6,6 +6,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -59,7 +61,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         telEt = bindView(R.id.login_tel_et);
         passwordEt = bindView(R.id.login_password_et);
         relativeLayout = bindView(R.id.login_relative);
-        if (passwordEt.getText().toString() != null) {
+        if (passwordEt.getText().toString() != null && passwordEt.length() > 0) {
             relativeLayout.setBackgroundResource(R.mipmap.login_press);
         }
         relativeLayout.setOnClickListener(new View.OnClickListener() {
@@ -79,7 +81,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     public void okhttp() {
         if (telEt != null && telEt.length() > 0 && passwordEt != null && passwordEt.length() > 0) {
-            Log.i("6666666666", "8888");
+
             handler = new Handler(new Handler.Callback() {
                 @Override
                 public boolean handleMessage(Message msg) {
@@ -116,8 +118,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
                 }
             });
-            finish();
+            Intent i = new Intent(LoginActivity.this,MainActivity.class);
+            startActivity(i);
 
+            Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(LoginActivity.this, "请填写完整信息", Toast.LENGTH_SHORT).show();
         }
