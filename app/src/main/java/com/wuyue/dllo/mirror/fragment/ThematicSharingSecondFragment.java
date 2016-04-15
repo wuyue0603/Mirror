@@ -12,8 +12,8 @@ import com.wuyue.dllo.mirror.R;
 /**
  * Created by dllo on 16/4/8.
  */
-public class ThematicSharingSecondFragment extends Fragment{
-    private TextView tv1, tv2,tv3;
+public class ThematicSharingSecondFragment extends Fragment {
+    private TextView tv1, tv2, tv3;
     String s;
     String title;
     String subTitle;
@@ -22,7 +22,6 @@ public class ThematicSharingSecondFragment extends Fragment{
         this.s = s;
         this.title = title;
         this.subTitle = subTitle;
-
     }
 
     @Override
@@ -30,14 +29,14 @@ public class ThematicSharingSecondFragment extends Fragment{
         View view = inflater.inflate(R.layout.thematic_sharing_content, container, false);
         return view;
     }
+
     @Override
-    public void onActivityCreated( Bundle savedInstanceState) {
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-
     }
+
     @Override
-    public void onViewCreated(View view,  Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         tv1 = (TextView) view.findViewById(R.id.theme_smal_title);
         tv2 = (TextView) view.findViewById(R.id.theme_big_title);
@@ -45,7 +44,5 @@ public class ThematicSharingSecondFragment extends Fragment{
         tv1.setText(s);
         tv2.setText(title);
         tv3.setText(subTitle);
-
-
     }
 }

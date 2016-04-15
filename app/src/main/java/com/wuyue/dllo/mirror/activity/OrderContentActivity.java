@@ -45,7 +45,6 @@ public class OrderContentActivity extends BaseActivity {
 
     }
 
-
     @Override
     protected void init() {
         brandTv = bindView(R.id.things_brand);
@@ -58,8 +57,6 @@ public class OrderContentActivity extends BaseActivity {
                 payDialog();
             }
         });
-
-
         receiverInfo = bindView(R.id.receiver_info);
         orderName = bindView(R.id.order_content_name);
         orderTel = bindView(R.id.order_content_tel);
@@ -79,29 +76,17 @@ public class OrderContentActivity extends BaseActivity {
                     img.setImageURI(Uri.parse(entity1.getData().getGoods().getPic()));
                     writeTv.setText("更改地址");
                     receiverInfo.setVisibility(View.GONE);
-
-                   
-
-
-
-
-
-
-
                 } else {
                     receiverInfo.setVisibility(View.VISIBLE);
                     writeTv.setText("添加地址");
                 }
-
                 return false;
             }
         });
 
         Intent intent = getIntent();
-
         id = intent.getStringExtra("id");
         price = intent.getStringExtra("price");
-
         String url = "http://api101.test.mirroreye.cn/index.php/order/sub";
         OkHttpUtils.post().url(url).addParams("token", "433ae165cc754e151c0e8de2ed6ba152").addParams("goods_id", id).addParams("price", price)
                 .addParams("device_type", "2").addParams("goods_num", "30").build().execute(new Callback() {
@@ -130,8 +115,6 @@ public class OrderContentActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent1 = new Intent(OrderContentActivity.this, AddAddressActivityA.class);
                 startActivity(intent1);
-                // finish();
-
             }
         });
         closeIv.setOnClickListener(new View.OnClickListener() {
@@ -140,24 +123,18 @@ public class OrderContentActivity extends BaseActivity {
                 finish();
             }
         });
-
-
     }
 
     private void payDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        View view = getLayoutInflater().inflate(R.layout.pay_dialog,null);
+        View view = getLayoutInflater().inflate(R.layout.pay_dialog, null);
         builder.setView(view);
-//        builder.setTitle("选择支付方式");
         builder.show();
-
     }
-
 
     @Override
     protected int getLayout() {
         return R.layout.activity_ordercontent;
+
     }
-
-
 }

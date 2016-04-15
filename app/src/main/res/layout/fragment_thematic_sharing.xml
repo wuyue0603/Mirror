@@ -17,52 +17,52 @@
             android:layout_marginTop="@dimen/all_type_line_margintop"
             android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/all_type_line_marginleft"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/fragment_title"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/all_type_line_text"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/all_type_line_textsize" />
+                android:layout_marginLeft="@dimen/all_type_line_marginleft"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/fragment_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/all_type_line_text"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/all_type_line_textsize" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/all_type_line_marginlef"
+                    android:src="@mipmap/bottom" />
+
+            </LinearLayout>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/all_type_line_marginlef"
-                android:src="@mipmap/bottom" />
+                android:layout_marginLeft="@dimen/all_type_image_left"
+                android:layout_marginTop="@dimen/all_type_image_top_ima"
+                android:src="@mipmap/main_line" />
 
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/all_type_image_left"
-            android:layout_marginTop="@dimen/all_type_image_top_ima"
-            android:src="@mipmap/main_line" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/all_type_image_margintop_lin">
-
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="11dp"
-                android:text="@string/all_type_linearlayout_text"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/size" />
+                android:layout_marginTop="@dimen/all_type_image_margintop_lin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="11dp"
+                    android:text="@string/all_type_linearlayout_text"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/size" />
+
+            </LinearLayout>
 
         </LinearLayout>
-
-    </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/thematic_sharing_recyclerview"

@@ -75,11 +75,9 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
             public boolean handleMessage(Message msg) {
                 Gson gson = new Gson();
                 allGoodsListEntity1 = gson.fromJson(msg.obj.toString(), AllGoodsListEntity.class);
-//                Log.d("XXXXXXXXXXXXXX", pos + "handleMessage: ");
                 listView.setAdapter(new UpListViewAdapter(allGoodsListEntity1, getApplication(), pos), new DownListViewAdapter(allGoodsListEntity1, getApplication(), pos));
                 listView.setLinkageSpeed(1.2f);
                 background.setImageURI(Uri.parse(allGoodsListEntity1.getData().getList().get(pos).getGoods_img()));
-
                 return false;
             }
         });
@@ -120,8 +118,8 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
             case R.id.buy_iv:
                 Intent intent1 = new Intent(HomepageContentActivity.this, OrderContentActivity.class);
                 intent1.putExtra("pos", pos);
-                intent1.putExtra("id",allGoodsListEntity1.getData().getList().get(pos).getGoods_id());
-                intent1.putExtra("price",allGoodsListEntity1.getData().getList().get(pos).getGoods_price());
+                intent1.putExtra("id", allGoodsListEntity1.getData().getList().get(pos).getGoods_id());
+                intent1.putExtra("price", allGoodsListEntity1.getData().getList().get(pos).getGoods_price());
                 startActivity(intent1);
                 break;
         }

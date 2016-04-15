@@ -49,12 +49,10 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
     private Handler handler, handler1, handler2;
     private ImageView iv;
     private List<ApplicationInfo> mAppList;
-
     private AppAdapter mAdapter;
     private SwipeMenuListView listView;
     private static MyAddressListEntity entity;
     private MyBroadcast myBroadcast;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,15 +67,11 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.wuyue.dllo.mirror.Broadcast");
         registerReceiver(myBroadcast, intentFilter);
-
-
         okHttp();
-
 
         mAppList = getPackageManager().getInstalledApplications(0);
 
         listView = (SwipeMenuListView) findViewById(R.id.add_address_a_listview);
-
 
         // step 1. create a MenuCreator
         SwipeMenuCreator creator = new SwipeMenuCreator() {
@@ -93,7 +87,6 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
                 }
             }
 
-
             private void createMenu2(SwipeMenu menu) {
                 SwipeMenuItem item2 = new SwipeMenuItem(
                         getApplicationContext());
@@ -104,25 +97,19 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
                 item2.setTitleSize(20);
                 menu.addMenuItem(item2);
             }
-
-
         };
 
         listView.setMenuCreator(creator);
-
         listView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
                 ApplicationInfo item = mAppList.get(position);
                 switch (index) {
-
                     case 0:
-
-                       mAdapter.notifyDataSetChanged();
+                        mAdapter.notifyDataSetChanged();
                         handler1 = new Handler(new Handler.Callback() {
                             @Override
                             public boolean handleMessage(Message msg) {
-
                                 return false;
                             }
                         });
@@ -150,21 +137,17 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
 
                             }
                         });
-//                        mAppList.remove(entity.getData().getList().get(position).getAddr_id());
                         mAppList.remove(entity.getData().getList().get(position).getAddr_id());
                         Toast.makeText(AddAddressActivityA.this, "删除成功", Toast.LENGTH_SHORT).show();
                         mAdapter.notifyDataSetChanged();
-                        //  break;
                 }
                 return false;
             }
         });
 
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                 handler2 = new Handler(new Handler.Callback() {
                     @Override
                     public boolean handleMessage(Message msg) {
@@ -198,23 +181,13 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
                 okHttp();
                 mAdapter.notifyDataSetChanged();
                 Toast.makeText(AddAddressActivityA.this, "设置完成", Toast.LENGTH_SHORT).show();
-
                 AddAddressActivityA.this.finish();
             }
 
         });
-
-
     }
 
-//    @Override
-//    protected void onDestroy() {
-//        unregisterReceiver(myBroadcast);
-//        super.onDestroy();
-//    }
-
     public void okHttp() {
-
         handler = new Handler(new Handler.Callback() {
             @Override
             public boolean handleMessage(Message msg) {
@@ -248,10 +221,7 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
 
             }
         });
-
-
     }
-
 
     @Override
     public void onClick(View v) {
@@ -265,7 +235,6 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
                 break;
         }
     }
-
 
     class MyBroadcast extends BroadcastReceiver {
 
@@ -294,29 +263,15 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
             return data.getData().getList().size();
         }
 
-
         @Override
         public Object getItem(int position) {
             return data.getData().getList().get(position);
         }
 
-
         @Override
         public long getItemId(int position) {
             return position;
         }
-
-//        @Override
-//        public int getViewTypeCount() {
-//            // menu type count
-//            return 2;
-//        }
-//
-//        @Override
-//        public int getItemViewType(int position) {
-//            // current menu type
-//            return position % 2;
-//        }
 
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
@@ -327,16 +282,13 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
                 holder.tell = (TextView) convertView.findViewById(R.id.address_tel);
                 holder.address = (TextView) convertView.findViewById(R.id.address_address);
                 holder.upIv = (ImageView) convertView.findViewById(R.id.updata_iv);
-
                 convertView.setTag(holder);
             }
-
 
             holder = (MyViewHolder) convertView.getTag();
             holder.addName.setText(data.getData().getList().get(position).getUsername());
             holder.tell.setText(data.getData().getList().get(position).getCellphone());
             holder.address.setText(data.getData().getList().get(position).getAddr_info());
-
             holder.upIv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -358,8 +310,6 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
         public class MyViewHolder {
             private TextView addName, tell, address;
             private ImageView upIv;
-
-
         }
     }
 
@@ -367,6 +317,4 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
                 getResources().getDisplayMetrics());
     }
-
-
 }

@@ -329,9 +329,6 @@
     <dimen name="marginRight20">20dp</dimen>
     <dimen name="marginRight15">15dp</dimen>
 
-
-
-
     <dimen name="activity_details_return_iv_marginLeft">10dp</dimen>
     <dimen name="activity_details_frameLayout_height">50dp</dimen>
     <dimen name="activity_details_frameLayout_marginBottom">2dp</dimen>
@@ -339,4 +336,32 @@
     <dimen name="activity_details_btn_marginLeft">30dp</dimen>
     <dimen name="activity_details_buyIv_marginRight">20dp</dimen>
     <dimen name="videoview">200dp</dimen>
+    <dimen name="activityAlbumPictureItemWidth">400dp</dimen>
+    <dimen name="activityAlbumPictureItemHeight">300dp</dimen>
+    <dimen name="activityAlbumVideoViewWidth">440dp</dimen>
+    <dimen name="activityThematicSharingBottom">10dp</dimen>
+    <dimen name="addaddressItemLeft">10dp</dimen>
+    <dimen name="addaddressItemRight">10dp</dimen>
+    <dimen name="addaddressItemTop">20dp</dimen>
+    <dimen name="addaddressItemTextViewSize">15sp</dimen>
+    <dimen name="addaddressItemLinearTop">12dp</dimen>
+    <dimen name="addaddressItemTextViewLeft">10dp</dimen>
+    <dimen name="addAddressItemTextTop">12dp</dimen>
+    <dimen name="payDialogTextViewTop">20dp</dimen>
+    <dimen name="payDialogTextViewSize">15sp</dimen>
+    <dimen name="payDialogViewHeight">1dp</dimen>
+    <dimen name="payDialogViewTop">10dp</dimen>
+    <dimen name="payDialogRelativeLeft">40dp</dimen>
+    <dimen name="payDialogRelativeRight">40dp</dimen>
+    <dimen name="payDialogRelativeTop">20dp</dimen>
+    <dimen name="payDialogImageViewLeft">75dp</dimen>
+    <dimen name="payDialogTextViewLeft">24px</dimen>
+    <dimen name="payDialogBottomTextViewSize">14sp</dimen>
+    <dimen name="payDialogRelativeLayoutBottom">20dp</dimen>
+    <dimen name="payDialogRelativeLayoutLeft">40dp</dimen>
+    <dimen name="payDialogRelativeLayoutRight">40dp</dimen>
+    <dimen name="payDialogRelativeLayoutTop">20dp</dimen>
+    <dimen name="payDialogImageLeft">75dp</dimen>
+    <dimen name="payDialogTextLeft">24px</dimen>
+    <dimen name="alipaySize">14sp</dimen>
 </resources>

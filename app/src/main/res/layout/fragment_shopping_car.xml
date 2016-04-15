@@ -2,16 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@mipmap/bg">
-
+    android:background="@mipmap/bg"
+    android:orientation="vertical">
 
     <ImageView
-        android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/shoppp"/>
-
+        android:layout_centerInParent="true"
+        android:src="@mipmap/shoppp" />
 
     <LinearLayout
         android:id="@+id/shop_car_linear"
@@ -30,7 +28,7 @@
                 android:id="@+id/fragment_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="我的購物車"
+                android:text="@string/myShoppingCar"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/all_type_line_textsize" />
 
@@ -64,6 +62,7 @@
                 android:textSize="@dimen/size" />
 
         </LinearLayout>
+
     </LinearLayout>
 
 </RelativeLayout>

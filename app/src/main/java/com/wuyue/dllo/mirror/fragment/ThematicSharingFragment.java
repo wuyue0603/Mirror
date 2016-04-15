@@ -39,7 +39,8 @@ public class ThematicSharingFragment extends Fragment {
     private RecyclerView recyclerView;
     private int i;
     private LinearLayout linearlayout;
-    private ArrayList<String>titleData;
+    private ArrayList<String> titleData;
+
     public ThematicSharingFragment(int i) {
         this.i = i;
     }
@@ -62,8 +63,8 @@ public class ThematicSharingFragment extends Fragment {
         linearlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ShowMenu showMenu  = new ShowMenu(getActivity());
-                showMenu.showPopupWindow(v,titleData,0);
+                ShowMenu showMenu = new ShowMenu(getActivity());
+                showMenu.showPopupWindow(v, titleData, 0);
             }
         });
     }

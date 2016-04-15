@@ -30,14 +30,11 @@ public class AlbumAdapter extends BaseAdapter {
     private Window window = null;
     private int pos;
 
-    public AlbumAdapter(AlbumEntity data, Context context,int pos) {
+    public AlbumAdapter(AlbumEntity data, Context context, int pos) {
         this.data = data;
         this.context = context;
         Log.d("pos", String.valueOf(pos));
         this.pos = pos;
-
-
-
     }
 
     @Override
@@ -64,9 +61,7 @@ public class AlbumAdapter extends BaseAdapter {
         } else {
             return TYPE_2;
         }
-
     }
-
 
     @Override
     public int getViewTypeCount() {
@@ -85,14 +80,11 @@ public class AlbumAdapter extends BaseAdapter {
                     convertView = LayoutInflater.from(context).inflate(R.layout.activity_album_videoview, parent, false);
                     holderVideo.videoView = (VideoView) convertView.findViewById(R.id.video_item_videoView);
                     holderVideo.videoView.setMediaController(new MediaController(context));
-
                     final HolderVideo finalHolderVideo = holderVideo;
                     holderVideo.videoView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-
                             finalHolderVideo.videoView.start();
-
                         }
                     });
                     convertView.setTag(holderVideo);
@@ -114,14 +106,12 @@ public class AlbumAdapter extends BaseAdapter {
         }
 
         switch (type) {
-
             case TYPE_1:
-                if (pos == 0){
+                if (pos == 0) {
                     holderVideo.videoView.setVideoURI(Uri.parse("http://7xr7f7.com2.z0.glb.qiniucdn.com/Jimmy%20fairly%20-%20Spring%202014-HD.mp4"));
-                }else {
+                } else {
                     holderVideo.videoView.setVideoURI(Uri.parse("http://7xlvms.com2.z0.glb.qiniucdn.com/See%20Concept%2C%20Deuxi.mp4"));
                 }
-
                 break;
             case TYPE_2:
                 holderPicture.draweeView.setImageURI(Uri.parse(String.valueOf(data.getData().getList().get(pos).getWear_video().get(position).getData())));
@@ -134,11 +124,9 @@ public class AlbumAdapter extends BaseAdapter {
                     }
                 });
                 break;
-
         }
         return convertView;
     }
-
 
     class HolderVideo {
         VideoView videoView;
@@ -151,10 +139,9 @@ public class AlbumAdapter extends BaseAdapter {
     SimpleDraweeView draweeView;
 
     public void showImgDialog(int pos1) {
+
         final AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.Dialog_FS);
-
         window.getCurrentFocus();
-
         View view = LayoutInflater.from(context).inflate(R.layout.dialog, null);
         window = ((AppCompatActivity) context).getWindow();
         window.setWindowAnimations(R.style.dialogWindowAnim);
@@ -168,10 +155,8 @@ public class AlbumAdapter extends BaseAdapter {
         draweeView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 dialog.dismiss();
             }
         });
-
     }
 }

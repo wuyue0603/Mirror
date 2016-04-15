@@ -13,7 +13,6 @@ import com.wuyue.dllo.mirror.fragment.PlaceholderFragment;
  */
 public class FinishInfoOrderContentActivity extends BaseActivity {
 
-
     @Override
     protected void initData() {
 
@@ -28,7 +27,5 @@ public class FinishInfoOrderContentActivity extends BaseActivity {
     protected int getLayout() {
         return R.layout.activity_finishinfo_ordercontent;
     }
-
-
 
 }

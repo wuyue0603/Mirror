@@ -5,11 +5,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/picture_item_iv"
-        android:layout_width="400dp"
-        android:layout_height="300dp"
+        android:layout_width="@dimen/activityAlbumPictureItemWidth"
+        android:layout_height="@dimen/activityAlbumPictureItemHeight"
         android:transitionName="img"
         android:layout_gravity="center"/>
+
 </LinearLayout>

@@ -2,11 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#FFFFFF">
+    android:background="@color/loginLoginColors"
+    android:orientation="vertical">
 
     <VideoView
         android:id="@+id/video_item_videoView"
-        android:layout_width="430dp"
+        android:layout_width="@dimen/activityAlbumVideoViewWidth"
         android:layout_height="@dimen/videoview" />
+
 </LinearLayout>

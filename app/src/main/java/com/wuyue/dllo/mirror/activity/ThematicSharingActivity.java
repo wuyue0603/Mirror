@@ -40,15 +40,11 @@ import okhttp3.Response;
 /**
  * Created by dllo on 16/4/8.
  */
-public class ThematicSharingActivity extends AppCompatActivity{
+public class ThematicSharingActivity extends AppCompatActivity {
     private SimpleDraweeView main_iv;
     private List<Fragment> data;
     private ThematicSharingSecondAdapter adapter;
     private VerticalViewPager viewPager;
-    //    private int[] back = {R.mipmap.a, R.mipmap.b, R.mipmap.c,
-// R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher,
-// R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher,
-// R.mipmap.ic_launcher, R.mipmap.ic_launcher};
     private Handler handler;
     private ThameticSharingEntity bean;
     private ArrayList<String> list;
@@ -67,7 +63,7 @@ public class ThematicSharingActivity extends AppCompatActivity{
         initViewPager();
         data = new ArrayList<>();
         main_iv = (SimpleDraweeView) findViewById(R.id.main_iv);
-        sharedBtn= (Button) findViewById(R.id.theme_share_btn);
+        sharedBtn = (Button) findViewById(R.id.theme_share_btn);
         //设置分享按钮的监听事件
         sharedBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,13 +92,8 @@ public class ThematicSharingActivity extends AppCompatActivity{
                 oks.setSiteUrl("http://sharesdk.cn");
                 // 启动分享GUI
                 oks.show(ThematicSharingActivity.this);
-
             }
         });
-
-//        main_iv.setBackgroundResource(back[0]);
-
-
         handler = new Handler(new Handler.Callback() {
             @Override
             public boolean handleMessage(Message msg) {
@@ -123,7 +114,6 @@ public class ThematicSharingActivity extends AppCompatActivity{
                 for (int i = 0; i < bean.getData().getStory_data().getImg_array().size(); i++) {
                     String img = bean.getData().getStory_data().getImg_array().get(i);
                     picture.add(img);
-
                 }
                 main_iv.setImageURI(Uri.parse(picture.get(0)));
                 Log.d("sssss", picture.get(0));
@@ -135,21 +125,17 @@ public class ThematicSharingActivity extends AppCompatActivity{
                 return false;
             }
         });
-
-
     }
-    public static void EnterSecondThme(Context context, ThematicSharingAdapter adapter1){
-        Intent intent = new Intent(context,ThematicSharingActivity.class);
+
+    public static void EnterSecondThme(Context context, ThematicSharingAdapter adapter1) {
+        Intent intent = new Intent(context, ThematicSharingActivity.class);
         context.startActivity(intent);
         thematicSharingAdapter = adapter1;
-
     }
 
     private void initViewPager() {
         viewPager =
                 (VerticalViewPager) findViewById(R.id.vertical_viewpager);
-
-
         String url = "http://api101.test.mirroreye.cn/" + "index.php/story/info";
         OkHttpUtils.post().url(url).addParams("device_type", "2").addParams("story_id", "2").build().execute(new Callback() {
             @Override
@@ -190,15 +176,10 @@ public class ThematicSharingActivity extends AppCompatActivity{
 
             @Override
             public void onPageScrollStateChanged(int state) {
-
-
                 if (state == 2) {
-//                    main_iv.setBackgroundResource(back[viewPager.getCurrentItem()]);
                     main_iv.setImageURI(Uri.parse(picture.get(viewPager.getCurrentItem())));
                 }
             }
-
-
         });
     }
 }

@@ -11,15 +11,14 @@ import java.util.List;
 /**
  * Created by dllo on 16/4/8.
  */
-public class ThematicSharingSecondAdapter extends FragmentPagerAdapter{
+public class ThematicSharingSecondAdapter extends FragmentPagerAdapter {
     private List<Fragment> fragments = new ArrayList<>();
     private Context c;
+
     public ThematicSharingSecondAdapter(FragmentManager fm, List<Fragment> fragments, Context context) {
         super(fm);
         this.fragments = fragments;
         this.c = context;
-
-
     }
 
     @Override

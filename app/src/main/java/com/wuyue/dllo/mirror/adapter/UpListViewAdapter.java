@@ -38,11 +38,6 @@ public class UpListViewAdapter extends BaseAdapter {
         inflater = LayoutInflater.from(context);
     }
 
-//    public void onEvent(AllGoodsListEntity allGoodsListEntity) {
-//        this.allGoodsListEntity = allGoodsListEntity;
-//        Log.d("UpListViewAdapter", "allGoodsListEntity.getData().getList().size():" + allGoodsListEntity.getData().getList().size());
-//    }
-
     @Override
     public int getCount() {
         return allGoodsListEntity.getData().getList().get(myPosition).getDesign_des().size() + 3;
@@ -118,7 +113,6 @@ public class UpListViewAdapter extends BaseAdapter {
                         oks.setSiteUrl("http://sharesdk.cn");
                         // 启动分享GUI
                         oks.show(context);
-
                     }
                 });
                 break;
@@ -160,10 +154,6 @@ public class UpListViewAdapter extends BaseAdapter {
             shareIv = (ImageView) view.findViewById(R.id.down_listView_share_btn);
         }
     }
-
-//    public class ListViewBlankHolder {
-//
-//    }
 
     public class ListViewDetailHolder {
         private ImageView background;

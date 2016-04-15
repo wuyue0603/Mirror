@@ -21,32 +21,31 @@ import okhttp3.Response;
 /**
  * Created by dllo on 16/4/9.
  */
-public class AlbumActivity extends AppCompatActivity{
+public class AlbumActivity extends AppCompatActivity {
     private Handler handler;
     private AlbumAdapter adapter;
     private ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_album);
         Intent intent = getIntent();
-        final int pos = intent.getIntExtra("pos",0);
+        final int pos = intent.getIntExtra("pos", 0);
         handler = new Handler(new Handler.Callback() {
             @Override
             public boolean handleMessage(Message msg) {
                 AlbumEntity entity = new Gson().fromJson(msg.obj.toString(), AlbumEntity.class);
                 Log.d("ccccccc1", entity.toString());
                 listView = (ListView) findViewById(R.id.listView);
-                adapter = new AlbumAdapter(entity, AlbumActivity.this,pos);
+                adapter = new AlbumAdapter(entity, AlbumActivity.this, pos);
                 listView.setAdapter(adapter);
                 return false;
             }
         });
-
-
-
         init();
     }
+
     private void init() {
         String url = "http://api101.test.mirroreye.cn/index.php/products/goods_list";
         OkHttpUtils.post().url(url).addParams("device_type", "2").addParams("version", "1.0.1").build().execute(new Callback() {

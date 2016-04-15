@@ -25,7 +25,6 @@ public class CreateAccountNumberActivity extends BaseActivity implements View.On
     private Button sendCodeBtn;
     private EditText codeEt;
 
-
     @Override
     protected void initData() {
 

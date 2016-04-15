@@ -85,4 +85,8 @@
 
     <!-- mob-->
     <string name="share">分享</string>
+    <string name="myShoppingCar">我的購物車</string>
+    <string name="choosePayType">选择支付方式</string>
+    <string name="payDialogweChatText">微信支付</string>
+    <string name="alipay">支付宝支付</string>
 </resources>

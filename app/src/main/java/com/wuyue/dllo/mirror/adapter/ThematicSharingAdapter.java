@@ -50,22 +50,13 @@ public class ThematicSharingAdapter extends RecyclerView.Adapter<ThematicSharing
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ThematicSharingActivity.EnterSecondThme(context,ThematicSharingAdapter.this);
-
+                ThematicSharingActivity.EnterSecondThme(context, ThematicSharingAdapter.this);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-//        ThematicSharingEntity.DataEntity dataEntity = data.getData();
-//        if (dataEntity != null){
-//            List<ThematicSharingEntity.DataEntity.ListEntity> list = dataEntity.getList();
-//            if (list != null && list.size() > 0){
-//                Log.i("43434","11");
-//                return list.size();
-//            }
-//        }
         return data.getData().getList().size();
     }
 

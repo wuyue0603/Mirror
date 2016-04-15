@@ -8,31 +8,32 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <TextView
-        android:id="@+id/pay_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="选择支付方式"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:textSize="15sp"
-        android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/pay_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/payDialogTextViewTop"
+            android:text="@string/choosePayType"
+            android:textSize="@dimen/payDialogTextViewSize"
+            android:textStyle="bold" />
 
         <View
-            android:layout_below="@id/pay_type"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#d5d5d5"
-            android:layout_marginTop="10dp"/>
+            android:layout_height="@dimen/payDialogViewHeight"
+            android:layout_below="@id/pay_type"
+            android:layout_marginTop="@dimen/payDialogViewTop"
+            android:background="@color/orderContentView" />
 
-</RelativeLayout>
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="@dimen/payDialogRelativeLeft"
+        android:layout_marginRight="@dimen/payDialogRelativeRight"
+        android:layout_marginTop="@dimen/payDialogRelativeTop"
         android:background="@mipmap/chatpay">
 
         <ImageView
@@ -40,46 +41,47 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="75dp"
+            android:layout_marginLeft="@dimen/payDialogImageViewLeft"
             android:src="@mipmap/wechat_pay" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="24px"
+            android:layout_marginLeft="@dimen/payDialogTextViewLeft"
             android:layout_toRightOf="@id/wechat_iv"
-            android:text="微信支付"
+            android:text="@string/payDialogweChatText"
             android:textColor="@color/loginLoginColors"
-            android:textSize="14sp" />
+            android:textSize="@dimen/payDialogBottomTextViewSize" />
+
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="20dp"
-        android:background="@mipmap/chatpay"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="@dimen/payDialogRelativeLayoutBottom"
+        android:layout_marginLeft="@dimen/payDialogRelativeLayoutLeft"
+        android:layout_marginRight="@dimen/payDialogRelativeLayoutRight"
+        android:layout_marginTop="@dimen/payDialogRelativeLayoutTop"
+        android:background="@mipmap/chatpay">
 
         <ImageView
             android:id="@+id/alipay_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="75dp"
+            android:layout_marginLeft="@dimen/payDialogImageLeft"
             android:src="@mipmap/alipay" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="24px"
+            android:layout_marginLeft="@dimen/payDialogTextLeft"
             android:layout_toRightOf="@id/alipay_iv"
-            android:text="支付宝支付"
+            android:text="@string/alipay"
             android:textColor="@color/loginLoginColors"
-            android:textSize="14sp" />
+            android:textSize="@dimen/alipaySize" />
 
     </RelativeLayout>
 

@@ -31,7 +31,7 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
     private ImageView addIv;
     private EditText addNameEt, addTelEt, addAddressEt;
     private RelativeLayout relativeLayout;
-    private Handler h;
+    private Handler updateHandler;
     private Handler handler;
     private String token;
     private ArrayList<String> names, tels, adds;
@@ -44,7 +44,7 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
             addTelEt.setText(i.getStringExtra("cellphone1"));
             addAddressEt.setText(i.getStringExtra("addr_info1"));
 
-            h = new Handler(new Handler.Callback() {
+            updateHandler = new Handler(new Handler.Callback() {
                 @Override
                 public boolean handleMessage(Message msg) {
                     return false;
@@ -69,13 +69,10 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
                 }
             });
         }
-
-
     }
 
     @Override
     protected void init() {
-
         addIv = bindView(R.id.add_address_close);
         addNameEt = bindView(R.id.add_name_et);
         addTelEt = bindView(R.id.add_tel_et);
@@ -120,7 +117,6 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
                 }
             });
 
-
             String url = "http://api101.test.mirroreye.cn/index.php/user/add_address";
             OkHttpUtils.post().url(url).addParams("token", "433ae165cc754e151c0e8de2ed6ba152")
                     .addParams("username", addNameEt.getText().toString()).addParams("cellphone", addTelEt.getText().toString())
@@ -148,8 +144,5 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
         } else {
             Toast.makeText(AddAddressActivity.this, "请填写完整信息", Toast.LENGTH_SHORT).show();
         }
-
     }
-
-
 }

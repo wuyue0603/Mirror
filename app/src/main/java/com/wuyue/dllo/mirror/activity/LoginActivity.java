@@ -31,7 +31,7 @@ import okhttp3.Response;
  * Created by dllo on 16/3/29.
  */
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
-    private ImageView closeIv,sinaLogin;
+    private ImageView closeIv, sinaLogin;
     private RelativeLayout createNumber;
     private Handler handler;
     private EditText telEt, passwordEt;
@@ -42,12 +42,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
     }
 
     @Override
     protected void initData() {
-
 
     }
 
@@ -56,7 +54,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         closeIv = bindView(R.id.login_close);
         closeIv.setOnClickListener(this);
         createNumber = bindView(R.id.create_number_relative);
-
         sinaLogin = bindView(R.id.sina_login);
         sinaLogin.setOnClickListener(this);
         telEt = bindView(R.id.login_tel_et);
@@ -69,8 +66,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             @Override
             public void onClick(View v) {
                 okhttp();
-
-
             }
         });
         createNumber.setOnClickListener(new View.OnClickListener() {
@@ -93,7 +88,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     Log.d("tttt", token);
                     Intent intent = new Intent(LoginActivity.this, AddAddressActivity.class);
                     intent.putExtra("token", token);
-
                     startActivity(intent);
                     return false;
                 }
@@ -127,8 +121,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         } else {
             Toast.makeText(LoginActivity.this, "请填写完整信息", Toast.LENGTH_SHORT).show();
         }
-
-
     }
 
     @Override
