@@ -31,13 +31,12 @@ import okhttp3.Response;
  * Created by dllo on 16/3/29.
  */
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
-    private ImageView closeIv, sinaLogin;
+    private ImageView closeIv,sinaLogin;
     private RelativeLayout createNumber;
     private Handler handler;
     private EditText telEt, passwordEt;
     private RelativeLayout relativeLayout;
     private String token;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +56,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         closeIv = bindView(R.id.login_close);
         closeIv.setOnClickListener(this);
         createNumber = bindView(R.id.create_number_relative);
-
 
         sinaLogin = bindView(R.id.sina_login);
         sinaLogin.setOnClickListener(this);
@@ -172,7 +170,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
                 break;
         }
-
     }
 
 }
