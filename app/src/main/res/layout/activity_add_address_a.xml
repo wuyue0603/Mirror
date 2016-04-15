@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/add_address_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/loginTitleLeft"
+            android:layout_marginTop="@dimen/loginTitleTop"
+            android:text="@string/WholeAddressMyAddress"
+            android:textColor="@color/loginText"
+            android:textSize="@dimen/loginTitleSize" />
+
+        <ImageView
+            android:id="@+id/address_a_close_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/loginCloseRight"
+            android:layout_marginTop="@dimen/loginCloseTop"
+            android:src="@mipmap/close" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/loginLineTop"
+        android:src="@mipmap/create_account_title_line" />
+
+    <Button
+        android:id="@+id/address_btn"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/white"
+        android:text="添加地址"
+        android:textColor="@android:color/black" />
+
+    <com.baoyz.swipemenulistview.SwipeMenuListView
+        android:layout_marginTop="20dp"
+        android:id="@+id/add_address_a_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

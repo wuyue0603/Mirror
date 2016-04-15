@@ -5,6 +5,8 @@
     android:background="@color/loginBac"
     android:orientation="vertical">
 
+
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -46,6 +48,7 @@
         android:textSize="@dimen/loginTelSize" />
 
     <EditText
+        android:id="@+id/add_name_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/loginTitleLeft"
@@ -63,6 +66,7 @@
         android:textSize="@dimen/loginPasswordSize" />
 
     <EditText
+        android:id="@+id/add_tel_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/loginTitleLeft"
@@ -80,6 +84,7 @@
         android:textSize="@dimen/loginPasswordSize" />
 
     <EditText
+        android:id="@+id/add_address_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/loginTitleLeft"
@@ -88,6 +93,7 @@
         android:background="@mipmap/add_receive_address_bac" />
 
     <RelativeLayout
+        android:id="@+id/commit_address_relative"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/loginTitleLeft"

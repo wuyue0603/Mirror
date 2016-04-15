@@ -40,8 +40,9 @@ public class ShowMenu implements AdapterView.OnItemClickListener {
     private PopupWindow popupWindow;
     private ListView listView;
     private ShowMenuAdapter showMenuAdapter;
-    private TextView textView;
+    private TextView textView,popQuitTv;
     private Handler handler;
+    private MainActivity mainActivity;
 
     private String title;
     private SetTitle setTitle;
@@ -61,6 +62,14 @@ public class ShowMenu implements AdapterView.OnItemClickListener {
 
         View view = LayoutInflater.from(context).inflate(R.layout.popupwindow, null);
         textView = (TextView) view.findViewById(R.id.pop_return_textview);
+        popQuitTv = (TextView) view.findViewById(R.id.pop_quit_textview);
+
+        popQuitTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((AppCompatActivity)context).finish();
+            }
+        });
         // 初始化组件
         initView(view);
 

@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/downListViewHeadHeight"
+    android:layout_height="680dp"
     android:background="@color/downListViewHeadBac">
+
+    <ImageView
+        android:id="@+id/down_listView_share_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="50dp"
+        android:src="@mipmap/share" />
 
     <LinearLayout
         android:layout_width="@dimen/downListViewHeadLinearLayoutWidth"
@@ -69,12 +77,6 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/downListViewHeadImageViewViewTop"
                 android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:src="@mipmap/money" />
 
                 <TextView
                     android:id="@+id/detail_head_price"

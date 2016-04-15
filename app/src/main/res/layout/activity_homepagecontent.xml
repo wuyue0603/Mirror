@@ -14,6 +14,7 @@
         android:id="@+id/detail_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/activity_details_frameLayout_height"
@@ -53,4 +54,5 @@
         </RelativeLayout>
 
     </FrameLayout>
+
 </RelativeLayout>

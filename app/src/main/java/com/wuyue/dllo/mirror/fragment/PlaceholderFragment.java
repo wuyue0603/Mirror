@@ -151,7 +151,6 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private int position;
     private Context context;
-    //        private ArrayList<Integer> dataContent;
     private GoodsListEntity.DataEntity dataEntity;
     private int pos;
 
@@ -161,7 +160,6 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         this.pos = pos;
         notifyDataSetChanged();
     }
-
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

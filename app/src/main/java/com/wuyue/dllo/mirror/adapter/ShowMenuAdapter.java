@@ -72,7 +72,6 @@ public class ShowMenuAdapter extends BaseAdapter {
         return convertView;
     }
 
-
     public String getTitle(int pos) {
         return data.getData().getList().get(pos).getTitle();
     }

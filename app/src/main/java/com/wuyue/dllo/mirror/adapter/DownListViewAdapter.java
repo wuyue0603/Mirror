@@ -29,7 +29,6 @@ public class DownListViewAdapter extends BaseAdapter {
         inflater = LayoutInflater.from(context);
     }
 
-
     @Override
     public int getCount() {
         return allGoodsListEntity.getData().getList().get(myPosition).getDesign_des().size() + 3;
@@ -55,7 +54,6 @@ public class DownListViewAdapter extends BaseAdapter {
             return TYPE_1;
         }
     }
-
 
     @Override
     public int getViewTypeCount() {
@@ -113,15 +111,16 @@ public class DownListViewAdapter extends BaseAdapter {
             detailContext = (TextView) view.findViewById(R.id.detail_head_context);
             detailPrice = (TextView) view.findViewById(R.id.detail_head_price);
         }
-
     }
 
     public class ListViewBlankHolder {
+
     }
 
     public class ListViewDeatilHolder {
 
         private TextView goodsLoaction, goodsEnLocation, goodsCountry, goodsContext;
+
         public ListViewDeatilHolder(View view) {
             goodsLoaction = (TextView) view.findViewById(R.id.down_location);
             goodsEnLocation = (TextView) view.findViewById(R.id.down_en_location);
@@ -129,6 +128,5 @@ public class DownListViewAdapter extends BaseAdapter {
             goodsContext = (TextView) view.findViewById(R.id.down_context);
         }
     }
-
 }
 

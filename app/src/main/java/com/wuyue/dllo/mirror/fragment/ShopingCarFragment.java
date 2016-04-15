@@ -38,7 +38,6 @@ public class ShopingCarFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_shopping_car, container, false);
         return v;
-
     }
 
     @Override
@@ -49,9 +48,8 @@ public class ShopingCarFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ShowMenu showMenu = new ShowMenu(getActivity());
-                showMenu.showPopupWindow(v,data,0);
+                showMenu.showPopupWindow(v, data, 0);
             }
         });
-
     }
 }

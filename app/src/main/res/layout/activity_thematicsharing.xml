@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
     <com.facebook.drawee.view.SimpleDraweeView
@@ -13,26 +13,27 @@
         android:layout_gravity="center"
         fresco:placeholderImage="@mipmap/ic_launcher" />
 
+    <fr.castorflex.android.verticalviewpager.VerticalViewPager
+        android:id="@+id/vertical_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </fr.castorflex.android.verticalviewpager.VerticalViewPager>
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
+        <Button
+            android:id="@+id/theme_share_btn"
+            android:layout_width="@dimen/special_content_picture_item_sharebtn_wid_hei"
+            android:layout_height="@dimen/special_content_picture_item_sharebtn_wid_hei"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/activityThematicSharingBottom"
+            android:layout_marginRight="@dimen/special_content_picture_item_sharebtn_margin_bottom_right"
+            android:background="@mipmap/share" />
 
-    <Button
-        android:id="@+id/theme_share_btn"
-        android:layout_width="@dimen/special_content_picture_item_sharebtn_wid_hei"
-        android:layout_height="@dimen/special_content_picture_item_sharebtn_wid_hei"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginRight="@dimen/special_content_picture_item_sharebtn_margin_bottom_right"
-        android:background="@mipmap/share"/>
     </RelativeLayout>
-    <fr.castorflex.android.verticalviewpager.VerticalViewPager
-        android:id="@+id/vertical_viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
-    </fr.castorflex.android.verticalviewpager.VerticalViewPager>
 
 </FrameLayout>

@@ -27,9 +27,4 @@
         android:layout_marginRight="@dimen/downListViewTitleImageRight"
         android:background="@mipmap/title_line" />
 
-
-
-
-
-
 </LinearLayout>
