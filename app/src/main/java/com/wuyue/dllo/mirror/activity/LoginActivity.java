@@ -18,6 +18,12 @@ import com.wuyue.dllo.mirror.entity.LoginEntity;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.Callback;
 
+import java.util.HashMap;
+
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.PlatformActionListener;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.sina.weibo.SinaWeibo;
 import okhttp3.Call;
 import okhttp3.Response;
 
@@ -25,7 +31,7 @@ import okhttp3.Response;
  * Created by dllo on 16/3/29.
  */
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
-    private ImageView closeIv;
+    private ImageView closeIv,sinaLogin;
     private RelativeLayout createNumber;
     private Handler handler;
     private EditText telEt, passwordEt;
@@ -51,6 +57,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         closeIv.setOnClickListener(this);
         createNumber = bindView(R.id.create_number_relative);
 
+        sinaLogin = bindView(R.id.sina_login);
+        sinaLogin.setOnClickListener(this);
         telEt = bindView(R.id.login_tel_et);
         passwordEt = bindView(R.id.login_password_et);
         relativeLayout = bindView(R.id.login_relative);
@@ -133,6 +141,33 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         switch (v.getId()) {
             case R.id.login_close:
                 finish();
+                break;
+            case R.id.sina_login:
+                ShareSDK.initSDK(this);
+                Platform platform = ShareSDK.getPlatform(SinaWeibo.NAME);
+                if (platform.isAuthValid()) {
+                    platform.removeAccount();
+                }
+                platform.setPlatformActionListener(new PlatformActionListener() {
+                    @Override
+                    public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
+
+                    }
+
+                    @Override
+                    public void onError(Platform platform, int i, Throwable throwable) {
+
+                    }
+
+                    @Override
+                    public void onCancel(Platform platform, int i) {
+
+                    }
+                });
+
+                platform.SSOSetting(false);
+                platform.showUser(null);
+
                 break;
         }
     }

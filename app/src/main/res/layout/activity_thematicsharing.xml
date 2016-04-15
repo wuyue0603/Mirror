@@ -13,11 +13,20 @@
         android:layout_gravity="center"
         fresco:placeholderImage="@mipmap/ic_launcher" />
 
+
+
+
+
+    <fr.castorflex.android.verticalviewpager.VerticalViewPager
+        android:id="@+id/vertical_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+    </fr.castorflex.android.verticalviewpager.VerticalViewPager>
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-
-
     <Button
         android:id="@+id/theme_share_btn"
         android:layout_width="@dimen/special_content_picture_item_sharebtn_wid_hei"
@@ -28,11 +37,4 @@
         android:layout_marginRight="@dimen/special_content_picture_item_sharebtn_margin_bottom_right"
         android:background="@mipmap/share"/>
     </RelativeLayout>
-    <fr.castorflex.android.verticalviewpager.VerticalViewPager
-        android:id="@+id/vertical_viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
-    </fr.castorflex.android.verticalviewpager.VerticalViewPager>
-
 </FrameLayout>
