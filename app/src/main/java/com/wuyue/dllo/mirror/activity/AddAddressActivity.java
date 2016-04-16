@@ -82,9 +82,9 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
             @Override
             public void onClick(View v) {
                 okhttp();
-                Intent intent = new Intent(AddAddressActivity.this, AddAddressActivityA.class);
-                intent.setAction("com.wuyue.dllo.mirror.Broadcast");
-                sendBroadcast(intent);
+//                Intent intent = new Intent(AddAddressActivity.this, AddAddressActivityA.class);
+//                intent.setAction("com.wuyue.dllo.mirror.Broadcast");
+//                sendBroadcast(intent);
 
             }
         });
@@ -114,8 +114,10 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
             handler = new Handler(new Handler.Callback() {
                 @Override
                 public boolean handleMessage(Message msg) {
-//                Intent intent = new Intent(AddAddressActivity.this, AddAddressActivityA.class);
-//                startActivity(intent);
+
+                    Intent intent = new Intent(AddAddressActivity.this, AddAddressActivityA.class);
+                    startActivity(intent);
+                    Toast.makeText(AddAddressActivity.this, "添加成功", Toast.LENGTH_SHORT).show();
                     return false;
                 }
             });

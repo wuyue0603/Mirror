@@ -53,6 +53,7 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
     private SwipeMenuListView listView;
     private static MyAddressListEntity entity;
     private MyBroadcast myBroadcast;
+    private int resultCode = 102;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,14 +103,19 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
         listView.setMenuCreator(creator);
         listView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
             @Override
-            public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
+            public boolean onMenuItemClick(final int position, SwipeMenu menu, int index) {
                 ApplicationInfo item = mAppList.get(position);
                 switch (index) {
                     case 0:
-                        mAdapter.notifyDataSetChanged();
                         handler1 = new Handler(new Handler.Callback() {
                             @Override
                             public boolean handleMessage(Message msg) {
+                                mAppList.remove(entity.getData().getList().get(position).getAddr_id());
+                                mAdapter.upData(position);
+                                listView.setAdapter(mAdapter);
+                                mAdapter.notifyDataSetChanged();
+                                Toast.makeText(AddAddressActivityA.this, "删除成功", Toast.LENGTH_SHORT).show();
+
                                 return false;
                             }
                         });
@@ -137,11 +143,6 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
 
                             }
                         });
-                        mAppList.remove(entity.getData().getList().get(position).getAddr_id());
-                        mAdapter.notifyDataSetChanged();
-                        Intent intent = new Intent("com.wuyue.dllo.mirror.Broadcast");
-                        sendBroadcast(intent);
-                        Toast.makeText(AddAddressActivityA.this, "删除成功", Toast.LENGTH_SHORT).show();
 
                 }
                 return false;
@@ -154,6 +155,10 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
                 handler2 = new Handler(new Handler.Callback() {
                     @Override
                     public boolean handleMessage(Message msg) {
+                        okHttp();
+                        mAdapter.notifyDataSetChanged();
+                        Toast.makeText(AddAddressActivityA.this, "设置完成", Toast.LENGTH_SHORT).show();
+                        finish();
                         return false;
                     }
                 });
@@ -181,10 +186,7 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
 
                     }
                 });
-                okHttp();
-                mAdapter.notifyDataSetChanged();
-                Toast.makeText(AddAddressActivityA.this, "设置完成", Toast.LENGTH_SHORT).show();
-                AddAddressActivityA.this.finish();
+
             }
 
         });
@@ -313,6 +315,12 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
         public class MyViewHolder {
             private TextView addName, tell, address;
             private ImageView upIv;
+        }
+
+        public void upData(int position) {
+            this.data.getData().getList().remove(position);
+            notifyDataSetChanged();
+            listView.setSelection(position);
         }
     }
 
