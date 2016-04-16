@@ -19,22 +19,15 @@
             android:layout_marginTop="@dimen/addaddressItemTop">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="收件人:"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/addaddressItemTextViewSize" />
-
-            <TextView
                 android:id="@+id/address_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/addaddressItemTextViewLeft"
                 android:textColor="@android:color/black" />
 
         </LinearLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/addaddressItemLinearTop">
@@ -50,17 +43,18 @@
                 android:id="@+id/address_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/addaddressItemTextViewLeft"
                 android:textColor="@android:color/black" />
 
             <ImageView
                 android:id="@+id/updata_iv"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="200dp"
-                android:layout_weight="1"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/addaddressItemImageViewRight"
                 android:src="@mipmap/updata" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/address_tel"
@@ -69,6 +63,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="@dimen/addAddressItemTextTop"
             android:textColor="@android:color/black"
+            android:layout_marginBottom="@dimen/addAddressItemTextViewBottom"
             android:textStyle="italic" />
 
     </LinearLayout>

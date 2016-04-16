@@ -39,6 +39,7 @@ public class OrderContentActivity extends BaseActivity {
     private MyAddressListEntity entity;
     private String price, id;
     private ImageView sureOrderIv;
+    private int requesCode = 102;
 
     @Override
     protected void initData() {
@@ -47,6 +48,23 @@ public class OrderContentActivity extends BaseActivity {
 
     @Override
     protected void init() {
+        setAddress();
+        writeTv = bindView(R.id.write_address);
+        writeTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(OrderContentActivity.this, AddAddressActivityA.class);
+                startActivityForResult(intent1, 102);
+            }
+        });
+        closeIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+    public  void setAddress(){
         brandTv = bindView(R.id.things_brand);
         priceTv = bindView(R.id.things_price);
         closeIv = bindView(R.id.login_close);
@@ -109,20 +127,6 @@ public class OrderContentActivity extends BaseActivity {
 
             }
         });
-        writeTv = bindView(R.id.write_address);
-        writeTv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent1 = new Intent(OrderContentActivity.this, AddAddressActivityA.class);
-                startActivity(intent1);
-            }
-        });
-        closeIv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
     }
 
     private void payDialog() {
@@ -136,5 +140,15 @@ public class OrderContentActivity extends BaseActivity {
     protected int getLayout() {
         return R.layout.activity_ordercontent;
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 102 && resultCode == 101){
+            orderName.setText(data.getStringExtra("orname"));
+            orderTel.setText(data.getStringExtra("orcell"));
+            orderAddress.setText(data.getStringExtra("orinfo"));
+        }
     }
 }

@@ -38,16 +38,18 @@
     <Button
         android:id="@+id/address_btn"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="50dp"
+        android:layout_height="@dimen/activityAddAddressAHeight"
+        android:layout_marginLeft="@dimen/activityAddAddressAButtonLeft"
+        android:layout_marginRight="@dimen/activityAddAddressAButtonRight"
+        android:layout_marginTop="@dimen/activityAddAddressAButtonTop"
         android:background="@android:color/white"
         android:text="添加地址"
         android:textColor="@android:color/black" />
 
     <com.baoyz.swipemenulistview.SwipeMenuListView
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="@dimen/activityAddAddressAButtonLeft"
+        android:layout_marginRight="@dimen/activityAddAddressAButtonRight"
+        android:layout_marginTop="@dimen/activityAddAddressAListViewTop"
         android:id="@+id/add_address_a_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

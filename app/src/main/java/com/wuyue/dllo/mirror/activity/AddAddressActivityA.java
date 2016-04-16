@@ -53,7 +53,7 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
     private SwipeMenuListView listView;
     private static MyAddressListEntity entity;
     private MyBroadcast myBroadcast;
-    private int resultCode = 102;
+    private int resultCode = 101;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,18 +151,22 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, final int position, final long id) {
                 handler2 = new Handler(new Handler.Callback() {
                     @Override
                     public boolean handleMessage(Message msg) {
                         okHttp();
                         mAdapter.notifyDataSetChanged();
-                        Toast.makeText(AddAddressActivityA.this, "设置完成", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddAddressActivityA.this, "设置默认地址成功", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(AddAddressActivityA.this, OrderContentActivity.class);
+                        intent.putExtra("orname", entity.getData().getList().get(position).getUsername());
+                        intent.putExtra("orcell", entity.getData().getList().get(position).getCellphone());
+                        intent.putExtra("orinfo", entity.getData().getList().get(position).getAddr_info());
+                        setResult(resultCode, intent);
                         finish();
                         return false;
                     }
                 });
-
                 String url = "http://api101.test.mirroreye.cn/index.php/user/mr_address";
                 OkHttpUtils.post().url(url).addParams("token", "433ae165cc754e151c0e8de2ed6ba152")
                         .addParams("addr_id", entity.getData().getList().get(position).getAddr_id())
@@ -291,9 +295,9 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
             }
 
             holder = (MyViewHolder) convertView.getTag();
-            holder.addName.setText(data.getData().getList().get(position).getUsername());
-            holder.tell.setText(data.getData().getList().get(position).getCellphone());
-            holder.address.setText(data.getData().getList().get(position).getAddr_info());
+            holder.addName.setText("收件人：" + data.getData().getList().get(position).getUsername());
+            holder.tell.setText("电话：" + data.getData().getList().get(position).getCellphone());
+            holder.address.setText("地址：" + data.getData().getList().get(position).getAddr_info());
             holder.upIv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
