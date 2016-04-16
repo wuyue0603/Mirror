@@ -16,6 +16,8 @@ import android.widget.TextView;
 
 import com.wuyue.dllo.mirror.R;
 import com.wuyue.dllo.mirror.activity.MainActivity;
+import com.wuyue.dllo.mirror.cache.InForEntity;
+
 import com.wuyue.dllo.mirror.entity.MenuEntity;
 import com.wuyue.dllo.mirror.fragment.PlaceholderFragment;
 import com.wuyue.dllo.mirror.myinterface.SetTitle;
@@ -29,21 +31,25 @@ public class ShowMenuAdapter extends BaseAdapter {
     private MenuEntity data;
     private Context context;
     private int line;
+    private ArrayList<InForEntity> datas;
 
-    public ShowMenuAdapter(MenuEntity datas, Context context, int line) {
-        this.data = datas;
+    public ShowMenuAdapter(ArrayList<InForEntity> datas, Context context, int line) {
+       // Log.d("Tebiede", String.valueOf(datas.size()) + "  " + datas.get(0).getName());
+        this.datas = datas;
         this.line = line;
         this.context = context;
     }
 
     @Override//是左侧的标题
     public int getCount() {
-        return data.getData().getList().size();
+       // return data.getData().getList().size();
+        return datas.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return data.getData().getList().get(position);
+       // return data.getData().getList().get(position);
+        return datas.get(position);
     }
 
     @Override
@@ -62,8 +68,9 @@ public class ShowMenuAdapter extends BaseAdapter {
             convertView.setTag(holder);
         }
         holder = (ViewHolder) convertView.getTag();
-        holder.textView.setText(Html.fromHtml(data.getData().getList().get(position).getTitle()));
-
+       // holder.textView.setText(Html.fromHtml(data.getData().getList().get(position).getTitle()));
+        holder.textView.setText(datas.get(position).getName());
+        Log.d("zhangsanfeng",datas.get(position).getName());
         if (line == position) {
             holder.imageView.setVisibility(View.VISIBLE);
         } else {
@@ -73,7 +80,8 @@ public class ShowMenuAdapter extends BaseAdapter {
     }
 
     public String getTitle(int pos) {
-        return data.getData().getList().get(pos).getTitle();
+        //return data.getData().getList().get(pos).getTitle();
+        return datas.get(pos).getName();
     }
 
     public class ViewHolder {

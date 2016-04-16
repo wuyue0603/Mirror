@@ -2,6 +2,7 @@ package com.wuyue.dllo.mirror.entity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -22,6 +23,11 @@ import com.google.gson.Gson;
 import com.wuyue.dllo.mirror.R;
 import com.wuyue.dllo.mirror.activity.MainActivity;
 import com.wuyue.dllo.mirror.adapter.ShowMenuAdapter;
+import com.wuyue.dllo.mirror.cache.DaoMaster;
+import com.wuyue.dllo.mirror.cache.DaoSession;
+import com.wuyue.dllo.mirror.cache.InForEntity;
+import com.wuyue.dllo.mirror.cache.InForEntityDao;
+
 import com.wuyue.dllo.mirror.myinterface.SetTitle;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.Callback;
@@ -47,6 +53,13 @@ public class ShowMenu implements AdapterView.OnItemClickListener {
     private String title;
     private SetTitle setTitle;
 
+    private SQLiteDatabase showDb;
+    private DaoMaster showDaoMaster;
+    private DaoSession showDaoSession;
+    private InForEntityDao showEntityDao;
+    private ArrayList<InForEntity> datadata;
+
+
     // 构造方法传入上下文环境
     public ShowMenu(Context context) {
         setTitle = (SetTitle) context;
@@ -62,41 +75,39 @@ public class ShowMenu implements AdapterView.OnItemClickListener {
 
         View view = LayoutInflater.from(context).inflate(R.layout.popupwindow, null);
         textView = (TextView) view.findViewById(R.id.pop_return_textview);
-        popQuitTv = (TextView) view.findViewById(R.id.pop_quit_textview);
 
-        popQuitTv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((AppCompatActivity)context).finish();
-            }
-        });
-        // 初始化组件
         initView(view);
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context,"InFor.entity",null);
+        showDb = helper.getWritableDatabase();
+        showDaoMaster = new DaoMaster(showDb);
+        showDaoSession = showDaoMaster.newSession();
+        showEntityDao = showDaoSession.getInForEntityDao();
 
-        handler = new Handler(new Handler.Callback() {
-            @Override
-            public boolean handleMessage(Message msg) {
-                MenuEntity entity = new Gson().fromJson(msg.obj.toString(),MenuEntity.class);
-                showMenuAdapter = new ShowMenuAdapter(entity, context, linePosition);
-                listView.setAdapter(showMenuAdapter);
 
-                return false;
-            }
-        });
-
-        // 设置PopupWindow的数据
         listView.setOnItemClickListener(this);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // 跳转到MainActivity，显示menu对应的Fragment
-              //  Intent rIntent = new Intent(context, MainActivity.class);
-               // rIntent.putExtra("position", 0);
-              //  context.startActivity(rIntent);
+                //  Intent rIntent = new Intent(context, MainActivity.class);
+                // rIntent.putExtra("position", 0);
+                //  context.startActivity(rIntent);
                 popupWindow.dismiss();
                 Log.d("Sysout", "新建了Activity");
             }
         });
+
+
+        popQuitTv = (TextView) view.findViewById(R.id.pop_quit_textview);
+
+        popQuitTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((AppCompatActivity) context).finish();
+            }
+        });
+
+
 
         // 设置PopupWindow的布局，显示的位置
         popupWindow = new PopupWindow(context);
@@ -112,28 +123,49 @@ public class ShowMenu implements AdapterView.OnItemClickListener {
         popupWindow.setAnimationStyle(R.style.PopupAnimation);
         popupWindow.update();
 
+
+        datadata = new ArrayList<>();
         String url = "http://api101.test.mirroreye.cn/index.php/index/menu_list";
         OkHttpUtils.post().url(url).build().execute(new Callback() {
             @Override
             public Object parseNetworkResponse(Response response) throws Exception {
                 String body = response.body().string();
-                Message message = new Message();
-                message.obj = body;
-                handler.sendMessage(message);
+                MenuEntity entity = new Gson().fromJson(body.toString(), MenuEntity.class);
+
+                DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context,"InFor.entity",null);
+                showDb = helper.getWritableDatabase();
+                showDaoMaster = new DaoMaster(showDb);
+                showDaoSession = showDaoMaster.newSession();
+                showEntityDao = showDaoSession.getInForEntityDao();
+
+
+                String name;
+                InForEntity inforentity = null;
+
+                for (int i = 0; i < entity.getData().getList().size(); i++) {
+                    name = entity.getData().getList().get(i).getTitle();
+                    inforentity = new InForEntity((long) i, name);
+                    showEntityDao.insert(inforentity);
+                    datadata.add(inforentity);
+                }
                 return null;
             }
 
             @Override
             public void onError(Call call, Exception e) {
+                ArrayList<InForEntity> quelist = (ArrayList<InForEntity>) showEntityDao.queryBuilder().list();
+                showMenuAdapter = new ShowMenuAdapter(quelist, context, linePosition);
+                listView.setAdapter(showMenuAdapter);
 
             }
 
             @Override
             public void onResponse(Object response) {
-
+                ArrayList<InForEntity> quelist = (ArrayList<InForEntity>) showEntityDao.queryBuilder().list();
+                showMenuAdapter = new ShowMenuAdapter(quelist, context, linePosition);
+                listView.setAdapter(showMenuAdapter);
             }
         });
-
 
         initData(view);
     }
