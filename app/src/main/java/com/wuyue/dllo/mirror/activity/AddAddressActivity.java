@@ -1,3 +1,4 @@
+
 package com.wuyue.dllo.mirror.activity;
 
 import android.content.Intent;
@@ -36,39 +37,55 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
     private String token;
     private ArrayList<String> names, tels, adds;
 
+
     @Override
     protected void initData() {
-        final Intent i = getIntent();
+        Intent i = getIntent();
         if (i.getStringExtra("addr_id1") != null) {
             addNameEt.setText(i.getStringExtra("username1"));
             addTelEt.setText(i.getStringExtra("cellphone1"));
             addAddressEt.setText(i.getStringExtra("addr_info1"));
-
-            updateHandler = new Handler(new Handler.Callback() {
-                @Override
-                public boolean handleMessage(Message msg) {
-                    return false;
-                }
-            });
-            String url = "http://api101.test.mirroreye.cn/ index.php/user/edit_address";
-            OkHttpUtils.post().url(url).addParams("token", "433ae165cc754e151c0e8de2ed6ba152")
-                    .addParams("addr_id", i.getStringExtra("addr_id1")).addParams("username", i.getStringExtra("username1"))
-                    .addParams("cellphone", i.getStringExtra("cellphone1")).addParams("addr_info", i.getStringExtra("addr_info1"))
-                    .build().execute(new Callback() {
-                @Override
-                public Object parseNetworkResponse(Response response) throws Exception {
-                    return null;
-                }
-
-                @Override
-                public void onError(Call call, Exception e) {
-                }
-
-                @Override
-                public void onResponse(Object response) {
-                }
-            });
         }
+    }
+
+    public void upInfo() {
+        Intent i = getIntent();
+
+
+        updateHandler = new Handler(new Handler.Callback() {
+            @Override
+            public boolean handleMessage(Message msg) {
+
+                return false;
+            }
+        });
+        Log.d("ttttttt","66666666");
+        String url = "http://api101.test.mirroreye.cn/index.php/user/edit_address";
+        OkHttpUtils.post().url(url).addParams("token", "433ae165cc754e151c0e8de2ed6ba152")
+                .addParams("addr_id", i.getStringExtra("addr_id1")).addParams("username", addNameEt.getText().toString())
+                .addParams("cellphone", addTelEt.getText().toString()).addParams("addr_info", addAddressEt.getText().toString())
+                .build().execute(new Callback() {
+            @Override
+            public Object parseNetworkResponse(Response response) throws Exception {
+                String body = response.body().string();
+                Log.d("ttttttt11","66666666");
+                Message m = new Message();
+                m.obj = body;
+                updateHandler.sendMessage(m);
+                return null;
+            }
+
+            @Override
+            public void onError(Call call, Exception e) {
+                Log.d("ttttttt22","66666666");
+            }
+
+            @Override
+            public void onResponse(Object response) {
+                Log.d("ttttttt333","66666666");
+            }
+        });
+
     }
 
     @Override
@@ -81,7 +98,14 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                okhttp();
+                Intent i = getIntent();
+                if (i.getStringExtra("username1") != null) {
+                    upInfo();
+                    Toast.makeText(AddAddressActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
+                    finish();
+                } else {
+                    okhttp();
+                }
 //                Intent intent = new Intent(AddAddressActivity.this, AddAddressActivityA.class);
 //                intent.setAction("com.wuyue.dllo.mirror.Broadcast");
 //                sendBroadcast(intent);
