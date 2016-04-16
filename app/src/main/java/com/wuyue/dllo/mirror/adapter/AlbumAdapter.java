@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
@@ -79,14 +80,10 @@ public class AlbumAdapter extends BaseAdapter {
                 case TYPE_1:
                     convertView = LayoutInflater.from(context).inflate(R.layout.activity_album_videoview, parent, false);
                     holderVideo.videoView = (VideoView) convertView.findViewById(R.id.video_item_videoView);
+                    holderVideo.videoIv = (SimpleDraweeView) convertView.findViewById(R.id.videoView_iv);
+                    holderVideo.videoStart = (ImageView) convertView.findViewById(R.id.video_start_iv);
                     holderVideo.videoView.setMediaController(new MediaController(context));
-                    final HolderVideo finalHolderVideo = holderVideo;
-                    holderVideo.videoView.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            finalHolderVideo.videoView.start();
-                        }
-                    });
+
                     convertView.setTag(holderVideo);
                     break;
                 case TYPE_2:
@@ -109,16 +106,29 @@ public class AlbumAdapter extends BaseAdapter {
             case TYPE_1:
                 if (pos == 0) {
                     holderVideo.videoView.setVideoURI(Uri.parse("http://7xr7f7.com2.z0.glb.qiniucdn.com/Jimmy%20fairly%20-%20Spring%202014-HD.mp4"));
+                    holderVideo.videoIv.setImageURI(Uri.parse(data.getData().getList().get(pos).getWear_video().get(1).getData()));
                 } else {
                     holderVideo.videoView.setVideoURI(Uri.parse("http://7xlvms.com2.z0.glb.qiniucdn.com/See%20Concept%2C%20Deuxi.mp4"));
+                    holderVideo.videoIv.setImageURI(Uri.parse(data.getData().getList().get(pos).getWear_video().get(position).getData()));
                 }
+                final HolderVideo finalHolderVideo = holderVideo;
+                final HolderVideo finalHolderVideo1 = holderVideo;
+                final HolderVideo finalHolderVideo2 = holderVideo;
+                holderVideo.videoStart.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finalHolderVideo2.videoStart.setVisibility(View.GONE);
+                        finalHolderVideo.videoIv.setVisibility(View.GONE);
+                        finalHolderVideo1.videoView.start();
+                    }
+                });
                 break;
             case TYPE_2:
                 holderPicture.draweeView.setImageURI(Uri.parse(String.valueOf(data.getData().getList().get(pos).getWear_video().get(position).getData())));
                 holderPicture.draweeView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        window = ((AppCompatActivity) context).getWindow();
+                        window = ((AppCompatActivity)context).getWindow();
                         window.setWindowAnimations(R.style.dialogWindowAnim);
                         showImgDialog(position);
                     }
@@ -130,6 +140,8 @@ public class AlbumAdapter extends BaseAdapter {
 
     class HolderVideo {
         VideoView videoView;
+        SimpleDraweeView videoIv;
+        ImageView videoStart;
     }
 
     class HolderPicture {
