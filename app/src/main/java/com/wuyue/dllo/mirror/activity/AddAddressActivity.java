@@ -82,7 +82,7 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
             @Override
             public void onClick(View v) {
                 okhttp();
-                Intent intent = new Intent(AddAddressActivity.this,AddAddressActivityA.class);
+                Intent intent = new Intent(AddAddressActivity.this, AddAddressActivityA.class);
                 intent.setAction("com.wuyue.dllo.mirror.Broadcast");
                 sendBroadcast(intent);
 
