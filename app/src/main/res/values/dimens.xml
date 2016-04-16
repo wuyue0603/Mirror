@@ -364,4 +364,12 @@
     <dimen name="payDialogImageLeft">75dp</dimen>
     <dimen name="payDialogTextLeft">24px</dimen>
     <dimen name="alipaySize">14sp</dimen>
+    <dimen name="addaddressItemImageViewRight">20dp</dimen>
+    <dimen name="activityAddAddressAHeight">70dp</dimen>
+    <dimen name="activityAddAddressAButtonLeft">10dp</dimen>
+    <dimen name="activityAddAddressAButtonRight">10dp</dimen>
+    <dimen name="activityAddAddressAButtonTop">50dp</dimen>
+    <dimen name="activityAddAddressAListViewTop">20dp</dimen>
+    <dimen name="activityOrderContentTextViewBottom">10dp</dimen>
+    <dimen name="addAddressItemTextViewBottom">10dp</dimen>
 </resources>

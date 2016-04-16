@@ -38,7 +38,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/orderContentBacHeight"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/loginTitleLeft"
         android:layout_marginRight="@dimen/loginCloseRight"
         android:layout_marginTop="@dimen/homepageContentTitleLineTop"
@@ -96,6 +96,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/loginCloseTop"
             android:text="@string/orderContentWriteAddress"
+            android:layout_marginBottom="@dimen/activityOrderContentTextViewBottom"
             android:textColor="@color/loginText" />
 
     </RelativeLayout>
