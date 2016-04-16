@@ -70,7 +70,8 @@
         android:layout_marginLeft="@dimen/loginTitleLeft"
         android:layout_marginRight="@dimen/loginCloseRight"
         android:layout_marginTop="@dimen/loginCloseTop"
-        android:background="@mipmap/tel_number_bac" />
+        android:background="@mipmap/tel_number_bac"
+        android:password="true" />
 
     <RelativeLayout
         android:layout_width="match_parent"
