@@ -157,7 +157,7 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
                     public boolean handleMessage(Message msg) {
                         okHttp();
                         mAdapter.notifyDataSetChanged();
-                        Toast.makeText(AddAddressActivityA.this, "设置完成", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddAddressActivityA.this, "设置默认地址成功", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(AddAddressActivityA.this, OrderContentActivity.class);
                         intent.putExtra("orname", entity.getData().getList().get(position).getUsername());
                         intent.putExtra("orcell", entity.getData().getList().get(position).getCellphone());
