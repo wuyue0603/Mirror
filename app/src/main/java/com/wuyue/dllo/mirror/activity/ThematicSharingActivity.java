@@ -116,7 +116,6 @@ public class ThematicSharingActivity extends AppCompatActivity {
                     picture.add(img);
                 }
                 main_iv.setImageURI(Uri.parse(picture.get(0)));
-                Log.d("sssss", picture.get(0));
                 for (int i = 0; i < bean.getData().getStory_data().getText_array().size(); i++) {
                     data.add(new ThematicSharingSecondFragment(list.get(i), title.get(i), subTitle.get(i)));
                 }
@@ -143,7 +142,6 @@ public class ThematicSharingActivity extends AppCompatActivity {
                 String body = response.body().string();
                 Message message = new Message();
                 message.obj = body;
-
                 handler.sendMessage(message);
                 return null;
             }

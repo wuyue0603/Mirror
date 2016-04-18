@@ -59,7 +59,7 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
                 return false;
             }
         });
-        Log.d("ttttttt","66666666");
+
         String url = "http://api101.test.mirroreye.cn/index.php/user/edit_address";
         OkHttpUtils.post().url(url).addParams("token", "433ae165cc754e151c0e8de2ed6ba152")
                 .addParams("addr_id", i.getStringExtra("addr_id1")).addParams("username", addNameEt.getText().toString())
@@ -68,7 +68,6 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
             @Override
             public Object parseNetworkResponse(Response response) throws Exception {
                 String body = response.body().string();
-                Log.d("ttttttt11","66666666");
                 Message m = new Message();
                 m.obj = body;
                 updateHandler.sendMessage(m);

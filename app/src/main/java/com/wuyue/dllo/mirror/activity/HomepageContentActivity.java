@@ -63,7 +63,6 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
         Intent intent = getIntent();
         position = intent.getIntExtra("position", 0);
         pos = intent.getIntExtra("pos", 0);
-        Log.d("pos1", String.valueOf(pos));
         post();
         addData();
     }

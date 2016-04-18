@@ -36,7 +36,6 @@ public class AlbumActivity extends AppCompatActivity {
             @Override
             public boolean handleMessage(Message msg) {
                 AlbumEntity entity = new Gson().fromJson(msg.obj.toString(), AlbumEntity.class);
-                Log.d("ccccccc1", entity.toString());
                 listView = (ListView) findViewById(R.id.listView);
                 adapter = new AlbumAdapter(entity, AlbumActivity.this, pos);
                 listView.setAdapter(adapter);
@@ -54,7 +53,6 @@ public class AlbumActivity extends AppCompatActivity {
                 String body = response.body().string();
                 Message message = new Message();
                 message.obj = body;
-                Log.d("ccccccc", body.toString());
                 handler.sendMessage(message);
                 return null;
             }
