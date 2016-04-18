@@ -97,17 +97,11 @@ public class OrderContentActivity extends BaseActivity {
 
     @Override
     protected void init() {
+        /**
+         * 回调setAddress方法
+         */
         setAddress();
-//        Log.d("chennai", addr_id);
-//        Log.d("chennai", order_id);
-//        Log.d("chennai", good_name);
-
-
-
-
         writeTv = bindView(R.id.write_address);
-        //payInfo = "service=\"mobile.securitypay.pay\"&partner=\"2088021758262531\"&_input_charset=\"utf-8\"&notify_url=\"http%3A%2F%2Fapi.mirroreye.cn%2Findex.php%2Fali_notify\"&out_trade_no=\"1460549569E0z\"&subject=\"\"&payment_type=\"1\"&seller_id=\"2088021758262531\"&total_fee=\"450.00\"&body=\"\"&it_b_pay =\"30m\"&sign=\"gTGWMJaE1llMKQ4PMknIm21GT7JyLGm%2FowrTArlIVmQjoBp7MfX8lx%2BN3UqcyKGLNZnny6kW7L8rsHF9IKFBXFsORRtsgTc7MBS%2Bx4FqcvH%2B25tnkNZIGDhCtUXZT8JFrvVdYLa0Fiy5ufTqMap0ItWroqjwFH71TxucObdCqE8%3D\"&sign_type=\"RSA\"";
-
         writeTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,36 +118,28 @@ public class OrderContentActivity extends BaseActivity {
     }
 
 
-
+    /**
+     * 定义从MyAddressEntity中解析出来的数据,设置为全局便于下面使用
+     */
     String addr_id;
     String order_id;
     String good_name;
     public  void setAddress(){
-
-
+        /**
+         * 绑定各个组件
+         */
         brandTv = bindView(R.id.things_brand);
         priceTv = bindView(R.id.things_price);
         closeIv = bindView(R.id.login_close);
         sureOrderIv = bindView(R.id.sure_list_iv);
-
-//        sureOrderIv.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //payDialog(addr_id,order_id,good_name);//这里有可能为空
-//                AlertDialog.Builder builder = new AlertDialog.Builder(OrderContentActivity.this);
-//                View view = getLayoutInflater().inflate(R.layout.pay_dialog, null);
-//                builder.setView(view);
-//                builder.show();
-//                relativelayout = (RelativeLayout) view.findViewById(R.id.relativelayout);
-//            }
-//        });
-
         receiverInfo = bindView(R.id.receiver_info);
         orderName = bindView(R.id.order_content_name);
         orderTel = bindView(R.id.order_content_tel);
         orderAddress = bindView(R.id.order_content_address);
         img = bindView(R.id.things_iv);
-
+        /**
+         * handler回调
+         */
         handler = new Handler(new Handler.Callback() {
 
             @Override
@@ -165,24 +151,20 @@ public class OrderContentActivity extends BaseActivity {
                      order_id = entity1.getData().getOrder_id();
                      good_name = entity1.getData().getGoods().getGoods_name();
 
-
+                    /**
+                     * 设置提交订单按钮的监听,
+                     * 并在监听中传入addr_id, order_id, good_name 用来解析
+                     */
                     sureOrderIv.setOnClickListener(new View.OnClickListener() {
-
                         @Override
                         public void onClick(View v) {
                             payDialog(addr_id, order_id, good_name);
                         }
                     });
 
-
-
-//
-//                    Log.d("chennaiqian",entity1.getData().getAddress().getAddr_id() + " " + "addr_id");
-//                    Log.d("chennaiqian",entity1.getData().getOrder_id() + " " + "order_id");
-//                    Log.d("chennaiqian",entity1.getData().getGoods().getGoods_name() + " " + "good_name");
-
-
-
+                    /**
+                     * 给小白方块里的内容设置具体的值
+                     */
                     orderName.setText("收件人:" + entity1.getData().getAddress().getUsername());
                     orderTel.setText(entity1.getData().getAddress().getCellphone());
                     orderAddress.setText("地址:" + entity1.getData().getAddress().getAddr_info());
@@ -198,7 +180,9 @@ public class OrderContentActivity extends BaseActivity {
                 return false;
             }
         });
-
+        /**
+         * 通过从传过来的id 和 price 作为参数来解析订单详情
+         */
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
         price = intent.getStringExtra("price");
@@ -226,6 +210,18 @@ public class OrderContentActivity extends BaseActivity {
         });
     }
 
+    /**
+     * 这里是显示dialog的方法,下面这三个参数是解析支付宝支付过程中需要用到的参数,具体接口文档中有
+     * 终极目标是获得payInfo 接口中有个叫Str 的一串字符串,字符串中包含了 公钥,私钥,商户id,商品详情等内容
+     * @param addr_id
+     * @param order_id
+     * @param good_name
+     *
+     * 在成功的方法onResponse 中设置dialog中的行监听
+     * 用来调到支付宝的webwiew中 具体怎样跳转 并不清楚 下载demo
+     * 直接就跳了 非常好用
+     *
+     */
     private void payDialog(String addr_id,String order_id,String good_name) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View view = getLayoutInflater().inflate(R.layout.pay_dialog, null);
@@ -242,12 +238,6 @@ public class OrderContentActivity extends BaseActivity {
 
                 AilpayEntity ailpayEntity = new Gson().fromJson(body.toString(), AilpayEntity.class);
                 payInfo = ailpayEntity.getData().getStr();
-               // payInfo = "service=\"mobile.securitypay.pay\"&partner=\"2088021758262531\"&_input_charset=\"utf-8\"&notify_url=\"http%3A%2F%2Fapi.mirroreye.cn%2Findex.php%2Fali_notify\"&out_trade_no=\"1460549569E0z\"&subject=\"\"&payment_type=\"1\"&seller_id=\"2088021758262531\"&total_fee=\"450.00\"&body=\"\"&it_b_pay =\"30m\"&sign=\"gTGWMJaE1llMKQ4PMknIm21GT7JyLGm%2FowrTArlIVmQjoBp7MfX8lx%2BN3UqcyKGLNZnny6kW7L8rsHF9IKFBXFsORRtsgTc7MBS%2Bx4FqcvH%2B25tnkNZIGDhCtUXZT8JFrvVdYLa0Fiy5ufTqMap0ItWroqjwFH71TxucObdCqE8%3D\"&sign_type=\"RSA\"";
-
-
-//                Message message = new Message();
-//                message.obj = body;
-//                handler.sendMessage(message);
                 return null;
             }
 
@@ -268,10 +258,7 @@ public class OrderContentActivity extends BaseActivity {
                         // 构造PayTask 对象
                         PayTask alipay = new PayTask(OrderContentActivity.this);
                         // 调用支付接口，获取支付结果
-                       // payInfo = "service=\"mobile.securitypay.pay\"&partner=\"2088021758262531\"&_input_charset=\"utf-8\"&notify_url=\"http%3A%2F%2Fapi.mirroreye.cn%2Findex.php%2Fali_notify\"&out_trade_no=\"1460549569E0z\"&subject=\"\"&payment_type=\"1\"&seller_id=\"2088021758262531\"&total_fee=\"450.00\"&body=\"\"&it_b_pay =\"30m\"&sign=\"gTGWMJaE1llMKQ4PMknIm21GT7JyLGm%2FowrTArlIVmQjoBp7MfX8lx%2BN3UqcyKGLNZnny6kW7L8rsHF9IKFBXFsORRtsgTc7MBS%2Bx4FqcvH%2B25tnkNZIGDhCtUXZT8JFrvVdYLa0Fiy5ufTqMap0ItWroqjwFH71TxucObdCqE8%3D\"&sign_type=\"RSA\"";
-
                         String result = alipay.pay(payInfo, true);
-
                         Message msg = new Message();
                         msg.what = SDK_PAY_FLAG;
                         msg.obj = result;
@@ -287,31 +274,6 @@ public class OrderContentActivity extends BaseActivity {
 
             }
         });
-
-
-//        relativelayout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Runnable payRunnable = new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        // 构造PayTask 对象
-//                        PayTask alipay = new PayTask(OrderContentActivity.this);
-//                        // 调用支付接口，获取支付结果
-//                        String result = alipay.pay(payInfo, true);
-//
-//                        Message msg = new Message();
-//                        msg.what = SDK_PAY_FLAG;
-//                        msg.obj = result;
-//                        mHandler.sendMessage(msg);
-//                    }
-//                };
-//
-//                // 必须异步调用
-//                Thread payThread = new Thread(payRunnable);
-//                payThread.start();
-//            }
-//        });
 
 
 
