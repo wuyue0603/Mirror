@@ -309,7 +309,7 @@
 
     <dimen name="special_content_picture_item_layoutwid">320dp</dimen>
     <dimen name="special_content_picture_item_layouthei">220dp</dimen>
-    <dimen name="special_content_picture_item_layout_marginbottom">40dp</dimen>
+    <dimen name="special_content_picture_item_layout_marginbottom">70dp</dimen>
 
     <dimen name="special_content_picture_item_destext_marginleft">20dp</dimen>
     <dimen name="special_content_picture_item_destext_margintop">40dp</dimen>
@@ -372,4 +372,6 @@
     <dimen name="activityAddAddressAListViewTop">20dp</dimen>
     <dimen name="activityOrderContentTextViewBottom">10dp</dimen>
     <dimen name="addAddressItemTextViewBottom">10dp</dimen>
+    <dimen name="special_content_picture_item_layout_marginTop">370dp</dimen>
+    <dimen name="activityThematicSharingRelativeBottom">20dp</dimen>
 </resources>
