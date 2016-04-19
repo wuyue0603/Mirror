@@ -87,7 +87,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 public boolean handleMessage(Message msg) {
                     LoginEntity entity = new Gson().fromJson(msg.obj.toString(), LoginEntity.class);
                     token = entity.getData().getToken();
-                    Log.d("tttt", token);
                     Intent intent = new Intent(LoginActivity.this, AddAddressActivity.class);
                     intent.putExtra("token", token);
                     startActivity(intent);
@@ -103,7 +102,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                     String body = response.body().string();
                     Message message = new Message();
                     message.obj = body;
-                    Log.d("body", body);
                     handler.sendMessage(message);
                     return null;
                 }

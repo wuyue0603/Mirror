@@ -31,7 +31,7 @@ public class ThematicSharingAdapter extends RecyclerView.Adapter<ThematicSharing
     public ThematicSharingAdapter(ThematicSharingEntity data, Context context) {
         this.data = data;
         this.context = context;
-        Log.i("43434", "22");
+
     }
 
     //加载行布局的方法
@@ -46,7 +46,6 @@ public class ThematicSharingAdapter extends RecyclerView.Adapter<ThematicSharing
     public void onBindViewHolder(MyHolder holder, int position) {
         holder.picIv.setImageURI(Uri.parse(data.getData().getList().get(position).getStory_img()));
         holder.tv.setText(data.getData().getList().get(position).getStory_title());
-
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

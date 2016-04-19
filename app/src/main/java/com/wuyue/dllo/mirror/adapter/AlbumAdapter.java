@@ -34,7 +34,6 @@ public class AlbumAdapter extends BaseAdapter {
     public AlbumAdapter(AlbumEntity data, Context context, int pos) {
         this.data = data;
         this.context = context;
-        Log.d("pos", String.valueOf(pos));
         this.pos = pos;
     }
 
@@ -55,7 +54,6 @@ public class AlbumAdapter extends BaseAdapter {
 
     @Override
     public int getItemViewType(int position) {
-        Log.d("ccccccc00", "111111");
         //int p = position;
         if (position == 0) {
             return TYPE_1;
@@ -66,7 +64,6 @@ public class AlbumAdapter extends BaseAdapter {
 
     @Override
     public int getViewTypeCount() {
-        Log.d("cccccccbb", "111111");
         return 2;
     }
 
