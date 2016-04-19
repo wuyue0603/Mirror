@@ -1,10 +1,6 @@
 package com.wuyue.dllo.mirror.adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,12 +11,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.wuyue.dllo.mirror.R;
-import com.wuyue.dllo.mirror.activity.MainActivity;
 import com.wuyue.dllo.mirror.cache.InForEntity;
 
 import com.wuyue.dllo.mirror.entity.MenuEntity;
-import com.wuyue.dllo.mirror.fragment.PlaceholderFragment;
-import com.wuyue.dllo.mirror.myinterface.SetTitle;
 
 import java.util.ArrayList;
 
@@ -34,7 +27,7 @@ public class ShowMenuAdapter extends BaseAdapter {
     private ArrayList<InForEntity> datas;
 
     public ShowMenuAdapter(ArrayList<InForEntity> datas, Context context, int line) {
-       // Log.d("Tebiede", String.valueOf(datas.size()) + "  " + datas.get(0).getName());
+        // Log.d("Tebiede", String.valueOf(datas.size()) + "  " + datas.get(0).getName());
         this.datas = datas;
         this.line = line;
         this.context = context;
@@ -42,13 +35,13 @@ public class ShowMenuAdapter extends BaseAdapter {
 
     @Override//是左侧的标题
     public int getCount() {
-       // return data.getData().getList().size();
+        // return data.getData().getList().size();
         return datas.size();
     }
 
     @Override
     public Object getItem(int position) {
-       // return data.getData().getList().get(position);
+        // return data.getData().getList().get(position);
         return datas.get(position);
     }
 
@@ -68,9 +61,9 @@ public class ShowMenuAdapter extends BaseAdapter {
             convertView.setTag(holder);
         }
         holder = (ViewHolder) convertView.getTag();
-       // holder.textView.setText(Html.fromHtml(data.getData().getList().get(position).getTitle()));
+        // holder.textView.setText(Html.fromHtml(data.getData().getList().get(position).getTitle()));
         holder.textView.setText(datas.get(position).getName());
-        Log.d("zhangsanfeng",datas.get(position).getName());
+        Log.d("zhangsanfeng", datas.get(position).getName());
         if (line == position) {
             holder.imageView.setVisibility(View.VISIBLE);
         } else {

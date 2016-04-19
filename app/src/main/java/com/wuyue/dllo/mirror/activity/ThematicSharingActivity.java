@@ -1,6 +1,5 @@
 package com.wuyue.dllo.mirror.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -10,10 +9,8 @@ import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -159,8 +156,6 @@ public class ThematicSharingActivity extends AppCompatActivity {
 
         viewPager.setOverScrollMode(View.OVER_SCROLL_NEVER);
         viewPager.setAddStatesFromChildren(true);
-
-
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

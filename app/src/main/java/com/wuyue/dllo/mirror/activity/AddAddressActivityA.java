@@ -5,13 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,8 +17,6 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,7 +30,6 @@ import com.wuyue.dllo.mirror.entity.MyAddressListEntity;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.Callback;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.Call;
@@ -59,7 +53,6 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_address_a);
-
         button = (Button) findViewById(R.id.address_btn);
         iv = (ImageView) findViewById(R.id.address_a_close_iv);
         iv.setOnClickListener(this);
@@ -71,7 +64,6 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
         okHttp();
 
         mAppList = getPackageManager().getInstalledApplications(0);
-
         listView = (SwipeMenuListView) findViewById(R.id.add_address_a_listview);
 
         // step 1. create a MenuCreator
@@ -81,7 +73,6 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
             public void create(SwipeMenu menu) {
                 // Create different menus depending on the view type
                 switch (menu.getViewType()) {
-
                     case 0:
                         createMenu2(menu);
                         break;
@@ -115,7 +106,6 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
                                 listView.setAdapter(mAdapter);
                                 mAdapter.notifyDataSetChanged();
                                 Toast.makeText(AddAddressActivityA.this, "删除成功", Toast.LENGTH_SHORT).show();
-
                                 return false;
                             }
                         });
@@ -143,7 +133,6 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
 
                             }
                         });
-
                 }
                 return false;
             }
@@ -190,7 +179,6 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
 
                     }
                 });
-
             }
 
         });
@@ -249,11 +237,9 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
 
         @Override
         public void onReceive(Context context, Intent intent) {
-
             okHttp();
         }
     }
-
 
     class AppAdapter extends BaseAdapter {
         private MyAddressListEntity data;
@@ -312,7 +298,6 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
                     finish();
                 }
             });
-
             return convertView;
         }
 

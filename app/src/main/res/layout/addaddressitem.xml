@@ -60,10 +60,10 @@
             android:id="@+id/address_tel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/addAddressItemTextViewBottom"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="@dimen/addAddressItemTextTop"
             android:textColor="@android:color/black"
-            android:layout_marginBottom="@dimen/addAddressItemTextViewBottom"
             android:textStyle="italic" />
 
     </LinearLayout>

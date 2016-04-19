@@ -7,7 +7,6 @@ import java.util.List;
  */
 public class ThameticSharingEntity {
 
-
     /**
      * result : 1
      * msg :

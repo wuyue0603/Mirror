@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.ListView;
 
 import com.google.gson.Gson;
@@ -42,6 +41,7 @@ public class AlbumActivity extends AppCompatActivity {
                 return false;
             }
         });
+
         init();
     }
 

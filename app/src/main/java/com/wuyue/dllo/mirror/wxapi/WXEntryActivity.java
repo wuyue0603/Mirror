@@ -49,5 +49,4 @@ public class WXEntryActivity extends WechatHandlerActivity {
             Toast.makeText(this, obj.extInfo, Toast.LENGTH_SHORT).show();
         }
     }
-
 }

@@ -44,7 +44,6 @@
         android:layout_marginTop="@dimen/homepageContentTitleLineTop"
         android:background="@color/loginLoginColors">
 
-
         <TextView
             android:id="@+id/receiver_info"
             android:layout_width="wrap_content"
@@ -57,29 +56,31 @@
 
         <TextView
             android:id="@+id/order_content_name"
-            android:textColor="@android:color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/orderContentReceiverInfoLeft"
-            android:layout_marginTop="@dimen/orderContentReceiverInfoTop" />
+            android:layout_marginTop="@dimen/orderContentReceiverInfoTop"
+            android:textColor="@android:color/black" />
+
         <TextView
             android:id="@+id/order_content_address"
-            android:layout_below="@+id/order_content_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
+            android:layout_below="@+id/order_content_name"
             android:layout_marginLeft="@dimen/orderContentReceiverInfoLeft"
-            android:layout_marginTop="@dimen/orderContentReceiverInfoTop"/>
+            android:layout_marginTop="@dimen/orderContentReceiverInfoTop"
+            android:textColor="@android:color/black" />
 
         <TextView
             android:id="@+id/order_content_tel"
-            android:textStyle="bold"
-            android:layout_below="@id/order_content_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
+            android:layout_below="@id/order_content_address"
             android:layout_marginLeft="@dimen/orderContentReceiverInfoLeft"
-            android:layout_marginTop="@dimen/orderContentReceiverInfoTop"/>
+            android:layout_marginTop="@dimen/orderContentReceiverInfoTop"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
         <View
             android:id="@+id/view"
             android:layout_width="match_parent"
@@ -94,9 +95,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/view"
             android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/activityOrderContentTextViewBottom"
             android:layout_marginTop="@dimen/loginCloseTop"
             android:text="@string/orderContentWriteAddress"
-            android:layout_marginBottom="@dimen/activityOrderContentTextViewBottom"
             android:textColor="@color/loginText" />
 
     </RelativeLayout>
@@ -105,8 +106,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <LinearLayout
-            xmlns:fresco="http://schemas.android.com/apk/res-auto"
+        <LinearLayout xmlns:fresco="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="@dimen/orderContentSecondBacHeight"
             android:layout_marginLeft="@dimen/loginTitleLeft"

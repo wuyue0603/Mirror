@@ -1,12 +1,7 @@
 package com.wuyue.dllo.mirror.activity;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-
 import com.wuyue.dllo.mirror.R;
 import com.wuyue.dllo.mirror.base.BaseActivity;
-import com.wuyue.dllo.mirror.fragment.PlaceholderFragment;
 
 /**
  * Created by dllo on 16/3/31.

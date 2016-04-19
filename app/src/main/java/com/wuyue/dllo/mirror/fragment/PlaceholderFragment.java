@@ -68,7 +68,6 @@ public class PlaceholderFragment extends Fragment {
     private ArrayList<PLEntity> plEntities;
     private ArrayList<PLEntity> querylist;
 
-
     public PlaceholderFragment() {
     }
 
@@ -101,20 +100,6 @@ public class PlaceholderFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         textView.setText(title);
 
-//        handler = new Handler(new Handler.Callback() {
-//            @Override
-//            public boolean handleMessage(Message msg) {
-//                GoodsListEntity entity = new Gson().fromJson(msg.obj.toString(), GoodsListEntity.class);
-//                // 2.设置布局管理器
-//                myAdapter = new MyAdapter(getActivity(), entity.getData(), i);
-//                LinearLayoutManager manager = new LinearLayoutManager(getActivity());
-//                manager.setOrientation(LinearLayoutManager.HORIZONTAL);
-//                recyclerView.setLayoutManager(manager);
-//                recyclerView.setAdapter(myAdapter);
-//                return false;
-//            }
-//        });
-
         String url = "http://api101.test.mirroreye.cn/" + "index.php/products/goods_list";
         OkHttpUtils.post().url(url).addParams("token", "").addParams("device_type", "1")
                 .addParams("page", "").addParams("last_time", "").addParams("category_id", "")
@@ -122,29 +107,24 @@ public class PlaceholderFragment extends Fragment {
             @Override
             public Object parseNetworkResponse(Response response) throws Exception {
                 String body = response.body().string();
-//                Message message = new Message();
-//                message.obj = body;
-//                handler.sendMessage(message);
 
                 GoodsListEntity entity = new Gson().fromJson(body.toString(), GoodsListEntity.class);
 
-                DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(getActivity(),"PL.db",null);
+                DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(getActivity(), "PL.db", null);
                 plDb = helper.getWritableDatabase();
                 plDaoMaster = new DaoMaster(plDb);
                 plDaoSession = plDaoMaster.newSession();
                 plEntityDao = plDaoSession.getPLEntityDao();
 
-                for (int i = 0; i <entity.getData().getList().size(); i++) {
-
+                for (int i = 0; i < entity.getData().getList().size(); i++) {
                     plEntity = new PLEntity();
-                    plEntity.setId((long)i);
+                    plEntity.setId((long) i);
                     plEntity.setUri(entity.getData().getList().get(i).getGoods_img());
                     plEntity.setName(entity.getData().getList().get(i).getGoods_name());
                     plEntity.setArea(entity.getData().getList().get(i).getProduct_area());
                     plEntity.setBrand(entity.getData().getList().get(i).getBrand());
                     plEntity.setPrice(entity.getData().getList().get(i).getGoods_price());
                     plEntityDao.insert(plEntity);
-
                 }
 
                 querylist = (ArrayList<PLEntity>) plEntityDao.queryBuilder().list();
@@ -169,14 +149,13 @@ public class PlaceholderFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
         try {
             Thread.currentThread().sleep(300);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(getActivity(),"PL.db",null);
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(getActivity(), "PL.db", null);
         plDb = helper.getWritableDatabase();
         plDaoMaster = new DaoMaster(plDb);
         plDaoSession = plDaoMaster.newSession();
@@ -188,11 +167,10 @@ public class PlaceholderFragment extends Fragment {
         }
 
         myAdapter = new MyAdapter(getActivity(), querylist, i);
-                LinearLayoutManager manager = new LinearLayoutManager(getActivity());
-                manager.setOrientation(LinearLayoutManager.HORIZONTAL);
-                recyclerView.setLayoutManager(manager);
-                recyclerView.setAdapter(myAdapter);
-
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
+        manager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        recyclerView.setLayoutManager(manager);
+        recyclerView.setAdapter(myAdapter);
     }
 
     @Override
@@ -200,16 +178,8 @@ public class PlaceholderFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycleViewAllType);
         textView = (TextView) view.findViewById(R.id.fragment_title);
-
         linearLayout = (LinearLayout) getView().findViewById(R.id.all_type_linearlayout);
         showMenu = new ShowMenu(getContext());
-
-//        data = new ArrayList<>();
-//        data.add("瀏覧所有分類");
-//        data.add("瀏覧平光眼鏡");
-//        data.add("瀏覧太陽眼鏡");
-//        data.add("専題分享");
-//        data.add("我的購物車");
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -220,12 +190,11 @@ public class PlaceholderFragment extends Fragment {
 }
 
 class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
-
     private int position;
     private Context context;
     private GoodsListEntity.DataEntity dataEntity;
     private int pos;
-    private ArrayList<PLEntity>plEntities;
+    private ArrayList<PLEntity> plEntities;
 
     public MyAdapter(Context context, GoodsListEntity.DataEntity dataEntity1, int pos) {
         this.context = context;
@@ -234,7 +203,7 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         notifyDataSetChanged();
     }
 
-    public MyAdapter(Context context, ArrayList<PLEntity> plEntities,int pos) {
+    public MyAdapter(Context context, ArrayList<PLEntity> plEntities, int pos) {
         this.context = context;
         this.pos = pos;
         this.plEntities = plEntities;
@@ -251,43 +220,23 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(MyViewHolder holder, int position) {
         this.position = position;
         if (pos == 0) {
-//            holder.draweeView.setImageURI(Uri.parse(dataEntity.getList().get(pos).getGoods_img()));
-//            holder.goodsNameTv.setText(dataEntity.getList().get(pos).getGoods_name());
-//            holder.areaTv.setText(dataEntity.getList().get(pos).getProduct_area());
-//            holder.brandTv.setText(dataEntity.getList().get(pos).getBrand());
-//            holder.priceTv.setText("¥" + dataEntity.getList().get(pos).getGoods_price());
             holder.draweeView.setImageURI(Uri.parse(plEntities.get(0).getUri()));
             holder.goodsNameTv.setText(plEntities.get(0).getName());
             holder.areaTv.setText(plEntities.get(0).getArea());
             holder.brandTv.setText(plEntities.get(0).getBrand());
             holder.priceTv.setText("¥" + plEntities.get(0).getPrice());
-
-
         } else if (pos == 1) {
-//            holder.draweeView.setImageURI(Uri.parse(dataEntity.getList().get(pos).getGoods_img()));
-//            holder.goodsNameTv.setText(dataEntity.getList().get(pos).getGoods_name());
-//            holder.areaTv.setText(dataEntity.getList().get(pos).getProduct_area());
-//            holder.brandTv.setText(dataEntity.getList().get(pos).getBrand());
-//            holder.priceTv.setText("¥" + dataEntity.getList().get(pos).getGoods_price());
             holder.draweeView.setImageURI(Uri.parse(plEntities.get(1).getUri()));
             holder.goodsNameTv.setText(plEntities.get(1).getName());
             holder.areaTv.setText(plEntities.get(1).getArea());
             holder.brandTv.setText(plEntities.get(1).getBrand());
             holder.priceTv.setText("¥" + plEntities.get(1).getPrice());
-
         } else if (pos == 2) {
-//            holder.draweeView.setImageURI(Uri.parse(dataEntity.getList().get(pos).getGoods_img()));
-//            holder.goodsNameTv.setText(dataEntity.getList().get(pos).getGoods_name());
-//            holder.areaTv.setText(dataEntity.getList().get(pos).getProduct_area());
-//            holder.brandTv.setText(dataEntity.getList().get(pos).getBrand());
-//            holder.priceTv.setText("¥" + dataEntity.getList().get(pos).getGoods_price());
-
             holder.draweeView.setImageURI(Uri.parse(plEntities.get(2).getUri()));
             holder.goodsNameTv.setText(plEntities.get(2).getName());
             holder.areaTv.setText(plEntities.get(2).getArea());
             holder.brandTv.setText(plEntities.get(2).getBrand());
             holder.priceTv.setText("¥" + plEntities.get(2).getPrice());
-
         }
     }
 

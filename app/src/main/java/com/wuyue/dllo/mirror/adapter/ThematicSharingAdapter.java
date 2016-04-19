@@ -1,24 +1,18 @@
 package com.wuyue.dllo.mirror.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.squareup.picasso.Picasso;
 import com.wuyue.dllo.mirror.R;
 import com.wuyue.dllo.mirror.activity.ThematicSharingActivity;
 import com.wuyue.dllo.mirror.entity.ThematicSharingEntity;
-
-import java.util.List;
 
 /**
  * Created by dllo on 16/4/1.
@@ -31,7 +25,6 @@ public class ThematicSharingAdapter extends RecyclerView.Adapter<ThematicSharing
     public ThematicSharingAdapter(ThematicSharingEntity data, Context context) {
         this.data = data;
         this.context = context;
-
     }
 
     //加载行布局的方法

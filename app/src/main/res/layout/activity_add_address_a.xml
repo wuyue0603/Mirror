@@ -47,10 +47,11 @@
         android:textColor="@android:color/black" />
 
     <com.baoyz.swipemenulistview.SwipeMenuListView
-        android:layout_marginLeft="@dimen/activityAddAddressAButtonLeft"
-        android:layout_marginRight="@dimen/activityAddAddressAButtonRight"
-        android:layout_marginTop="@dimen/activityAddAddressAListViewTop"
         android:id="@+id/add_address_a_listview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/activityAddAddressAButtonLeft"
+        android:layout_marginRight="@dimen/activityAddAddressAButtonRight"
+        android:layout_marginTop="@dimen/activityAddAddressAListViewTop" />
+
 </LinearLayout>

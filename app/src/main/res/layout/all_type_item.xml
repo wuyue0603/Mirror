@@ -87,6 +87,7 @@
                     android:layout_marginTop="@dimen/all_type_fina_text"
                     android:textColor="@color/loginText"
                     android:textSize="@dimen/all_type_final_textsize" />
+
             </LinearLayout>
 
         </LinearLayout>

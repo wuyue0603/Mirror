@@ -85,6 +85,7 @@
             android:text="@string/createAccountCodeBtn"
             android:textColor="@android:color/white"
             android:textSize="@dimen/createBtnSize" />
+
     </LinearLayout>
 
     <RelativeLayout

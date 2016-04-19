@@ -35,7 +35,6 @@ public class ShopingCarFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
         View v = inflater.inflate(R.layout.fragment_shopping_car, container, false);
         return v;
     }

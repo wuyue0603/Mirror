@@ -4,10 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -43,7 +40,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -81,7 +77,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     public void okhttp() {
         if (telEt != null && telEt.length() > 0 && passwordEt != null && passwordEt.length() > 0) {
-
             handler = new Handler(new Handler.Callback() {
                 @Override
                 public boolean handleMessage(Message msg) {
@@ -116,9 +111,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
                 }
             });
-            Intent i = new Intent(LoginActivity.this,MainActivity.class);
+            Intent i = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(i);
-
             Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(LoginActivity.this, "请填写完整信息", Toast.LENGTH_SHORT).show();
@@ -161,9 +155,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
                 platform.SSOSetting(false);
                 platform.showUser(null);
-
                 break;
         }
     }
-
 }

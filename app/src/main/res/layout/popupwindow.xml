@@ -4,39 +4,39 @@
     android:layout_height="match_parent"
     android:background="@mipmap/bg">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-
-    <ListView
-        android:id="@+id/pop_listview"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/pop_listview"
-        android:divider="@null"/>
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_marginTop="20dp"
-        android:id="@+id/pop_return_textview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/returnbackhome"
-        android:layout_marginLeft="@dimen/pop_return_textview_marginleft"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/pop_return_textsize"/>
+        <ListView
+            android:id="@+id/pop_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/pop_listview"
+            android:divider="@null" />
 
-    <TextView
-        android:id="@+id/pop_quit_textview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/quit"
-        android:layout_marginLeft="@dimen/pop_quit_textview_marginleft"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/pop_quit_text_textsize"
-        android:layout_marginTop="@dimen/pop_quit_textview_margintop"/>
+        <TextView
+            android:id="@+id/pop_return_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/pop_return_textview_marginleft"
+            android:layout_marginTop="20dp"
+            android:text="@string/returnbackhome"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/pop_return_textsize" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/pop_quit_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/pop_quit_textview_marginleft"
+            android:layout_marginTop="@dimen/pop_quit_textview_margintop"
+            android:text="@string/quit"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/pop_quit_text_textsize" />
+
+    </LinearLayout>
 
     <FrameLayout
         android:layout_width="wrap_content"

@@ -45,5 +45,4 @@ public class DaoSession extends AbstractDaoSession {
     public PLEntityDao getPLEntityDao() {
         return pLEntityDao;
     }
-
 }

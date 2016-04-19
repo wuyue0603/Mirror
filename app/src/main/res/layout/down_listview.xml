@@ -54,6 +54,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/downListViewTextSize"
                         android:textStyle="bold" />
+
                 </LinearLayout>
 
                 <TextView
@@ -65,6 +66,7 @@
                     android:text="@string/downListViewTextView"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/downListViewTextViewSize" />
+
             </LinearLayout>
 
             <ImageView

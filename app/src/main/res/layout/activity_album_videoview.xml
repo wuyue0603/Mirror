@@ -4,28 +4,31 @@
     android:layout_height="match_parent"
     android:background="@color/loginLine"
     android:orientation="vertical">
-<RelativeLayout
-    android:layout_marginTop="20dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
 
-
-    <VideoView
-        android:id="@+id/video_item_videoView"
-        android:layout_width="@dimen/activityAlbumPictureItemWidth"
-        android:layout_height="@dimen/videoview"
-        android:layout_gravity="center_horizontal" />
-
-    <com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/videoView_iv"
-        android:layout_width="@dimen/activityAlbumPictureItemWidth"
-        android:layout_height="@dimen/videoview"
-        android:layout_gravity="center_horizontal" />
-    <ImageView
-        android:id="@+id/video_start_iv"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@mipmap/start"
-        android:layout_centerInParent="true"/>
-</RelativeLayout>
+        android:layout_marginTop="20dp">
+
+        <VideoView
+            android:id="@+id/video_item_videoView"
+            android:layout_width="@dimen/activityAlbumPictureItemWidth"
+            android:layout_height="@dimen/videoview"
+            android:layout_gravity="center_horizontal" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/videoView_iv"
+            android:layout_width="@dimen/activityAlbumPictureItemWidth"
+            android:layout_height="@dimen/videoview"
+            android:layout_gravity="center_horizontal" />
+
+        <ImageView
+            android:id="@+id/video_start_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/start" />
+
+    </RelativeLayout>
+
 </FrameLayout>

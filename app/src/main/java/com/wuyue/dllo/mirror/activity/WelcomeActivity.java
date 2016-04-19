@@ -20,9 +20,10 @@ import okhttp3.Response;
 /**
  * Created by dllo on 16/3/29.
  */
-public class WelcomeActivity extends Activity{
+public class WelcomeActivity extends Activity {
     private Handler handler;
     private SimpleDraweeView draweeView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +37,7 @@ public class WelcomeActivity extends Activity{
             @Override
             public boolean handleMessage(Message msg) {
                 Gson gson = new Gson();
-                WelcomeEntity entity = gson.fromJson(msg.obj.toString(),WelcomeEntity.class);
+                WelcomeEntity entity = gson.fromJson(msg.obj.toString(), WelcomeEntity.class);
                 draweeView.setImageURI(Uri.parse(entity.getImg()));
                 return false;
             }
@@ -52,7 +53,7 @@ public class WelcomeActivity extends Activity{
                     e.printStackTrace();
                 }
                 //创建跳转页面意图,从欢迎页面跳转到MainActivity页面
-                startActivity(new Intent(WelcomeActivity.this,MainActivity.class));
+                startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
                 //设置欢迎页跳转到MainActivity后点击返回直接退出程序,而不是返回欢迎页
                 finish();
             }

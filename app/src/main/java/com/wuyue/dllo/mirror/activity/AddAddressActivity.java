@@ -2,7 +2,6 @@
 package com.wuyue.dllo.mirror.activity;
 
 import android.content.Intent;
-import android.location.Address;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -12,11 +11,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
 import com.wuyue.dllo.mirror.R;
 import com.wuyue.dllo.mirror.base.BaseActivity;
-import com.wuyue.dllo.mirror.entity.LoginEntity;
-import com.wuyue.dllo.mirror.entity.MyAddressListEntity;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.Callback;
 
@@ -37,7 +33,6 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
     private String token;
     private ArrayList<String> names, tels, adds;
 
-
     @Override
     protected void initData() {
         Intent i = getIntent();
@@ -50,12 +45,9 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
 
     public void upInfo() {
         Intent i = getIntent();
-
-
         updateHandler = new Handler(new Handler.Callback() {
             @Override
             public boolean handleMessage(Message msg) {
-
                 return false;
             }
         });
@@ -76,15 +68,14 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
 
             @Override
             public void onError(Call call, Exception e) {
-                Log.d("ttttttt22","66666666");
+                Log.d("ttttttt22", "66666666");
             }
 
             @Override
             public void onResponse(Object response) {
-                Log.d("ttttttt333","66666666");
+                Log.d("ttttttt333", "66666666");
             }
         });
-
     }
 
     @Override
@@ -105,10 +96,6 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
                 } else {
                     okhttp();
                 }
-//                Intent intent = new Intent(AddAddressActivity.this, AddAddressActivityA.class);
-//                intent.setAction("com.wuyue.dllo.mirror.Broadcast");
-//                sendBroadcast(intent);
-
             }
         });
         addIv.setOnClickListener(this);
@@ -132,12 +119,10 @@ public class AddAddressActivity extends BaseActivity implements View.OnClickList
     }
 
     private void okhttp() {
-
         if (addNameEt != null && addNameEt.length() > 0 && addTelEt != null && addTelEt.length() > 0 && addAddressEt != null && addAddressEt.length() > 0) {
             handler = new Handler(new Handler.Callback() {
                 @Override
                 public boolean handleMessage(Message msg) {
-
                     Intent intent = new Intent(AddAddressActivity.this, AddAddressActivityA.class);
                     startActivity(intent);
                     Toast.makeText(AddAddressActivity.this, "添加成功", Toast.LENGTH_SHORT).show();

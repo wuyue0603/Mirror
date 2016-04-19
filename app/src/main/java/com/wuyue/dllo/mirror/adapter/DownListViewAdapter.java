@@ -66,7 +66,6 @@ public class DownListViewAdapter extends BaseAdapter {
         ListViewBlankHolder listViewBlankHolder = null;
         ListViewDeatilHolder listViewDeatilHolder = null;
         int type = getItemViewType(position);
-
         switch (type) {
             case TYPE_1:
                 //空布局
@@ -118,7 +117,6 @@ public class DownListViewAdapter extends BaseAdapter {
     }
 
     public class ListViewDeatilHolder {
-
         private TextView goodsLoaction, goodsEnLocation, goodsCountry, goodsContext;
 
         public ListViewDeatilHolder(View view) {

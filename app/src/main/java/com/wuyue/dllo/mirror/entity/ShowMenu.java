@@ -46,25 +46,21 @@ public class ShowMenu implements AdapterView.OnItemClickListener {
     private PopupWindow popupWindow;
     private ListView listView;
     private ShowMenuAdapter showMenuAdapter;
-    private TextView textView,popQuitTv;
+    private TextView textView, popQuitTv;
     private Handler handler;
     private MainActivity mainActivity;
-
     private String title;
     private SetTitle setTitle;
-
     private SQLiteDatabase showDb;
     private DaoMaster showDaoMaster;
     private DaoSession showDaoSession;
     private InForEntityDao showEntityDao;
     private ArrayList<InForEntity> datadata;
 
-
     // 构造方法传入上下文环境
     public ShowMenu(Context context) {
         setTitle = (SetTitle) context;
         this.context = context;
-
     }
 
     // 弹出PopupWindow的方法
@@ -77,12 +73,11 @@ public class ShowMenu implements AdapterView.OnItemClickListener {
         textView = (TextView) view.findViewById(R.id.pop_return_textview);
 
         initView(view);
-        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context,"InFor.entity",null);
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context, "InFor.entity", null);
         showDb = helper.getWritableDatabase();
         showDaoMaster = new DaoMaster(showDb);
         showDaoSession = showDaoMaster.newSession();
         showEntityDao = showDaoSession.getInForEntityDao();
-
 
         listView.setOnItemClickListener(this);
         textView.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +92,6 @@ public class ShowMenu implements AdapterView.OnItemClickListener {
             }
         });
 
-
         popQuitTv = (TextView) view.findViewById(R.id.pop_quit_textview);
 
         popQuitTv.setOnClickListener(new View.OnClickListener() {
@@ -107,12 +101,9 @@ public class ShowMenu implements AdapterView.OnItemClickListener {
             }
         });
 
-
-
         // 设置PopupWindow的布局，显示的位置
         popupWindow = new PopupWindow(context);
         popupWindow.setContentView(view);
-//
         DisplayMetrics dm = new DisplayMetrics();
         popupWindow = new PopupWindow(view, dm.widthPixels,
                 dm.heightPixels, true);
@@ -123,7 +114,6 @@ public class ShowMenu implements AdapterView.OnItemClickListener {
         popupWindow.setAnimationStyle(R.style.PopupAnimation);
         popupWindow.update();
 
-
         datadata = new ArrayList<>();
         String url = "http://api101.test.mirroreye.cn/index.php/index/menu_list";
         OkHttpUtils.post().url(url).build().execute(new Callback() {
@@ -132,12 +122,11 @@ public class ShowMenu implements AdapterView.OnItemClickListener {
                 String body = response.body().string();
                 MenuEntity entity = new Gson().fromJson(body.toString(), MenuEntity.class);
 
-                DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context,"InFor.entity",null);
+                DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(context, "InFor.entity", null);
                 showDb = helper.getWritableDatabase();
                 showDaoMaster = new DaoMaster(showDb);
                 showDaoSession = showDaoMaster.newSession();
                 showEntityDao = showDaoSession.getInForEntityDao();
-
 
                 String name;
                 InForEntity inforentity = null;
@@ -156,7 +145,6 @@ public class ShowMenu implements AdapterView.OnItemClickListener {
                 ArrayList<InForEntity> quelist = (ArrayList<InForEntity>) showEntityDao.queryBuilder().list();
                 showMenuAdapter = new ShowMenuAdapter(quelist, context, linePosition);
                 listView.setAdapter(showMenuAdapter);
-
             }
 
             @Override
@@ -169,7 +157,6 @@ public class ShowMenu implements AdapterView.OnItemClickListener {
 
         initData(view);
     }
-
 
     private void initView(View view) {
         listView = (ListView) view.findViewById(R.id.pop_listview);
@@ -185,21 +172,16 @@ public class ShowMenu implements AdapterView.OnItemClickListener {
         });
     }
 
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         // 跳转到MainActivity，显示menu对应的Fragment
         Intent intent = new Intent(context, MainActivity.class);
         intent.putExtra("position", position);
-       // context.startActivity(intent);
+        // context.startActivity(intent);
         String title = showMenuAdapter.getTitle(position);
-        setTitle.setTitle(title,position);
-
+        setTitle.setTitle(title, position);
         popupWindow.dismiss();
         Log.d("Sysout", "onItemClick");
     }
-
-
-
 }
 

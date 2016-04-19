@@ -2,13 +2,11 @@ package com.wuyue.dllo.mirror.activity;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -25,7 +23,6 @@ import com.wuyue.dllo.mirror.base.BaseActivity;
 import com.wuyue.dllo.mirror.entity.AilpayEntity;
 import com.wuyue.dllo.mirror.entity.MyAddressEntity;
 import com.wuyue.dllo.mirror.entity.MyAddressListEntity;
-import com.wuyue.dllo.mirror.net.GetInfo;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.Callback;
 
@@ -63,7 +60,6 @@ public class OrderContentActivity extends BaseActivity {
                      * docType=1) 建议商户依赖异步通知
                      */
                     String resultInfo = payResult.getResult();// 同步返回需要验证的信息
-
                     String resultStatus = payResult.getResultStatus();
                     // 判断resultStatus 为“9000”则代表支付成功，具体状态码代表含义可参考接口文档
                     if (TextUtils.equals(resultStatus, "9000")) {
@@ -73,11 +69,9 @@ public class OrderContentActivity extends BaseActivity {
                         // "8000"代表支付结果因为支付渠道原因或者系统原因还在等待支付结果确认，最终交易是否成功以服务端异步通知为准（小概率状态）
                         if (TextUtils.equals(resultStatus, "8000")) {
                             Toast.makeText(OrderContentActivity.this, "支付结果确认中", Toast.LENGTH_SHORT).show();
-
                         } else {
                             // 其他值就可以判断为支付失败，包括用户主动取消支付，或者系统返回的错误
                             Toast.makeText(OrderContentActivity.this, "支付失败", Toast.LENGTH_SHORT).show();
-
                         }
                     }
                     break;
@@ -85,11 +79,12 @@ public class OrderContentActivity extends BaseActivity {
                 default:
                     break;
             }
-        };
+        }
+
+        ;
     };
+
     //private String payInfo;
-
-
     @Override
     protected void initData() {
 
@@ -117,14 +112,14 @@ public class OrderContentActivity extends BaseActivity {
         });
     }
 
-
     /**
      * 定义从MyAddressEntity中解析出来的数据,设置为全局便于下面使用
      */
     String addr_id;
     String order_id;
     String good_name;
-    public  void setAddress(){
+
+    public void setAddress() {
         /**
          * 绑定各个组件
          */
@@ -148,8 +143,8 @@ public class OrderContentActivity extends BaseActivity {
                 if (entity1 != null) {
 
                     addr_id = entity1.getData().getAddress().getAddr_id();
-                     order_id = entity1.getData().getOrder_id();
-                     good_name = entity1.getData().getGoods().getGoods_name();
+                    order_id = entity1.getData().getOrder_id();
+                    good_name = entity1.getData().getGoods().getGoods_name();
 
                     /**
                      * 设置提交订单按钮的监听,
@@ -180,6 +175,7 @@ public class OrderContentActivity extends BaseActivity {
                 return false;
             }
         });
+
         /**
          * 通过从传过来的id 和 price 作为参数来解析订单详情
          */
@@ -213,16 +209,14 @@ public class OrderContentActivity extends BaseActivity {
     /**
      * 这里是显示dialog的方法,下面这三个参数是解析支付宝支付过程中需要用到的参数,具体接口文档中有
      * 终极目标是获得payInfo 接口中有个叫Str 的一串字符串,字符串中包含了 公钥,私钥,商户id,商品详情等内容
+     *
      * @param addr_id
      * @param order_id
-     * @param good_name
-     *
-     * 在成功的方法onResponse 中设置dialog中的行监听
-     * 用来调到支付宝的webwiew中 具体怎样跳转 并不清楚 下载demo
-     * 直接就跳了 非常好用
-     *
+     * @param good_name 在成功的方法onResponse 中设置dialog中的行监听
+     *                  用来调到支付宝的webwiew中 具体怎样跳转 并不清楚 下载demo
+     *                  直接就跳了 非常好用
      */
-    private void payDialog(String addr_id,String order_id,String good_name) {
+    private void payDialog(String addr_id, String order_id, String good_name) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View view = getLayoutInflater().inflate(R.layout.pay_dialog, null);
         builder.setView(view);
@@ -231,7 +225,7 @@ public class OrderContentActivity extends BaseActivity {
 
         String url = "http://api101.test.mirroreye.cn/index.php/pay/ali_pay_sub";
         OkHttpUtils.post().url(url).addParams("token", "433ae165cc754e151c0e8de2ed6ba152").addParams("order_no", order_id).addParams("addr_id", addr_id)
-                .addParams("goodsname",good_name).build().execute(new Callback() {
+                .addParams("goodsname", good_name).build().execute(new Callback() {
             @Override
             public Object parseNetworkResponse(Response response) throws Exception {
                 String body = response.body().string();
@@ -250,33 +244,29 @@ public class OrderContentActivity extends BaseActivity {
             public void onResponse(Object response) {
 
                 relativelayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Runnable payRunnable = new Runnable() {
                     @Override
-                    public void run() {
-                        // 构造PayTask 对象
-                        PayTask alipay = new PayTask(OrderContentActivity.this);
-                        // 调用支付接口，获取支付结果
-                        String result = alipay.pay(payInfo, true);
-                        Message msg = new Message();
-                        msg.what = SDK_PAY_FLAG;
-                        msg.obj = result;
-                        mHandler.sendMessage(msg);
+                    public void onClick(View v) {
+                        Runnable payRunnable = new Runnable() {
+                            @Override
+                            public void run() {
+                                // 构造PayTask 对象
+                                PayTask alipay = new PayTask(OrderContentActivity.this);
+                                // 调用支付接口，获取支付结果
+                                String result = alipay.pay(payInfo, true);
+                                Message msg = new Message();
+                                msg.what = SDK_PAY_FLAG;
+                                msg.obj = result;
+                                mHandler.sendMessage(msg);
+                            }
+                        };
+
+                        // 必须异步调用
+                        Thread payThread = new Thread(payRunnable);
+                        payThread.start();
                     }
-                };
-
-                // 必须异步调用
-                Thread payThread = new Thread(payRunnable);
-                payThread.start();
+                });
             }
         });
-
-            }
-        });
-
-
-
     }
 
     @Override
@@ -288,7 +278,7 @@ public class OrderContentActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 102 && resultCode == 101){
+        if (requestCode == 102 && resultCode == 101) {
             orderName.setText(data.getStringExtra("orname"));
             orderTel.setText(data.getStringExtra("orcell"));
             orderAddress.setText(data.getStringExtra("orinfo"));

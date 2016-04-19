@@ -76,5 +76,4 @@ public class PLEntity {
     public void setPrice(String price) {
         this.price = price;
     }
-
 }

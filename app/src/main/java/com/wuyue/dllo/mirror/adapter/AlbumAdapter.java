@@ -2,10 +2,8 @@ package com.wuyue.dllo.mirror.adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +15,6 @@ import android.widget.VideoView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.wuyue.dllo.mirror.R;
-import com.wuyue.dllo.mirror.activity.HomepageContentActivity;
 import com.wuyue.dllo.mirror.entity.AlbumEntity;
 
 /**
@@ -80,7 +77,6 @@ public class AlbumAdapter extends BaseAdapter {
                     holderVideo.videoIv = (SimpleDraweeView) convertView.findViewById(R.id.videoView_iv);
                     holderVideo.videoStart = (ImageView) convertView.findViewById(R.id.video_start_iv);
                     holderVideo.videoView.setMediaController(new MediaController(context));
-
                     convertView.setTag(holderVideo);
                     break;
                 case TYPE_2:
@@ -125,7 +121,7 @@ public class AlbumAdapter extends BaseAdapter {
                 holderPicture.draweeView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        window = ((AppCompatActivity)context).getWindow();
+                        window = ((AppCompatActivity) context).getWindow();
                         window.setWindowAnimations(R.style.dialogWindowAnim);
                         showImgDialog(position);
                     }

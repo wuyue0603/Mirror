@@ -1,7 +1,5 @@
 package com.wuyue.dllo.mirror.activity;
 
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -12,11 +10,6 @@ import com.wuyue.dllo.mirror.R;
 import com.wuyue.dllo.mirror.base.BaseActivity;
 import com.wuyue.dllo.mirror.net.NetLisner;
 import com.wuyue.dllo.mirror.net.OkHttpClientHelper;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.Callback;
-
-import okhttp3.Call;
-import okhttp3.Response;
 
 /**
  * Created by dllo on 16/3/30.
@@ -35,7 +28,6 @@ public class CreateAccountNumberActivity extends BaseActivity implements View.On
         sendCodeBtn = bindView(R.id.send_code_btn);
         sendCodeBtn.setOnClickListener(this);
         codeEt = bindView(R.id.code_et);
-
     }
 
     @Override

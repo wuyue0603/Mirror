@@ -6,7 +6,7 @@ import com.wuyue.dllo.mirror.base.BaseActivity;
 /**
  * Created by dllo on 16/3/31.
  */
-public class WholeAddressActivity extends BaseActivity{
+public class WholeAddressActivity extends BaseActivity {
     @Override
     protected void initData() {
 

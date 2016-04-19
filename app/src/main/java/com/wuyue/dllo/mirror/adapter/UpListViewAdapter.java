@@ -1,12 +1,10 @@
 package com.wuyue.dllo.mirror.adapter;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -120,7 +118,6 @@ public class UpListViewAdapter extends BaseAdapter {
                 convertView = inflater.inflate(R.layout.down_listview_title, parent, false);
                 listViewTitle = new ListViewTitle(convertView);
                 listViewTitle.title.setText(allGoodsListEntity.getData().getList().get(myPosition).getBrand());
-
                 break;
             case TYPE_4:
                 //第二部分图片
@@ -138,7 +135,6 @@ public class UpListViewAdapter extends BaseAdapter {
                 }
                 break;
         }
-
         return convertView;
     }
 

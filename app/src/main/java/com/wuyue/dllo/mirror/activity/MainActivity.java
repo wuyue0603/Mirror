@@ -43,9 +43,8 @@ public class MainActivity extends AppCompatActivity implements SetTitle {
             datas = new ArrayList<>();
             MenuEntity entity = new Gson().fromJson(msg.obj.toString(), MenuEntity.class);
             int i = 0;
-            for (i = 0; i < entity.getData().getList().size()-1; i++) {
+            for (i = 0; i < entity.getData().getList().size() - 1; i++) {
                 datas.add(new PlaceholderFragment(i, entity.getData().getList().get(i).getTitle()));
-
             }
             datas.add(new ShopingCarFragment(i));
             datas.add(new ThematicSharingFragment(i + 1));
@@ -64,12 +63,11 @@ public class MainActivity extends AppCompatActivity implements SetTitle {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         mainIv = (ImageView) findViewById(R.id.main_iv);
         mainIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Animation animation = AnimationUtils.loadAnimation(MainActivity.this,R.anim.myanim);
+                Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.myanim);
                 mainIv.startAnimation(animation);
             }
         });
@@ -77,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements SetTitle {
         loginTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
@@ -115,7 +113,6 @@ public class MainActivity extends AppCompatActivity implements SetTitle {
      * A placeholder fragment containing a simple view.
      */
     class SectionsPagerAdapter extends FragmentPagerAdapter {
-
         private ArrayList<Fragment> fragmentDatas;
 
         public SectionsPagerAdapter(FragmentManager fm, ArrayList<Fragment> data) {

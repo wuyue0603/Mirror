@@ -43,7 +43,7 @@
             android:layout_marginTop="@dimen/special_content_picture_item_contenttext_margintop"
             android:textColor="@color/special_content_picture_item_text_textcolor"
             android:textSize="@dimen/special_content_picture_item_contenttext_size" />
-    </LinearLayout>
 
+    </LinearLayout>
 
 </RelativeLayout>
