@@ -9,11 +9,7 @@
         android:targetSdkVersion="8"
         tools:ignore="OldTargetApi" />
 
-
     <!-- 支付宝支付权限-->
-
-
-
     <!--mob第三方网络权限-->
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -59,7 +55,6 @@
         <activity android:name=".activity.ThematicSharingActivity"/>
         <activity android:name=".activity.AlbumActivity"/>
         <activity android:name=".activity.AddAddressActivityA"/>
-
 
         <!-- mob第三方所需代码-->
         <activity
