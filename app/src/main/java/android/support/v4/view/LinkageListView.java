@@ -3,6 +3,7 @@ package android.support.v4.view;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +11,11 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.wuyue.dllo.mirror.R;
+
+import org.greenrobot.eventbus.EventBus;
 
 /**
  * Created by dllo on 16/4/7.
@@ -22,6 +26,7 @@ public class LinkageListView extends FrameLayout {
     private ListView mBottomListView, mTopListView;
     private Context mContext;
     private BaseAdapter mBotAdapter, mTopAdapter;
+    private Integer dy;//当前item的位置
 
     public LinkageListView(Context context) {
         this(context, null);
@@ -68,7 +73,7 @@ public class LinkageListView extends FrameLayout {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 return mBottomListView.dispatchTouchEvent(event);
-        }
+            }
         });
 
         mBottomListView.setOnScrollListener(new AbsListView.OnScrollListener() {
@@ -77,8 +82,13 @@ public class LinkageListView extends FrameLayout {
                 View child = view.getChildAt(0);
                 if (child != null) {
                     mTopListView.setSelectionFromTop(firstVisibleItem, (int) (child.getTop() * linkageSpeed));
+                    Log.d("toplistview", firstVisibleItem + "");
+                    dy=firstVisibleItem;
+                    EventBus.getDefault().post(new Integer(dy));
                 }
+
             }
+
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
 

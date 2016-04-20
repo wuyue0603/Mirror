@@ -50,7 +50,6 @@
         <activity android:name=".activity.CreateAccountNumberActivity" />
         <activity android:name=".activity.ForgetPasswordActivity" />
         <activity android:name=".activity.OrderContentActivity" />
-        <activity android:name=".activity.WholeAddressActivity" />
         <activity android:name=".activity.ThematicSharingActivity"/>
         <activity android:name=".activity.AlbumActivity"/>
         <activity android:name=".activity.AddAddressActivityA"/>

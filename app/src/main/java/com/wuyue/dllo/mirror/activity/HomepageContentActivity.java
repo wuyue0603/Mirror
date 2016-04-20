@@ -1,5 +1,6 @@
 package com.wuyue.dllo.mirror.activity;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -23,9 +24,14 @@ import com.wuyue.dllo.mirror.entity.AllGoodsListEntity;
 import com.wuyue.dllo.mirror.entity.Costant;
 
 import android.support.v4.view.LinkageListView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import java.io.IOException;
 
@@ -43,11 +49,13 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
     private ImageView imageView;
     private static AlbumAdapter albumAdapter;
     private ImageView buyIv;
+    private FrameLayout frameLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepagecontent);
+        EventBus.getDefault().register(this);
         listView = (LinkageListView) findViewById(R.id.detail_listview);
         background = (SimpleDraweeView) findViewById(R.id.goodsdetail_background);
         albumBtn = (Button) findViewById(R.id.album_btn);
@@ -56,6 +64,8 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
         albumBtn.setOnClickListener(this);
         buyIv = (ImageView) findViewById(R.id.buy_iv);
         buyIv.setOnClickListener(this);
+        frameLayout = (FrameLayout) findViewById(R.id.frameLayout);
+
 
         allGoodsListEntity1 = new AllGoodsListEntity();
         Intent intent = getIntent();
@@ -63,6 +73,7 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
         pos = intent.getIntExtra("pos", 0);
         post();
         addData();
+
     }
 
     private void addData() {
@@ -72,6 +83,8 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
                 Gson gson = new Gson();
                 allGoodsListEntity1 = gson.fromJson(msg.obj.toString(), AllGoodsListEntity.class);
                 listView.setAdapter(new UpListViewAdapter(allGoodsListEntity1, getApplication(), pos), new DownListViewAdapter(allGoodsListEntity1, getApplication(), pos));
+
+
                 listView.setLinkageSpeed(1.2f);
                 background.setImageURI(Uri.parse(allGoodsListEntity1.getData().getList().get(pos).getGoods_img()));
                 return false;
@@ -119,6 +132,38 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
                 startActivity(intent1);
                 break;
         }
+    }
+    @Subscribe
+    public void onEvent(Integer itemPosition){
+
+                if (itemPosition<1){
+
+//                    //float outTranslationX = frameLayout.getTranslationX();
+                    ObjectAnimator animator = ObjectAnimator.ofFloat(frameLayout,"translationX",0f,-800f);
+                    animator.setDuration(500);
+                    animator.start();
+                    frameLayout.setVisibility(View.GONE);
+                    //return;
+
+                }
+                else if (itemPosition==1){
+
+//                    frameLayout.setVisibility(View.VISIBLE);
+                    ObjectAnimator animator1 = ObjectAnimator.ofFloat(frameLayout,"translationX",-800f,0f);
+                    animator1.setDuration(500);
+                    animator1.start();
+                    return;
+//                    frameLayout.setVisibility(View.VISIBLE);
+                }else {
+                    frameLayout.setVisibility(View.VISIBLE);
+
+                }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
     }
 }
 
