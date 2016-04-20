@@ -48,7 +48,6 @@
         <activity android:name=".activity.HomepageContentActivity" />
         <activity android:name=".activity.AddAddressActivity" />
         <activity android:name=".activity.CreateAccountNumberActivity" />
-        <activity android:name=".activity.FinishInfoOrderContentActivity" />
         <activity android:name=".activity.ForgetPasswordActivity" />
         <activity android:name=".activity.OrderContentActivity" />
         <activity android:name=".activity.WholeAddressActivity" />

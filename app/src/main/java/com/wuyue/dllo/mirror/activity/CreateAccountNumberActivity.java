@@ -35,6 +35,7 @@ public class CreateAccountNumberActivity extends BaseActivity implements View.On
         return R.layout.activity_create_account_number;
     }
 
+    //发送验证码
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

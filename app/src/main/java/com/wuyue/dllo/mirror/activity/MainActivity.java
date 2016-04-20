@@ -31,27 +31,32 @@ import okhttp3.Call;
 import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity implements SetTitle {
-    private SectionsPagerAdapter mSectionsPagerAdapter;
-    private DirectionalViewPager mViewPager;
-    private ArrayList<Fragment> datas;
+    private SectionsPagerAdapter mSectionsPagerAdapter;//纵向滑动viewPager的适配器
+    private DirectionalViewPager mViewPager;//纵向滑动的viewpager
+    private ArrayList<Fragment> datas;//添加Fragment到集合
     private ImageView mainIv;
     private TextView loginTv;
     private static final String ARG_SECTION_NUMBER = "section_number";
+
     Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
             datas = new ArrayList<>();
             MenuEntity entity = new Gson().fromJson(msg.obj.toString(), MenuEntity.class);
             int i = 0;
+            //复用的fragment,有多少个标题就复用多少个fragmt 拉出了4个标题 只复用了3个fragment所以size -1
             for (i = 0; i < entity.getData().getList().size() - 1; i++) {
                 datas.add(new PlaceholderFragment(i, entity.getData().getList().get(i).getTitle()));
             }
+            //额外写死的fragmet,购物车 和 专题分享()
             datas.add(new ShopingCarFragment(i));
             datas.add(new ThematicSharingFragment(i + 1));
+            //初始化纵向viewPager setOrientation方法 设置方向
             mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), datas);
             mViewPager = (DirectionalViewPager) findViewById(R.id.container);
             mViewPager.setAdapter(mSectionsPagerAdapter);
             mViewPager.setOrientation(DirectionalViewPager.VERTICAL);
+            //从popwindow中穿过了position 对应相应的fragment
             Intent intent = getIntent();
             int ss = intent.getIntExtra("position", 0);
             mViewPager.setCurrentItem(ss);
@@ -63,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements SetTitle {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Mirror 图标 点击会跳动
         mainIv = (ImageView) findViewById(R.id.main_iv);
         mainIv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements SetTitle {
                 mainIv.startAnimation(animation);
             }
         });
+        //登录 图标 点击会跳到登录界面
         loginTv = (TextView) findViewById(R.id.login_tv);
         loginTv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements SetTitle {
         });
 
         String url = "http://api101.test.mirroreye.cn/index.php/index/menu_list";
-
+        //
         OkHttpUtils.post().url(url).build().execute(new Callback() {
             @Override
             public Object parseNetworkResponse(Response response) throws Exception {
@@ -103,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements SetTitle {
             }
         });
     }
-
+    //通过接口回调来 对应标题和相应的fragment
     @Override
     public void setTitle(String title, int position) {
         mViewPager.setCurrentItem(position);

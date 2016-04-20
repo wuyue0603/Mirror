@@ -46,7 +46,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     protected void initData() {
 
     }
-
+//绑定布局
     @Override
     protected void init() {
         closeIv = bindView(R.id.login_close);
@@ -74,7 +74,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             }
         });
     }
-
+    //解析账号
     public void okhttp() {
         if (telEt != null && telEt.length() > 0 && passwordEt != null && passwordEt.length() > 0) {
             handler = new Handler(new Handler.Callback() {
@@ -131,6 +131,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 finish();
                 break;
             case R.id.sina_login:
+                //第三方登录
                 ShareSDK.initSDK(this);
                 Platform platform = ShareSDK.getPlatform(SinaWeibo.NAME);
                 if (platform.isAuthValid()) {
