@@ -29,6 +29,7 @@ public class AlbumActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_album);
+        //从首页详情页面的适配器传值到佩戴图集页面
         Intent intent = getIntent();
         final int pos = intent.getIntExtra("pos", 0);
         handler = new Handler(new Handler.Callback() {
@@ -46,6 +47,7 @@ public class AlbumActivity extends AppCompatActivity {
     }
 
     private void init() {
+        //解析佩戴图集页面视频和图片
         String url = "http://api101.test.mirroreye.cn/index.php/products/goods_list";
         OkHttpUtils.post().url(url).addParams("device_type", "2").addParams("version", "1.0.1").build().execute(new Callback() {
             @Override

@@ -52,18 +52,24 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //绑定布局
         setContentView(R.layout.activity_add_address_a);
         button = (Button) findViewById(R.id.address_btn);
         iv = (ImageView) findViewById(R.id.address_a_close_iv);
+        //关闭按钮设置监听
         iv.setOnClickListener(this);
+        //添加地址按钮设置监听
         button.setOnClickListener(this);
 
+        //注册广播,用来刷新页面
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.wuyue.dllo.mirror.Broadcast");
         registerReceiver(myBroadcast, intentFilter);
         okHttp();
 
+
         mAppList = getPackageManager().getInstalledApplications(0);
+        //滑动删除ListView
         listView = (SwipeMenuListView) findViewById(R.id.add_address_a_listview);
 
         // step 1. create a MenuCreator
@@ -79,6 +85,7 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
                 }
             }
 
+            //设置滑出菜单的属性
             private void createMenu2(SwipeMenu menu) {
                 SwipeMenuItem item2 = new SwipeMenuItem(
                         getApplicationContext());
@@ -91,6 +98,7 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
             }
         };
 
+        //把删除菜单放置到listView上
         listView.setMenuCreator(creator);
         listView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
             @Override
@@ -110,6 +118,7 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
                             }
                         });
 
+                        //删除地址之后刷新数据
                         String url = "http://api101.test.mirroreye.cn/index.php/user/del_address";
                         OkHttpUtils.post().url(url).addParams("token", "433ae165cc754e151c0e8de2ed6ba152").
                                 addParams("addr_id", entity.getData().getList().get(position).getAddr_id())
@@ -138,6 +147,7 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
             }
         });
 
+        //在我的所有地址页面点击行布局设置默认地址
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, final long id) {
@@ -184,6 +194,7 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
         });
     }
 
+    //我的所有地址页面所有地址解析
     public void okHttp() {
         handler = new Handler(new Handler.Callback() {
             @Override
@@ -235,12 +246,14 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
 
     class MyBroadcast extends BroadcastReceiver {
 
+        //接收到广播后,重新解析数据
         @Override
         public void onReceive(Context context, Intent intent) {
             okHttp();
         }
     }
 
+    //listView内部适配器
     class AppAdapter extends BaseAdapter {
         private MyAddressListEntity data;
         private Context context;
@@ -313,6 +326,7 @@ public class AddAddressActivityA extends AppCompatActivity implements View.OnCli
         }
     }
 
+    //设置滑动删除按钮的宽高属性的方法
     private int dp2px(int dp) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
                 getResources().getDisplayMetrics());

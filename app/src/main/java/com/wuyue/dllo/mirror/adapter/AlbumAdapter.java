@@ -23,8 +23,8 @@ import com.wuyue.dllo.mirror.entity.AlbumEntity;
 public class AlbumAdapter extends BaseAdapter {
     private AlbumEntity data;
     private Context context;
-    final int TYPE_1 = 0;
-    final int TYPE_2 = 1;
+    final int TYPE_1 = 0;//视频
+    final int TYPE_2 = 1;//图片
     private Window window = null;
     private int pos;
 
@@ -116,10 +116,12 @@ public class AlbumAdapter extends BaseAdapter {
                     }
                 });
                 break;
+            //解析图片
             case TYPE_2:
                 holderPicture.draweeView.setImageURI(Uri.parse(String.valueOf(data.getData().getList().get(pos).getWear_video().get(position).getData())));
                 holderPicture.draweeView.setOnClickListener(new View.OnClickListener() {
                     @Override
+                    //图片动画效果
                     public void onClick(View v) {
                         window = ((AppCompatActivity) context).getWindow();
                         window.setWindowAnimations(R.style.dialogWindowAnim);
@@ -143,6 +145,7 @@ public class AlbumAdapter extends BaseAdapter {
 
     SimpleDraweeView draweeView;
 
+    //自定义dialog方法
     public void showImgDialog(int pos1) {
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.Dialog_FS);
