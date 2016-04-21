@@ -61,6 +61,7 @@ public class WelcomeActivity extends Activity {
         showImg();
     }
 
+    //拉取欢迎页网络图片
     private void showImg() {
         String url = "http://api101.test.mirroreye.cn/" + "index.php/index/started_img";
         OkHttpUtils.post().url(url).build().execute(new Callback() {
