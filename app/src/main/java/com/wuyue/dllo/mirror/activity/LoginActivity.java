@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -46,7 +48,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     protected void initData() {
 
     }
-//绑定布局
+
+    //绑定布局
     @Override
     protected void init() {
         closeIv = bindView(R.id.login_close);
@@ -57,15 +60,30 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         telEt = bindView(R.id.login_tel_et);
         passwordEt = bindView(R.id.login_password_et);
         relativeLayout = bindView(R.id.login_relative);
-        if (passwordEt.getText().toString() != null && passwordEt.length() > 0) {
-            relativeLayout.setBackgroundResource(R.mipmap.login_press);
-        }
-        relativeLayout.setOnClickListener(new View.OnClickListener() {
+        passwordEt.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View v) {
-                okhttp();
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                relativeLayout.setBackgroundResource(R.mipmap.login_press);
+                relativeLayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        okhttp();
+                    }
+                });
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
+
+
         createNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,6 +92,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             }
         });
     }
+
     //解析账号
     public void okhttp() {
         if (telEt != null && telEt.length() > 0 && passwordEt != null && passwordEt.length() > 0) {
@@ -82,9 +101,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 public boolean handleMessage(Message msg) {
                     LoginEntity entity = new Gson().fromJson(msg.obj.toString(), LoginEntity.class);
                     token = entity.getData().getToken();
-                    Intent intent = new Intent(LoginActivity.this, AddAddressActivity.class);
-                    intent.putExtra("token", token);
-                    startActivity(intent);
+                    Intent intent = new Intent("com.wuyue.dllo.mirror.LoginBroadcast");
+                    intent.putExtra("result", entity.getResult());
+                    sendBroadcast(intent);
+                    finish();
+                    Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                     return false;
                 }
             });
@@ -111,9 +132,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
                 }
             });
-            Intent i = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(i);
-            Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+
         } else {
             Toast.makeText(LoginActivity.this, "请填写完整信息", Toast.LENGTH_SHORT).show();
         }

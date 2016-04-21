@@ -1,6 +1,9 @@
 package com.wuyue.dllo.mirror.activity;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
@@ -9,6 +12,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.DirectionalViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -37,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements SetTitle {
     private ImageView mainIv;
     private TextView loginTv;
     private static final String ARG_SECTION_NUMBER = "section_number";
+    private MainActivityBroadCast broadCast = new MainActivityBroadCast();
 
     Handler handler = new Handler(new Handler.Callback() {
         @Override
@@ -63,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements SetTitle {
             return false;
         }
     });
+    private IntentFilter intentFilter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,7 +115,12 @@ public class MainActivity extends AppCompatActivity implements SetTitle {
 
             }
         });
+        intentFilter = new IntentFilter();
+        intentFilter.addAction("com.wuyue.dllo.mirror.LoginBroadcast");
+        registerReceiver(broadCast, intentFilter);
     }
+
+
     //通过接口回调来 对应标题和相应的fragment
     @Override
     public void setTitle(String title, int position) {
@@ -136,6 +147,30 @@ public class MainActivity extends AppCompatActivity implements SetTitle {
         public int getCount() {
             return fragmentDatas.size();
         }
+    }
+
+    class MainActivityBroadCast extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            loginTv.setText("購物車");
+            loginTv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                  mViewPager.setCurrentItem(3);
+                    Animation animation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.myanim);
+                    loginTv.startAnimation(animation);
+                }
+            });
+
+
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(broadCast);
     }
 }
 
