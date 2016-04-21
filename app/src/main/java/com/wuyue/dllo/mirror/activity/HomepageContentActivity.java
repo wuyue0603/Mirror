@@ -143,8 +143,8 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
                 Log.d("event22222",itemPosition+"");
 
                 frameLayout.setVisibility(View.VISIBLE);
-                ObjectAnimator animator1 = ObjectAnimator.ofFloat(frameLayout, "translationX", -800f, 0f);
-                animator1.setDuration(500);
+                ObjectAnimator animator1 = ObjectAnimator.ofFloat(frameLayout, "translationX", -1500f, 0f);
+                animator1.setDuration(300);
                 animator1.start();
                 btnNotShow = false;
             }
@@ -152,8 +152,8 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
             if (itemPosition < 1 && !btnNotShow) {
 
 //                    //float outTranslationX = frameLayout.getTranslationX();
-                ObjectAnimator animator = ObjectAnimator.ofFloat(frameLayout, "translationX", 0f, -800f);
-                animator.setDuration(500);
+                ObjectAnimator animator = ObjectAnimator.ofFloat(frameLayout, "translationX", 0f, -1500f);
+                animator.setDuration(300);
                 animator.start();
                 new Handler(new Handler.Callback() {
                     @Override
