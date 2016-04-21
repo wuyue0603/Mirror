@@ -19,6 +19,7 @@ import com.wuyue.dllo.mirror.entity.AlbumEntity;
 
 /**
  * Created by dllo on 16/4/9.
+ * 视频和图片 listview的适配器
  */
 public class AlbumAdapter extends BaseAdapter {
     private AlbumEntity data;
@@ -49,9 +50,9 @@ public class AlbumAdapter extends BaseAdapter {
         return position;
     }
 
+    //加载两种行布局
     @Override
     public int getItemViewType(int position) {
-        //int p = position;
         if (position == 0) {
             return TYPE_1;
         } else {

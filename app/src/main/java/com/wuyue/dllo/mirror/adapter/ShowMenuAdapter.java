@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
 /**
  * Created by dllo on 16/3/31.
+ * 左侧PopupWindow的listview的适配器
  */
 public class ShowMenuAdapter extends BaseAdapter {
     private MenuEntity data;
@@ -26,6 +27,12 @@ public class ShowMenuAdapter extends BaseAdapter {
     private int line;
     private ArrayList<InForEntity> datas;
 
+    /**
+     * 构造方法
+     * @param datas 将网络拉取下来的数据,存到数据库中,datas是数据库中的
+     * @param context 上下文对象
+     * @param line PopupWindow文字下方的线
+     */
     public ShowMenuAdapter(ArrayList<InForEntity> datas, Context context, int line) {
         // Log.d("Tebiede", String.valueOf(datas.size()) + "  " + datas.get(0).getName());
         this.datas = datas;
@@ -63,7 +70,7 @@ public class ShowMenuAdapter extends BaseAdapter {
         holder = (ViewHolder) convertView.getTag();
         // holder.textView.setText(Html.fromHtml(data.getData().getList().get(position).getTitle()));
         holder.textView.setText(datas.get(position).getName());
-        Log.d("zhangsanfeng", datas.get(position).getName());
+
         if (line == position) {
             holder.imageView.setVisibility(View.VISIBLE);
         } else {
@@ -72,6 +79,11 @@ public class ShowMenuAdapter extends BaseAdapter {
         return convertView;
     }
 
+    /**
+     * 自定义方法 点击哪个位置 传过来哪个位置
+     * @param pos
+     * @return
+     */
     public String getTitle(int pos) {
         //return data.getData().getList().get(pos).getTitle();
         return datas.get(pos).getName();

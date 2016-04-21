@@ -16,11 +16,12 @@ import com.wuyue.dllo.mirror.entity.ThematicSharingEntity;
 
 /**
  * Created by dllo on 16/4/1.
+ * 専題分享的适配器
  */
 public class ThematicSharingAdapter extends RecyclerView.Adapter<ThematicSharingAdapter.MyHolder> {
     private ThematicSharingEntity data;
     private Context context;
-    private int i;
+    //private int i;
 
     public ThematicSharingAdapter(ThematicSharingEntity data, Context context) {
         this.data = data;

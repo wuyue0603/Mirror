@@ -35,15 +35,10 @@ import android.widget.Scroller;
 import java.util.ArrayList;
 
 /**
- * Layout manager that allows the user to flip horizontally or vertically
- * through pages of data. You supply an implementation of a {@link PagerAdapter}
- * to generate the pages that the view shows.
- * <p>
- * Note this class is currently under early design and development. The API will
- * likely change in later updates of the compatibility library, requiring
- * changes to the source code of apps when they are compiled against the newer
- * version.
- * </p>
+ * 需要导入-v4.jar包，并且VerticalViewPagerCompat.java一定要放在android.support.v4.view包中
+ * viewPager.setOrientation(com.mobovip.views.DirectionalViewPager.VERTICAL);
+   就可以纵向滑动了。
+ *
  */
 public class DirectionalViewPager extends ViewPager {
     private static final String TAG = "DirectionalViewPager";
@@ -58,7 +53,7 @@ public class DirectionalViewPager extends ViewPager {
     private final ArrayList<ItemInfo> mItems = new ArrayList<ItemInfo>();
 
     private PagerAdapter mAdapter;
-    private int          mCurItem; // Index of currently displayed page.
+    private int mCurItem; // Index of currently displayed page.
     private int mRestoredCurItem = -1;
     private Parcelable mRestoredAdapterState = null;
     private ClassLoader mRestoredClassLoader = null;

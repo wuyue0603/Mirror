@@ -82,7 +82,7 @@ public class LinkageListView extends FrameLayout {
                 View child = view.getChildAt(0);
                 if (child != null) {
                     mTopListView.setSelectionFromTop(firstVisibleItem, (int) (child.getTop() * linkageSpeed));
-                    Log.d("toplistview", firstVisibleItem + "");
+                    Log.d("toplistview", child.getTop() + "");
                     dy=firstVisibleItem;
                     EventBus.getDefault().post(new Integer(dy));
                 }
