@@ -101,7 +101,7 @@ public class OrderContentActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent1 = new Intent(OrderContentActivity.this, AddAddressActivityA.class);
-                startActivityForResult(intent1, 102);
+                startActivityForResult(intent1, requesCode);
             }
         });
         closeIv.setOnClickListener(new View.OnClickListener() {
@@ -279,6 +279,7 @@ public class OrderContentActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 102 && resultCode == 101) {
+            //把我的所有地址页面的内容设置到订单详情页面
             orderName.setText(data.getStringExtra("orname"));
             orderTel.setText(data.getStringExtra("orcell"));
             orderAddress.setText(data.getStringExtra("orinfo"));

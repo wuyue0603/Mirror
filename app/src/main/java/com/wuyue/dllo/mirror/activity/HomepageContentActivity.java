@@ -24,7 +24,6 @@ import com.wuyue.dllo.mirror.entity.AllGoodsListEntity;
 import com.wuyue.dllo.mirror.entity.Costant;
 
 import android.support.v4.view.LinkageListView;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;

@@ -11,7 +11,6 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.wuyue.dllo.mirror.R;
 
@@ -21,7 +20,7 @@ import org.greenrobot.eventbus.EventBus;
  * Created by dllo on 16/4/7.
  */
 public class LinkageListView extends FrameLayout {
-    private static final float LINKAGE_SPEED = 2;
+    private static final float LINKAGE_SPEED = 2;//联动速度
     private float linkageSpeed;
     private ListView mBottomListView, mTopListView;
     private Context mContext;
@@ -86,7 +85,6 @@ public class LinkageListView extends FrameLayout {
                     dy=firstVisibleItem;
                     EventBus.getDefault().post(new Integer(dy));
                 }
-
             }
 
             @Override
@@ -106,21 +104,4 @@ public class LinkageListView extends FrameLayout {
     public void setLinkageSpeed(float linkageSpeed) {
         this.linkageSpeed = linkageSpeed;
     }
-
-    public BaseAdapter getTopAdapter() {
-        return mTopAdapter;
-    }
-
-    public BaseAdapter getBotAdapter() {
-        return mBotAdapter;
-    }
-
-    public ListView getTopListView() {
-        return mTopListView;
-    }
-
-    public ListView getBottomListView() {
-        return mBottomListView;
-    }
-
 }
