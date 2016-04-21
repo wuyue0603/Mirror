@@ -51,7 +51,6 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
     private ImageView buyIv;
     private FrameLayout frameLayout;
     private Boolean btnNotShow = true;
-    private Boolean a = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,7 +143,7 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
 
                 frameLayout.setVisibility(View.VISIBLE);
                 ObjectAnimator animator1 = ObjectAnimator.ofFloat(frameLayout, "translationX", -1500f, 0f);
-                animator1.setDuration(300);
+                animator1.setDuration(400);
                 animator1.start();
                 btnNotShow = false;
             }
@@ -153,7 +152,7 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
 
 //                    //float outTranslationX = frameLayout.getTranslationX();
                 ObjectAnimator animator = ObjectAnimator.ofFloat(frameLayout, "translationX", 0f, -1500f);
-                animator.setDuration(300);
+                animator.setDuration(400);
                 animator.start();
                 new Handler(new Handler.Callback() {
                     @Override
