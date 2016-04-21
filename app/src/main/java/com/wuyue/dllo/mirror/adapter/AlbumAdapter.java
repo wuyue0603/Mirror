@@ -150,7 +150,6 @@ public class AlbumAdapter extends BaseAdapter {
     public void showImgDialog(int pos1) {
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.Dialog_FS);
-        window.getCurrentFocus();
         View view = LayoutInflater.from(context).inflate(R.layout.dialog, null);
         window = ((AppCompatActivity) context).getWindow();
         window.setWindowAnimations(R.style.dialogWindowAnim);

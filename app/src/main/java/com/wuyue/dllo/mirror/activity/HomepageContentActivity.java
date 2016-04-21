@@ -24,6 +24,7 @@ import com.wuyue.dllo.mirror.entity.AllGoodsListEntity;
 import com.wuyue.dllo.mirror.entity.Costant;
 
 import android.support.v4.view.LinkageListView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -49,6 +50,8 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
     private static AlbumAdapter albumAdapter;
     private ImageView buyIv;
     private FrameLayout frameLayout;
+    private Boolean btnNotShow = true;
+    private Boolean a = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,31 +135,40 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
                 break;
         }
     }
-    @Subscribe
-    public void onEvent(Integer itemPosition){
 
-                if (itemPosition<1){
+    @Subscribe
+        public void onEvent(Integer itemPosition) {
+            Log.d("event",itemPosition+""+btnNotShow);
+            if (itemPosition >= 1 && btnNotShow) {
+                Log.d("event22222",itemPosition+"");
+
+                frameLayout.setVisibility(View.VISIBLE);
+                ObjectAnimator animator1 = ObjectAnimator.ofFloat(frameLayout, "translationX", -800f, 0f);
+                animator1.setDuration(500);
+                animator1.start();
+                btnNotShow = false;
+            }
+
+            if (itemPosition < 1 && !btnNotShow) {
 
 //                    //float outTranslationX = frameLayout.getTranslationX();
-                    ObjectAnimator animator = ObjectAnimator.ofFloat(frameLayout,"translationX",0f,-800f);
-                    animator.setDuration(500);
-                    animator.start();
-                    frameLayout.setVisibility(View.GONE);
-                    //return;
+                ObjectAnimator animator = ObjectAnimator.ofFloat(frameLayout, "translationX", 0f, -800f);
+                animator.setDuration(500);
+                animator.start();
+                new Handler(new Handler.Callback() {
+                    @Override
+                    public boolean handleMessage(Message msg) {
+                        frameLayout.setVisibility(View.GONE);
+                        return false;
+                    }
+                }).sendEmptyMessageDelayed(99, 500);
 
-                }
-                else if (itemPosition==1){
+                btnNotShow = true;
+                //return;
 
-//                    frameLayout.setVisibility(View.VISIBLE);
-                    ObjectAnimator animator1 = ObjectAnimator.ofFloat(frameLayout,"translationX",-800f,0f);
-                    animator1.setDuration(500);
-                    animator1.start();
-                    return;
-//                    frameLayout.setVisibility(View.VISIBLE);
-                }else {
-                    frameLayout.setVisibility(View.VISIBLE);
 
-                }
+            }
+
     }
 
     @Override
