@@ -147,8 +147,6 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
         }
 
         if (itemPosition < 1 && !btnNotShow) {
-
-//                    //float outTranslationX = frameLayout.getTranslationX();
             ObjectAnimator animator = ObjectAnimator.ofFloat(frameLayout, "translationX", 0f, -1500f);
             animator.setDuration(400);
             animator.start();
@@ -159,7 +157,6 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
                     return false;
                 }
             }).sendEmptyMessageDelayed(99, 500);
-
             btnNotShow = true;
             //return;
         }
