@@ -50,6 +50,7 @@ public class ThematicSharingActivity extends AppCompatActivity {
     private ArrayList<String> picture;
     private Button sharedBtn;
     private static ThematicSharingAdapter thematicSharingAdapter;
+    private  int index= 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,22 @@ public class ThematicSharingActivity extends AppCompatActivity {
         data = new ArrayList<>();
         main_iv = (SimpleDraweeView) findViewById(R.id.main_iv);
         sharedBtn = (Button) findViewById(R.id.theme_share_btn);
+        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+             index=position;
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
         //设置分享按钮的监听事件
         sharedBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,21 +89,21 @@ public class ThematicSharingActivity extends AppCompatActivity {
                 // 分享时Notification的图标和文字  2.5.9以后的版本不调用此方法
                 //oks.setNotification(R.drawable.ic_launcher, getString(R.string.app_name));
                 // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
-                oks.setTitle(ThematicSharingActivity.this.getString(R.string.share));
+                oks.setTitle(title.get(index));
                 // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
-                oks.setTitleUrl("http://sharesdk.cn");
+                oks.setTitleUrl(bean.getData().getStory_url());
                 // text是分享文本，所有平台都需要这个字段
-                oks.setText("我是分享文本");
+                oks.setText(subTitle.get(index));
                 // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
-                //oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
+                oks.setImagePath(picture.get(index));//确保SDcard下面存在此张图片
                 // url仅在微信（包括好友和朋友圈）中使用
-                oks.setUrl("http://sharesdk.cn");
+                oks.setUrl(bean.getData().getStory_url());
                 // comment是我对这条分享的评论，仅在人人网和QQ空间使用
-                oks.setComment("我是测试评论文本");
+                oks.setComment("Mirror");
                 // site是分享此内容的网站名称，仅在QQ空间使用
                 oks.setSite(ThematicSharingActivity.this.getString(R.string.app_name));
                 // siteUrl是分享此内容的网站地址，仅在QQ空间使用
-                oks.setSiteUrl("http://sharesdk.cn");
+                oks.setSiteUrl(bean.getData().getStory_url());
                 // 启动分享GUI
                 oks.show(ThematicSharingActivity.this);
             }
