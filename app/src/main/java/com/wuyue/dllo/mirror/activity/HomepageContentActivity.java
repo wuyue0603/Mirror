@@ -84,8 +84,6 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
                 Gson gson = new Gson();
                 allGoodsListEntity1 = gson.fromJson(msg.obj.toString(), AllGoodsListEntity.class);
                 listView.setAdapter(new UpListViewAdapter(allGoodsListEntity1, getApplication(), pos), new DownListViewAdapter(allGoodsListEntity1, getApplication(), pos));
-
-
                 listView.setLinkageSpeed(1.2f);
                 background.setImageURI(Uri.parse(allGoodsListEntity1.getData().getList().get(pos).getGoods_img()));
                 return false;
@@ -136,38 +134,32 @@ public class HomepageContentActivity extends Activity implements View.OnClickLis
     }
 
     @Subscribe
-        public void onEvent(Integer itemPosition) {
-            Log.d("event",itemPosition+""+btnNotShow);
-            if (itemPosition >= 1 && btnNotShow) {
-                Log.d("event22222",itemPosition+"");
+    public void onEvent(Integer itemPosition) {
+        Log.d("event", itemPosition + "" + btnNotShow);
+        if (itemPosition >= 1 && btnNotShow) {
+            Log.d("event22222", itemPosition + "");
 
-                frameLayout.setVisibility(View.VISIBLE);
-                ObjectAnimator animator1 = ObjectAnimator.ofFloat(frameLayout, "translationX", -1500f, 0f);
-                animator1.setDuration(400);
-                animator1.start();
-                btnNotShow = false;
-            }
+            frameLayout.setVisibility(View.VISIBLE);
+            ObjectAnimator animator1 = ObjectAnimator.ofFloat(frameLayout, "translationX", -1500f, 0f);
+            animator1.setDuration(400);
+            animator1.start();
+            btnNotShow = false;
+        }
 
-            if (itemPosition < 1 && !btnNotShow) {
-
-//                    //float outTranslationX = frameLayout.getTranslationX();
-                ObjectAnimator animator = ObjectAnimator.ofFloat(frameLayout, "translationX", 0f, -1500f);
-                animator.setDuration(400);
-                animator.start();
-                new Handler(new Handler.Callback() {
-                    @Override
-                    public boolean handleMessage(Message msg) {
-                        frameLayout.setVisibility(View.GONE);
-                        return false;
-                    }
-                }).sendEmptyMessageDelayed(99, 500);
-
-                btnNotShow = true;
-                //return;
-
-
-            }
-
+        if (itemPosition < 1 && !btnNotShow) {
+            ObjectAnimator animator = ObjectAnimator.ofFloat(frameLayout, "translationX", 0f, -1500f);
+            animator.setDuration(400);
+            animator.start();
+            new Handler(new Handler.Callback() {
+                @Override
+                public boolean handleMessage(Message msg) {
+                    frameLayout.setVisibility(View.GONE);
+                    return false;
+                }
+            }).sendEmptyMessageDelayed(99, 500);
+            btnNotShow = true;
+            //return;
+        }
     }
 
     @Override
