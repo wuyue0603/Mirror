@@ -74,10 +74,10 @@ public class UpListViewAdapter extends BaseAdapter {
         int type = getItemViewType(position);
         switch (type) {
             case TYPE_0:
-                //blank
+                //blank position = 1
                 convertView = inflater.inflate(R.layout.up_listview_blank, parent, false);
                 break;
-            //半透明文字
+            //半透明文字 position = 0
             case TYPE_1:
                 convertView = inflater.inflate(R.layout.down_listview_head, parent, false);
                 listViewHeadHolder = new ListViewHeadHolder(convertView);
@@ -115,7 +115,7 @@ public class UpListViewAdapter extends BaseAdapter {
                     }
                 });
                 break;
-            case TYPE_3:
+            case TYPE_3: //标题  position = 2
                 convertView = inflater.inflate(R.layout.down_listview_title, parent, false);
                 listViewTitle = new ListViewTitle(convertView);
                 listViewTitle.title.setText(allGoodsListEntity.getData().getList().get(myPosition).getBrand());
