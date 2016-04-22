@@ -62,22 +62,22 @@ public class ThematicSharingActivity extends AppCompatActivity {
         data = new ArrayList<>();
         main_iv = (SimpleDraweeView) findViewById(R.id.main_iv);
         sharedBtn = (Button) findViewById(R.id.theme_share_btn);
-        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-             index=position;
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
+//        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//             index=position;
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//
+//            }
+//        });
         //设置分享按钮的监听事件
         sharedBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,9 +93,9 @@ public class ThematicSharingActivity extends AppCompatActivity {
                 // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
                 oks.setTitleUrl(bean.getData().getStory_url());
                 // text是分享文本，所有平台都需要这个字段
-                oks.setText(subTitle.get(index));
+                oks.setText(subTitle.get(0));
                 // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
-                oks.setImagePath(picture.get(index));//确保SDcard下面存在此张图片
+                oks.setImagePath(picture.get(0));//确保SDcard下面存在此张图片
                 // url仅在微信（包括好友和朋友圈）中使用
                 oks.setUrl(bean.getData().getStory_url());
                 // comment是我对这条分享的评论，仅在人人网和QQ空间使用
